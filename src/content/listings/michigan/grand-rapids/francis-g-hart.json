@@ -1,0 +1,47 @@
+{
+  "name": "Francis G. Hart, MD",
+  "slug": "francis-g-hart",
+  "status": "published",
+  "tier": "basic",
+  "verifiedUntil": null,
+  "demo": false,
+  "address": {
+    "streetAddress": "4069 Lake Drive Southeast, Suite 315",
+    "locality": "Grand Rapids",
+    "region": "MI",
+    "postalCode": "49546"
+  },
+  "lat": null,
+  "lng": null,
+  "phone": "+1 616 267 7758",
+  "website": "https://providers.corewellhealth.org/provider/francis-g-hart/2782179",
+  "sameAs": [],
+  "hours": null,
+  "summary": "Francis G. Hart, MD is a surgeon in Grand Rapids, MI practicing ear, nose and throat surgery. Francis G. Hart is affiliated with Corewell Health Grand Rapids Hospitals and Corewell Health Greenville Hospital.",
+  "attributes": {
+    "specialties": [
+      "otolaryngology"
+    ],
+    "degree": "MD",
+    "boardCertifications": [
+      "Otolaryngology - Head and Neck Surgery: American Board of Otolaryngology - Head and Neck Surgery"
+    ],
+    "hospitalAffiliations": [
+      "Corewell Health Grand Rapids Hospitals",
+      "Corewell Health Greenville Hospital"
+    ],
+    "acceptingNewPatients": true,
+    "acceptsMedicare": null,
+    "acceptsMedicaid": null,
+    "virtualConsultations": null,
+    "wheelchairAccessible": null,
+    "languages": [
+      "English"
+    ],
+    "npi": null
+  },
+  "lastUpdated": "2026-10-02",
+  "source": "Hospital profile page https://providers.corewellhealth.org/provider/francis-g-hart/2782179 (retrieved 2026-10-02)",
+  "description": null,
+  "bookingUrl": null
+}

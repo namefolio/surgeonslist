@@ -1,0 +1,47 @@
+{
+  "name": "Kevin M. McGill, MD",
+  "slug": "kevin-m-mcgill",
+  "status": "published",
+  "tier": "basic",
+  "verifiedUntil": null,
+  "demo": false,
+  "address": {
+    "streetAddress": "35 Collier Road NW",
+    "locality": "Atlanta",
+    "region": "GA",
+    "postalCode": "30309"
+  },
+  "lat": null,
+  "lng": null,
+  "phone": "+1 404 351 5959",
+  "website": "https://www.care.piedmont.org/provider/Kevin+M+McGill/389821",
+  "sameAs": [],
+  "hours": null,
+  "summary": "Kevin M. McGill, MD is a surgeon in Atlanta, GA practicing bariatric surgery and general surgery. Kevin M. McGill is affiliated with Piedmont Atlanta Hospital.",
+  "attributes": {
+    "specialties": [
+      "bariatric-surgery",
+      "general-surgery"
+    ],
+    "degree": "MD",
+    "boardCertifications": [
+      "American Board of Surgery"
+    ],
+    "hospitalAffiliations": [
+      "Piedmont Atlanta Hospital"
+    ],
+    "acceptingNewPatients": true,
+    "acceptsMedicare": null,
+    "acceptsMedicaid": null,
+    "virtualConsultations": null,
+    "wheelchairAccessible": null,
+    "languages": [
+      "English"
+    ],
+    "npi": null
+  },
+  "lastUpdated": "2026-10-02",
+  "source": "Hospital profile page https://www.care.piedmont.org/provider/Kevin+M+McGill/389821 (retrieved 2026-10-02)",
+  "description": null,
+  "bookingUrl": null
+}

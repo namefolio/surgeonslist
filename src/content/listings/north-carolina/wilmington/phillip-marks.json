@@ -1,0 +1,45 @@
+{
+  "name": "Phillip Marks, MD",
+  "slug": "phillip-marks",
+  "status": "published",
+  "tier": "basic",
+  "verifiedUntil": null,
+  "demo": false,
+  "address": {
+    "streetAddress": "1814 New Hanover Medical Park Drive",
+    "locality": "Wilmington",
+    "region": "NC",
+    "postalCode": "28401"
+  },
+  "lat": null,
+  "lng": null,
+  "phone": "+1 910 662 8765",
+  "website": "https://www.novanthealth.org/pf/providers/1720173420/phillip-marks",
+  "sameAs": [],
+  "hours": null,
+  "summary": "Phillip Marks, MD is a surgeon in Wilmington, NC practicing urologic surgery.",
+  "attributes": {
+    "specialties": [
+      "urology"
+    ],
+    "degree": "MD",
+    "boardCertifications": [
+      "Urology"
+    ],
+    "hospitalAffiliations": [],
+    "acceptingNewPatients": true,
+    "acceptsMedicare": null,
+    "acceptsMedicaid": null,
+    "virtualConsultations": null,
+    "wheelchairAccessible": null,
+    "languages": [
+      "English",
+      "Spanish"
+    ],
+    "npi": "1720173420"
+  },
+  "lastUpdated": "2026-10-02",
+  "source": "Hospital profile page https://www.novanthealth.org/pf/providers/1720173420/phillip-marks (retrieved 2026-10-02)",
+  "description": null,
+  "bookingUrl": null
+}

@@ -1,0 +1,46 @@
+{
+  "name": "Scott L. Hansen, MD",
+  "slug": "scott-l-hansen",
+  "status": "published",
+  "tier": "basic",
+  "verifiedUntil": null,
+  "demo": false,
+  "address": {
+    "streetAddress": "1600 Divisadero Street",
+    "locality": "San Francisco",
+    "region": "CA",
+    "postalCode": "94143"
+  },
+  "lat": null,
+  "lng": null,
+  "phone": "+1 415 353 4201",
+  "website": "https://www.ucsfhealth.org/providers/scott-hansen",
+  "sameAs": [],
+  "hours": null,
+  "summary": "Scott L. Hansen, MD is a surgeon in San Francisco, CA practicing plastic surgery and hand surgery. Scott L. Hansen is affiliated with UCSF Medical Center and UCSF Benioff Children's Hospital.",
+  "attributes": {
+    "specialties": [
+      "plastic-surgery",
+      "hand-surgery"
+    ],
+    "degree": "MD",
+    "boardCertifications": [
+      "Plastic Surgery, American Board of Plastic Surgery"
+    ],
+    "hospitalAffiliations": [
+      "UCSF Medical Center",
+      "UCSF Benioff Children's Hospital"
+    ],
+    "acceptingNewPatients": null,
+    "acceptsMedicare": null,
+    "acceptsMedicaid": null,
+    "virtualConsultations": true,
+    "wheelchairAccessible": null,
+    "languages": [],
+    "npi": null
+  },
+  "lastUpdated": "2026-10-02",
+  "source": "Hospital profile page https://www.ucsfhealth.org/providers/scott-hansen (retrieved 2026-10-02)",
+  "description": null,
+  "bookingUrl": null
+}

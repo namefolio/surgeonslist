@@ -1,0 +1,47 @@
+{
+  "name": "Graham S. Schwarz, MD",
+  "slug": "graham-s-schwarz",
+  "status": "published",
+  "tier": "basic",
+  "verifiedUntil": null,
+  "demo": false,
+  "address": {
+    "streetAddress": null,
+    "locality": "Cleveland",
+    "region": "OH",
+    "postalCode": null
+  },
+  "lat": null,
+  "lng": null,
+  "phone": "+1 216 444 5725",
+  "website": "https://providers.clevelandclinic.org/provider/graham-schwarz/4271196",
+  "sameAs": [],
+  "hours": null,
+  "summary": "Graham S. Schwarz, MD is a surgeon in Cleveland, OH practicing plastic surgery. Graham S. Schwarz is affiliated with Cleveland Clinic and Hillcrest Hospital.",
+  "attributes": {
+    "specialties": [
+      "plastic-surgery"
+    ],
+    "degree": "MD",
+    "boardCertifications": [
+      "Plastic Surgery: American Board of Plastic Surgery"
+    ],
+    "hospitalAffiliations": [
+      "Cleveland Clinic",
+      "Hillcrest Hospital"
+    ],
+    "acceptingNewPatients": null,
+    "acceptsMedicare": null,
+    "acceptsMedicaid": null,
+    "virtualConsultations": null,
+    "wheelchairAccessible": null,
+    "languages": [
+      "English"
+    ],
+    "npi": null
+  },
+  "lastUpdated": "2026-10-02",
+  "source": "Hospital profile page https://providers.clevelandclinic.org/provider/graham-schwarz/4271196 (retrieved 2026-10-02)",
+  "description": null,
+  "bookingUrl": null
+}

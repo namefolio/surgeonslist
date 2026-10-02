@@ -1,0 +1,47 @@
+{
+  "name": "Marcus M. Malek, MD",
+  "slug": "marcus-m-malek",
+  "status": "published",
+  "tier": "basic",
+  "verifiedUntil": null,
+  "demo": false,
+  "address": {
+    "streetAddress": "4401 Penn Avenue",
+    "locality": "Pittsburgh",
+    "region": "PA",
+    "postalCode": "15224"
+  },
+  "lat": null,
+  "lng": null,
+  "phone": "+1 412 692 7280",
+  "website": "https://providers.upmc.com/provider/marcus-m-malek/1321772",
+  "sameAs": [],
+  "hours": null,
+  "summary": "Marcus M. Malek, MD is a surgeon in Pittsburgh, PA practicing pediatric surgery. Marcus M. Malek is affiliated with UPMC Children's Hospital of Pittsburgh.",
+  "attributes": {
+    "specialties": [
+      "pediatric-surgery"
+    ],
+    "degree": "MD",
+    "boardCertifications": [
+      "General surgery, American Board of Surgery",
+      "Pediatric surgery, American Board of Surgery"
+    ],
+    "hospitalAffiliations": [
+      "UPMC Children's Hospital of Pittsburgh"
+    ],
+    "acceptingNewPatients": true,
+    "acceptsMedicare": null,
+    "acceptsMedicaid": null,
+    "virtualConsultations": true,
+    "wheelchairAccessible": null,
+    "languages": [
+      "English"
+    ],
+    "npi": "1780826271"
+  },
+  "lastUpdated": "2026-10-02",
+  "source": "Hospital profile page https://providers.upmc.com/provider/marcus-m-malek/1321772 (retrieved 2026-10-02)",
+  "description": null,
+  "bookingUrl": null
+}

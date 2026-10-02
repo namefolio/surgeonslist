@@ -1,0 +1,44 @@
+{
+  "name": "Edward F. Chang, MD",
+  "slug": "edward-f-chang",
+  "status": "published",
+  "tier": "basic",
+  "verifiedUntil": null,
+  "demo": false,
+  "address": {
+    "streetAddress": "400 Parnassus Avenue, Floor 8",
+    "locality": "San Francisco",
+    "region": "CA",
+    "postalCode": "94143"
+  },
+  "lat": null,
+  "lng": null,
+  "phone": "+1 415 353 7500",
+  "website": "https://www.ucsfhealth.org/providers/edward-chang",
+  "sameAs": [],
+  "hours": null,
+  "summary": "Edward F. Chang, MD is a surgeon in San Francisco, CA practicing neurosurgery. Edward F. Chang is affiliated with UCSF Health.",
+  "attributes": {
+    "specialties": [
+      "neurosurgery"
+    ],
+    "degree": "MD",
+    "boardCertifications": [
+      "Neurological Surgery, American Board of Neurological Surgery"
+    ],
+    "hospitalAffiliations": [
+      "UCSF Health"
+    ],
+    "acceptingNewPatients": null,
+    "acceptsMedicare": null,
+    "acceptsMedicaid": null,
+    "virtualConsultations": true,
+    "wheelchairAccessible": null,
+    "languages": [],
+    "npi": null
+  },
+  "lastUpdated": "2026-10-02",
+  "source": "Hospital profile page https://www.ucsfhealth.org/providers/edward-chang (retrieved 2026-10-02)",
+  "description": null,
+  "bookingUrl": null
+}

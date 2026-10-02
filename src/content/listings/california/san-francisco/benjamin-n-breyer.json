@@ -1,0 +1,44 @@
+{
+  "name": "Benjamin N. Breyer, MD",
+  "slug": "benjamin-n-breyer",
+  "status": "published",
+  "tier": "basic",
+  "verifiedUntil": null,
+  "demo": false,
+  "address": {
+    "streetAddress": "520 Illinois St., Fourth Floor",
+    "locality": "San Francisco",
+    "region": "CA",
+    "postalCode": "94158"
+  },
+  "lat": null,
+  "lng": null,
+  "phone": "+1 415 353 9986",
+  "website": "https://www.ucsfhealth.org/providers/benjamin-breyer",
+  "sameAs": [],
+  "hours": null,
+  "summary": "Benjamin N. Breyer, MD is a surgeon in San Francisco, CA practicing urologic surgery. Benjamin N. Breyer is affiliated with UCSF Health.",
+  "attributes": {
+    "specialties": [
+      "urology"
+    ],
+    "degree": "MD",
+    "boardCertifications": [
+      "Urology, American Board of Urology"
+    ],
+    "hospitalAffiliations": [
+      "UCSF Health"
+    ],
+    "acceptingNewPatients": null,
+    "acceptsMedicare": null,
+    "acceptsMedicaid": null,
+    "virtualConsultations": true,
+    "wheelchairAccessible": null,
+    "languages": [],
+    "npi": null
+  },
+  "lastUpdated": "2026-10-02",
+  "source": "Hospital profile page https://www.ucsfhealth.org/providers/benjamin-breyer (retrieved 2026-10-02)",
+  "description": null,
+  "bookingUrl": null
+}

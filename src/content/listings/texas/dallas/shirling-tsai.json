@@ -1,0 +1,46 @@
+{
+  "name": "Shirling Tsai, MD",
+  "slug": "shirling-tsai",
+  "status": "published",
+  "tier": "basic",
+  "verifiedUntil": null,
+  "demo": false,
+  "address": {
+    "streetAddress": null,
+    "locality": "Dallas",
+    "region": "TX",
+    "postalCode": null
+  },
+  "lat": null,
+  "lng": null,
+  "phone": null,
+  "website": "https://utswmed.org/doctors/shirling-tsai/",
+  "sameAs": [],
+  "hours": null,
+  "summary": "Shirling Tsai, MD is a surgeon in Dallas, TX practicing vascular surgery. Shirling Tsai is affiliated with UT Southwestern Medical Center and Dallas VA Medical Center.",
+  "attributes": {
+    "specialties": [
+      "vascular-surgery"
+    ],
+    "degree": "MD",
+    "boardCertifications": [
+      "General surgery",
+      "Vascular surgery"
+    ],
+    "hospitalAffiliations": [
+      "UT Southwestern Medical Center",
+      "Dallas VA Medical Center"
+    ],
+    "acceptingNewPatients": null,
+    "acceptsMedicare": null,
+    "acceptsMedicaid": null,
+    "virtualConsultations": null,
+    "wheelchairAccessible": null,
+    "languages": [],
+    "npi": null
+  },
+  "lastUpdated": "2026-10-02",
+  "source": "Hospital profile page https://utswmed.org/doctors/shirling-tsai/ (retrieved 2026-10-02)",
+  "description": null,
+  "bookingUrl": null
+}

@@ -1,0 +1,48 @@
+{
+  "name": "Gundars Katlaps, MD",
+  "slug": "gundars-katlaps",
+  "status": "published",
+  "tier": "basic",
+  "verifiedUntil": null,
+  "demo": false,
+  "address": {
+    "streetAddress": "5 Tampa General Circle",
+    "locality": "Tampa",
+    "region": "FL",
+    "postalCode": "33606"
+  },
+  "lat": null,
+  "lng": null,
+  "phone": "+1 813 844 3228",
+  "website": "https://www.getcare.tgh.org/providers/gundars-katlaps-1124063904",
+  "sameAs": [],
+  "hours": null,
+  "summary": "Gundars Katlaps, MD is a surgeon in Tampa, FL practicing cardiothoracic surgery. Gundars Katlaps is affiliated with Tampa General Hospital.",
+  "attributes": {
+    "specialties": [
+      "cardiothoracic-surgery"
+    ],
+    "degree": "MD",
+    "boardCertifications": [
+      "American Board of Thoracic Surgery - Thoracic and Cardiac Surgery"
+    ],
+    "hospitalAffiliations": [
+      "Tampa General Hospital"
+    ],
+    "acceptingNewPatients": true,
+    "acceptsMedicare": null,
+    "acceptsMedicaid": null,
+    "virtualConsultations": null,
+    "wheelchairAccessible": null,
+    "languages": [
+      "English",
+      "Latvian",
+      "Russian"
+    ],
+    "npi": "1124063904"
+  },
+  "lastUpdated": "2026-10-02",
+  "source": "Hospital profile page https://www.getcare.tgh.org/providers/gundars-katlaps-1124063904 (retrieved 2026-10-02)",
+  "description": null,
+  "bookingUrl": null
+}

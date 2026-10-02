@@ -1,0 +1,52 @@
+{
+  "name": "Danny Chu, MD",
+  "slug": "danny-chu",
+  "status": "published",
+  "tier": "basic",
+  "verifiedUntil": null,
+  "demo": false,
+  "address": {
+    "streetAddress": "200 Lothrop Street",
+    "locality": "Pittsburgh",
+    "region": "PA",
+    "postalCode": "15213"
+  },
+  "lat": null,
+  "lng": null,
+  "phone": "+1 412 648 6200",
+  "website": "https://providers.upmc.com/provider/danny-chu/1326366",
+  "sameAs": [],
+  "hours": null,
+  "summary": "Danny Chu, MD is a surgeon in Pittsburgh, PA practicing cardiothoracic surgery. Danny Chu is affiliated with UPMC Presbyterian, UPMC Mercy, UPMC Shadyside, UPMC Passavant and VA Pittsburgh Healthcare System.",
+  "attributes": {
+    "specialties": [
+      "cardiothoracic-surgery"
+    ],
+    "degree": "MD",
+    "boardCertifications": [
+      "American Board of Thoracic Surgery - Thoracic and Cardiac Surgery",
+      "American Board of Surgery - Surgery (General Surgery)"
+    ],
+    "hospitalAffiliations": [
+      "UPMC Presbyterian",
+      "UPMC Mercy",
+      "UPMC Shadyside",
+      "UPMC Passavant",
+      "VA Pittsburgh Healthcare System"
+    ],
+    "acceptingNewPatients": true,
+    "acceptsMedicare": null,
+    "acceptsMedicaid": null,
+    "virtualConsultations": null,
+    "wheelchairAccessible": null,
+    "languages": [
+      "English",
+      "Mandarin Chinese"
+    ],
+    "npi": "1164517660"
+  },
+  "lastUpdated": "2026-10-02",
+  "source": "Hospital profile page https://providers.upmc.com/provider/danny-chu/1326366 (retrieved 2026-10-02)",
+  "description": null,
+  "bookingUrl": null
+}

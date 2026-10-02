@@ -1,0 +1,46 @@
+{
+  "name": "Derek Bernstein, MD",
+  "slug": "derek-bernstein",
+  "status": "published",
+  "tier": "basic",
+  "verifiedUntil": null,
+  "demo": false,
+  "address": {
+    "streetAddress": "200 Robinhood Medical Plaza",
+    "locality": "Winston-Salem",
+    "region": "NC",
+    "postalCode": "27106"
+  },
+  "lat": null,
+  "lng": null,
+  "phone": "+1 336 718 7950",
+  "website": "https://www.novanthealth.org/pf/providers/1538504030/derek-bernstein",
+  "sameAs": [],
+  "hours": null,
+  "summary": "Derek Bernstein, MD is a surgeon in Winston-Salem, NC practicing orthopedic surgery and hand surgery.",
+  "attributes": {
+    "specialties": [
+      "orthopedic-surgery",
+      "hand-surgery"
+    ],
+    "degree": "MD",
+    "boardCertifications": [
+      "Orthopedic Surgery",
+      "Orthopedic Surgery, Hand Surgery"
+    ],
+    "hospitalAffiliations": [],
+    "acceptingNewPatients": true,
+    "acceptsMedicare": null,
+    "acceptsMedicaid": null,
+    "virtualConsultations": null,
+    "wheelchairAccessible": null,
+    "languages": [
+      "English"
+    ],
+    "npi": "1538504030"
+  },
+  "lastUpdated": "2026-10-02",
+  "source": "Hospital profile page https://www.novanthealth.org/pf/providers/1538504030/derek-bernstein (retrieved 2026-10-02)",
+  "description": null,
+  "bookingUrl": null
+}

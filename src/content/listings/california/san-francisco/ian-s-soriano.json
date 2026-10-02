@@ -1,0 +1,45 @@
+{
+  "name": "Ian S. Soriano, MD",
+  "slug": "ian-s-soriano",
+  "status": "published",
+  "tier": "basic",
+  "verifiedUntil": null,
+  "demo": false,
+  "address": {
+    "streetAddress": "400 Parnassus Avenue, FL 2",
+    "locality": "San Francisco",
+    "region": "CA",
+    "postalCode": "94143"
+  },
+  "lat": null,
+  "lng": null,
+  "phone": null,
+  "website": "https://www.ucsfhealth.org/providers/ian-s-soriano",
+  "sameAs": [],
+  "hours": null,
+  "summary": "Ian S. Soriano, MD is a surgeon in San Francisco, CA practicing general surgery and bariatric surgery. Ian S. Soriano is affiliated with UCSF Health.",
+  "attributes": {
+    "specialties": [
+      "general-surgery",
+      "bariatric-surgery"
+    ],
+    "degree": "MD",
+    "boardCertifications": [
+      "General Surgery, American Board of Surgery"
+    ],
+    "hospitalAffiliations": [
+      "UCSF Health"
+    ],
+    "acceptingNewPatients": null,
+    "acceptsMedicare": null,
+    "acceptsMedicaid": null,
+    "virtualConsultations": true,
+    "wheelchairAccessible": null,
+    "languages": [],
+    "npi": null
+  },
+  "lastUpdated": "2026-10-02",
+  "source": "Hospital profile page https://www.ucsfhealth.org/providers/ian-s-soriano (retrieved 2026-10-02)",
+  "description": null,
+  "bookingUrl": null
+}

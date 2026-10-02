@@ -1,0 +1,46 @@
+{
+  "name": "Phillip LoSavio, MD",
+  "slug": "phillip-losavio",
+  "status": "published",
+  "tier": "basic",
+  "verifiedUntil": null,
+  "demo": false,
+  "address": {
+    "streetAddress": "5758 S. Maryland Ave.",
+    "locality": "Chicago",
+    "region": "IL",
+    "postalCode": "60637"
+  },
+  "lat": null,
+  "lng": null,
+  "phone": "+1 773 702 1865",
+  "website": "https://www.uchicagomedicine.org/find-a-physician/physician/phillip-losavio",
+  "sameAs": [],
+  "hours": null,
+  "summary": "Phillip LoSavio, MD is a surgeon in Chicago, IL practicing ear, nose and throat surgery. Phillip LoSavio is affiliated with UChicago Medicine.",
+  "attributes": {
+    "specialties": [
+      "otolaryngology"
+    ],
+    "degree": "MD",
+    "boardCertifications": [
+      "Otolaryngology-Head and Neck Surgery"
+    ],
+    "hospitalAffiliations": [
+      "UChicago Medicine"
+    ],
+    "acceptingNewPatients": null,
+    "acceptsMedicare": null,
+    "acceptsMedicaid": null,
+    "virtualConsultations": null,
+    "wheelchairAccessible": null,
+    "languages": [
+      "English"
+    ],
+    "npi": null
+  },
+  "lastUpdated": "2026-10-02",
+  "source": "Hospital profile page https://www.uchicagomedicine.org/find-a-physician/physician/phillip-losavio (retrieved 2026-10-02)",
+  "description": null,
+  "bookingUrl": null
+}

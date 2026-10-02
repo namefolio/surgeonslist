@@ -1,0 +1,47 @@
+{
+  "name": "Eric Haas, MD",
+  "slug": "eric-haas",
+  "status": "published",
+  "tier": "basic",
+  "verifiedUntil": null,
+  "demo": false,
+  "address": {
+    "streetAddress": "6560 Fannin Street, Scurlock Tower Suite 1404",
+    "locality": "Houston",
+    "region": "TX",
+    "postalCode": "77030"
+  },
+  "lat": null,
+  "lng": null,
+  "phone": "+1 713 790 0600",
+  "website": "https://www.houstonmethodist.org/doctor/eric-haas/",
+  "sameAs": [],
+  "hours": null,
+  "summary": "Eric Haas, MD is a surgeon in Houston, TX practicing colon and rectal surgery. Eric Haas is affiliated with Houston Methodist Hospital.",
+  "attributes": {
+    "specialties": [
+      "colorectal-surgery"
+    ],
+    "degree": "MD",
+    "boardCertifications": [
+      "American Board of Colon and Rectal Surgery",
+      "American Board of Surgery"
+    ],
+    "hospitalAffiliations": [
+      "Houston Methodist Hospital"
+    ],
+    "acceptingNewPatients": true,
+    "acceptsMedicare": null,
+    "acceptsMedicaid": null,
+    "virtualConsultations": true,
+    "wheelchairAccessible": null,
+    "languages": [
+      "English"
+    ],
+    "npi": null
+  },
+  "lastUpdated": "2026-10-02",
+  "source": "Hospital profile page https://www.houstonmethodist.org/doctor/eric-haas/ (retrieved 2026-10-02)",
+  "description": null,
+  "bookingUrl": null
+}

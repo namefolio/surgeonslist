@@ -1,0 +1,47 @@
+{
+  "name": "Daniel Refai, MD",
+  "slug": "daniel-refai",
+  "status": "published",
+  "tier": "basic",
+  "verifiedUntil": null,
+  "demo": false,
+  "address": {
+    "streetAddress": "550 Peachtree Street Northeast, Medical Office Tower, Floor 10",
+    "locality": "Atlanta",
+    "region": "GA",
+    "postalCode": "30308"
+  },
+  "lat": null,
+  "lng": null,
+  "phone": "+1 404 778 7000",
+  "website": "https://www.emoryhealthcare.org/providers/daniel-refai-777746",
+  "sameAs": [],
+  "hours": null,
+  "summary": "Daniel Refai, MD is a surgeon in Atlanta, GA practicing neurosurgery. Daniel Refai is affiliated with Emory University Hospital Midtown.",
+  "attributes": {
+    "specialties": [
+      "neurosurgery"
+    ],
+    "degree": "MD",
+    "boardCertifications": [
+      "Neurological Surgery, American Board of Neurological Surgery"
+    ],
+    "hospitalAffiliations": [
+      "Emory University Hospital Midtown"
+    ],
+    "acceptingNewPatients": true,
+    "acceptsMedicare": null,
+    "acceptsMedicaid": null,
+    "virtualConsultations": true,
+    "wheelchairAccessible": null,
+    "languages": [
+      "English",
+      "French"
+    ],
+    "npi": null
+  },
+  "lastUpdated": "2026-10-02",
+  "source": "Hospital profile page https://www.emoryhealthcare.org/providers/daniel-refai-777746 (retrieved 2026-10-02)",
+  "description": null,
+  "bookingUrl": null
+}

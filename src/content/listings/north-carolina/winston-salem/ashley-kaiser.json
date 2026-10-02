@@ -1,0 +1,45 @@
+{
+  "name": "Ashley Kaiser, MD",
+  "slug": "ashley-kaiser",
+  "status": "published",
+  "tier": "basic",
+  "verifiedUntil": null,
+  "demo": false,
+  "address": {
+    "streetAddress": "2827 Lyndhurst Ave., Suite 203",
+    "locality": "Winston-Salem",
+    "region": "NC",
+    "postalCode": "27103"
+  },
+  "lat": null,
+  "lng": null,
+  "phone": "+1 336 794 8624",
+  "website": "https://www.novanthealth.org/pf/providers/1063732634/ashley-rickey",
+  "sameAs": [],
+  "hours": null,
+  "summary": "Ashley Kaiser, MD is a surgeon in Winston-Salem, NC practicing vascular surgery.",
+  "attributes": {
+    "specialties": [
+      "vascular-surgery"
+    ],
+    "degree": "MD",
+    "boardCertifications": [
+      "Surgery (General Surgery)",
+      "Vascular Surgery"
+    ],
+    "hospitalAffiliations": [],
+    "acceptingNewPatients": true,
+    "acceptsMedicare": null,
+    "acceptsMedicaid": null,
+    "virtualConsultations": null,
+    "wheelchairAccessible": null,
+    "languages": [
+      "English"
+    ],
+    "npi": "1063732634"
+  },
+  "lastUpdated": "2026-10-02",
+  "source": "Hospital profile page https://www.novanthealth.org/pf/providers/1063732634/ashley-rickey (retrieved 2026-10-02)",
+  "description": null,
+  "bookingUrl": null
+}

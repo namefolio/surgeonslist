@@ -1,0 +1,43 @@
+{
+  "name": "Larissa Temple, MD",
+  "slug": "larissa-temple",
+  "status": "published",
+  "tier": "basic",
+  "verifiedUntil": null,
+  "demo": false,
+  "address": {
+    "streetAddress": "90 Crittenden Boulevard",
+    "locality": "Rochester",
+    "region": "NY",
+    "postalCode": "14642"
+  },
+  "lat": null,
+  "lng": null,
+  "phone": "+1 585 273 2727",
+  "website": "https://www.urmc.rochester.edu/people/112361192-larissa-temple",
+  "sameAs": [],
+  "hours": null,
+  "summary": "Larissa Temple, MD is a surgeon in Rochester, NY practicing colon and rectal surgery.",
+  "attributes": {
+    "specialties": [
+      "colorectal-surgery"
+    ],
+    "degree": "MD",
+    "boardCertifications": [
+      "Colon & Rectal Surgery - American Board of Colon & Rectal Surgery",
+      "Surgery (General Surgery) - American Board of Surgery"
+    ],
+    "hospitalAffiliations": [],
+    "acceptingNewPatients": true,
+    "acceptsMedicare": null,
+    "acceptsMedicaid": null,
+    "virtualConsultations": null,
+    "wheelchairAccessible": null,
+    "languages": [],
+    "npi": null
+  },
+  "lastUpdated": "2026-10-02",
+  "source": "Hospital profile page https://www.urmc.rochester.edu/people/112361192-larissa-temple (retrieved 2026-10-02)",
+  "description": null,
+  "bookingUrl": null
+}

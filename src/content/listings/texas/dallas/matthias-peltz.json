@@ -1,0 +1,45 @@
+{
+  "name": "Matthias Peltz, MD",
+  "slug": "matthias-peltz",
+  "status": "published",
+  "tier": "basic",
+  "verifiedUntil": null,
+  "demo": false,
+  "address": {
+    "streetAddress": "5323 Harry Hines Blvd.",
+    "locality": "Dallas",
+    "region": "TX",
+    "postalCode": "75390"
+  },
+  "lat": null,
+  "lng": null,
+  "phone": "+1 214 645 7700",
+  "website": "https://utswmed.org/doctors/matthias-peltz/",
+  "sameAs": [],
+  "hours": null,
+  "summary": "Matthias Peltz, MD is a surgeon in Dallas, TX practicing cardiothoracic surgery. Matthias Peltz is affiliated with UT Southwestern Medical Center.",
+  "attributes": {
+    "specialties": [
+      "cardiothoracic-surgery"
+    ],
+    "degree": "MD",
+    "boardCertifications": [
+      "American Board of Thoracic Surgery",
+      "American Board of Surgery"
+    ],
+    "hospitalAffiliations": [
+      "UT Southwestern Medical Center"
+    ],
+    "acceptingNewPatients": null,
+    "acceptsMedicare": null,
+    "acceptsMedicaid": null,
+    "virtualConsultations": null,
+    "wheelchairAccessible": null,
+    "languages": [],
+    "npi": null
+  },
+  "lastUpdated": "2026-10-02",
+  "source": "Hospital profile page https://utswmed.org/doctors/matthias-peltz/ (retrieved 2026-10-02)",
+  "description": null,
+  "bookingUrl": null
+}

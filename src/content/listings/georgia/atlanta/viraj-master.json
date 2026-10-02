@@ -1,0 +1,46 @@
+{
+  "name": "Viraj Master, MD",
+  "slug": "viraj-master",
+  "status": "published",
+  "tier": "basic",
+  "verifiedUntil": null,
+  "demo": false,
+  "address": {
+    "streetAddress": "1365 Clifton Road Northeast, Bldg B, Fl 1",
+    "locality": "Atlanta",
+    "region": "GA",
+    "postalCode": "30322"
+  },
+  "lat": null,
+  "lng": null,
+  "phone": "+1 404 778 4898",
+  "website": "https://www.emoryhealthcare.org/providers/viraj-master-779366",
+  "sameAs": [],
+  "hours": null,
+  "summary": "Viraj Master, MD is a surgeon in Atlanta, GA practicing urologic surgery. Viraj Master is affiliated with Winship Cancer Institute of Emory University.",
+  "attributes": {
+    "specialties": [
+      "urology"
+    ],
+    "degree": "MD",
+    "boardCertifications": [
+      "American Board of Urology"
+    ],
+    "hospitalAffiliations": [
+      "Winship Cancer Institute of Emory University"
+    ],
+    "acceptingNewPatients": true,
+    "acceptsMedicare": null,
+    "acceptsMedicaid": null,
+    "virtualConsultations": true,
+    "wheelchairAccessible": null,
+    "languages": [
+      "English"
+    ],
+    "npi": null
+  },
+  "lastUpdated": "2026-10-02",
+  "source": "Hospital profile page https://www.emoryhealthcare.org/providers/viraj-master-779366 (retrieved 2026-10-02)",
+  "description": null,
+  "bookingUrl": null
+}

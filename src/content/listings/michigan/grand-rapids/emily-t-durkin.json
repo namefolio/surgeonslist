@@ -1,0 +1,47 @@
+{
+  "name": "Emily T. Durkin, MD",
+  "slug": "emily-t-durkin",
+  "status": "published",
+  "tier": "basic",
+  "verifiedUntil": null,
+  "demo": false,
+  "address": {
+    "streetAddress": "330 Barclay Avenue Northeast, Suite 202",
+    "locality": "Grand Rapids",
+    "region": "MI",
+    "postalCode": "49503"
+  },
+  "lat": null,
+  "lng": null,
+  "phone": "+1 616 458 1722",
+  "website": "https://providers.corewellhealth.org/provider/emily-t-durkin/2780031",
+  "sameAs": [],
+  "hours": null,
+  "summary": "Emily T. Durkin, MD is a surgeon in Grand Rapids, MI practicing pediatric surgery. Emily T. Durkin is affiliated with Corewell Health Grand Rapids Hospitals.",
+  "attributes": {
+    "specialties": [
+      "pediatric-surgery"
+    ],
+    "degree": "MD",
+    "boardCertifications": [
+      "Pediatric Surgery: American Board of Surgery",
+      "Surgery: American Board of Surgery"
+    ],
+    "hospitalAffiliations": [
+      "Corewell Health Grand Rapids Hospitals"
+    ],
+    "acceptingNewPatients": true,
+    "acceptsMedicare": null,
+    "acceptsMedicaid": null,
+    "virtualConsultations": null,
+    "wheelchairAccessible": null,
+    "languages": [
+      "English"
+    ],
+    "npi": null
+  },
+  "lastUpdated": "2026-10-02",
+  "source": "Hospital profile page https://providers.corewellhealth.org/provider/emily-t-durkin/2780031 (retrieved 2026-10-02)",
+  "description": null,
+  "bookingUrl": null
+}

@@ -1,0 +1,44 @@
+{
+  "name": "C. Benjamin Ma, MD",
+  "slug": "c-benjamin-ma",
+  "status": "published",
+  "tier": "basic",
+  "verifiedUntil": null,
+  "demo": false,
+  "address": {
+    "streetAddress": "290 Redwood Shores Parkway",
+    "locality": "Redwood City",
+    "region": "CA",
+    "postalCode": "94065"
+  },
+  "lat": null,
+  "lng": null,
+  "phone": "+1 415 476 7877",
+  "website": "https://www.ucsfhealth.org/providers/dr-c-benjamin-ma",
+  "sameAs": [],
+  "hours": null,
+  "summary": "C. Benjamin Ma, MD is a surgeon in Redwood City, CA practicing orthopedic surgery. C. Benjamin Ma is affiliated with UCSF Health.",
+  "attributes": {
+    "specialties": [
+      "orthopedic-surgery"
+    ],
+    "degree": "MD",
+    "boardCertifications": [
+      "Orthopaedic Surgery, American Board of Orthopaedic Surgery"
+    ],
+    "hospitalAffiliations": [
+      "UCSF Health"
+    ],
+    "acceptingNewPatients": null,
+    "acceptsMedicare": null,
+    "acceptsMedicaid": null,
+    "virtualConsultations": true,
+    "wheelchairAccessible": null,
+    "languages": [],
+    "npi": null
+  },
+  "lastUpdated": "2026-10-02",
+  "source": "Hospital profile page https://www.ucsfhealth.org/providers/dr-c-benjamin-ma (retrieved 2026-10-02)",
+  "description": null,
+  "bookingUrl": null
+}

@@ -1,0 +1,51 @@
+{
+  "name": "Ajaipal S. Kang, MD",
+  "slug": "ajaipal-s-kang",
+  "status": "published",
+  "tier": "basic",
+  "verifiedUntil": null,
+  "demo": false,
+  "address": {
+    "streetAddress": "100 Peach Street, Suite 201",
+    "locality": "Erie",
+    "region": "PA",
+    "postalCode": "16507"
+  },
+  "lat": null,
+  "lng": null,
+  "phone": "+1 814 877 5200",
+  "website": "https://providers.upmc.com/provider/ajaipal-s-kang/1320353",
+  "sameAs": [],
+  "hours": null,
+  "summary": "Ajaipal S. Kang, MD is a surgeon in Erie, PA practicing plastic surgery. Ajaipal S. Kang is affiliated with UPMC Hamot and UPMC Northwest.",
+  "attributes": {
+    "specialties": [
+      "plastic-surgery"
+    ],
+    "degree": "MD",
+    "boardCertifications": [
+      "American Board of Plastic Surgery",
+      "American Board of Surgery"
+    ],
+    "hospitalAffiliations": [
+      "UPMC Hamot",
+      "UPMC Northwest"
+    ],
+    "acceptingNewPatients": true,
+    "acceptsMedicare": null,
+    "acceptsMedicaid": null,
+    "virtualConsultations": null,
+    "wheelchairAccessible": null,
+    "languages": [
+      "English",
+      "Urdu",
+      "Punjabi",
+      "Hindi"
+    ],
+    "npi": "1306846035"
+  },
+  "lastUpdated": "2026-10-02",
+  "source": "Hospital profile page https://providers.upmc.com/provider/ajaipal-s-kang/1320353 (retrieved 2026-10-02)",
+  "description": null,
+  "bookingUrl": null
+}

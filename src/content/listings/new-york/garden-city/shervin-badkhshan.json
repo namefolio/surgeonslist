@@ -1,0 +1,44 @@
+{
+  "name": "Shervin Badkhshan, MD",
+  "slug": "shervin-badkhshan",
+  "status": "published",
+  "tier": "basic",
+  "verifiedUntil": null,
+  "demo": false,
+  "address": {
+    "streetAddress": "1111 Franklin Avenue, 3rd Floor",
+    "locality": "Garden City",
+    "region": "NY",
+    "postalCode": "11530"
+  },
+  "lat": null,
+  "lng": null,
+  "phone": "+1 516 535 1900",
+  "website": "https://nyulangone.org/doctors/1568818805/shervin-badkhshan",
+  "sameAs": [],
+  "hours": null,
+  "summary": "Shervin Badkhshan, MD is a surgeon in Garden City, NY practicing urologic surgery.",
+  "attributes": {
+    "specialties": [
+      "urology"
+    ],
+    "degree": "MD",
+    "boardCertifications": [
+      "American Board of Urology - Urology"
+    ],
+    "hospitalAffiliations": [],
+    "acceptingNewPatients": null,
+    "acceptsMedicare": null,
+    "acceptsMedicaid": null,
+    "virtualConsultations": null,
+    "wheelchairAccessible": null,
+    "languages": [
+      "English"
+    ],
+    "npi": null
+  },
+  "lastUpdated": "2026-10-02",
+  "source": "Hospital profile page https://nyulangone.org/doctors/1568818805/shervin-badkhshan (retrieved 2026-10-02)",
+  "description": null,
+  "bookingUrl": null
+}
