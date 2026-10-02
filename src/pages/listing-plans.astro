@@ -24,7 +24,7 @@ const mail = isMailto(t.paymentLink) ? t.paymentLink.replace(/^mailto:/, '').spl
       <p class="price">Free</p>
       <ul>
         <li>Name, address, phone, website and hours</li>
-        <li>{site.facts.slice(0, 4).map((f) => f.label.toLowerCase()).join(', ')} and more</li>
+        <li>{(([first, ...rest]) => [first, ...rest.map((x) => x.toLowerCase())].join(', '))(site.facts.slice(0, 4).map((f) => f.label))} and more</li>
         <li>Listed on city, {site.regionWord} and {site.taxonomy.label.toLowerCase()} pages</li>
         <li>Update it any time with the form</li>
       </ul>
@@ -47,7 +47,7 @@ const mail = isMailto(t.paymentLink) ? t.paymentLink.replace(/^mailto:/, '').spl
     <ol>
       <li>Send your details with the <a href="/add-your-business/?tier=verified">listing form</a> and choose "Verified", or use "{tierCopy.basicCta}" on your listing.</li>
       <li>Pay {t.price}{mail ? <>: email {mail} and we'll send an invoice.</> : <> with the payment link.</>}</li>
-      <li>We check the {t.credential} ({t.credentialCheck.replace(/^we check /, '')}) and confirm the details with you. If the check fails we refund you and the listing stays Basic.</li>
+      <li>{t.credentialCheck[0]!.toUpperCase() + t.credentialCheck.slice(1)}, and confirm the details with you. If the check fails we refund you and the listing stays Basic.</li>
       <li>The listing gets the Verified label and moves above Basic listings. We recheck it at renewal, and it returns to Basic if not renewed.</li>
     </ol>
   </section>

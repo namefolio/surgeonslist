@@ -1,14 +1,20 @@
 {
   "name": "surgeonslist",
   "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "dev": "astro dev",
+    "build": "astro build",
+    "build:demo": "INCLUDE_DEMO=1 astro build",
+    "check": "astro check && tsx scripts/placeholders.ts",
+    "test": "vitest run",
+    "verify": "npm run check && npm run build:demo && npm test",
+    "lighthouse": "INCLUDE_DEMO=1 astro build && tsx scripts/lighthouse.ts",
+    "import:csv": "tsx scripts/import-csv.ts",
+    "demo:remove": "tsx scripts/remove-demo.ts",
+    "preview": "wrangler dev",
+    "deploy": "npm run build && wrangler deploy",
+    "deploy:demo": "npm run build:demo && wrangler deploy"
   },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
   "dependencies": {
     "@astrojs/sitemap": "^3.7.4",
     "astro": "^7.3.5",
@@ -22,5 +28,7 @@
     "typescript": "^6.0.3",
     "vitest": "^5.0.3",
     "wrangler": "^4.147.0"
-  }
+  },
+  "private": true,
+  "type": "module"
 }
