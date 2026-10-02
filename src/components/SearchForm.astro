@@ -1,0 +1,39 @@
+---
+import Icon from './Icon.astro';
+import { site } from '../../site.config';
+import { getModel } from '../lib/data';
+
+interface Props { id?: string; selects?: boolean; label?: string }
+const { id = 'search', selects = true, label = `Search ${site.entity.many}` } = Astro.props;
+const m = await getModel();
+// Only options that have listings, so a choice never leads to an empty page by itself.
+const termSlugs = new Set(m.published.flatMap((l) => l.attributes[site.taxonomy.attribute]));
+const terms = site.taxonomy.terms.filter((t) => termSlugs.has(t.slug));
+const showSelects = selects && (terms.length > 1 || m.regions.length > 1);
+---
+<form class:list={['search', { 'has-selects': showSelects }]} action="/search/" method="get" role="search" aria-label={label}>
+  <div class="search-field">
+    <label class="sr-only" for={`${id}-q`}>{label}</label>
+    <Icon name="search" />
+    <input id={`${id}-q`} name="q" type="search" placeholder={site.copy.searchPlaceholder} autocomplete="off" enterkeyhint="search" maxlength="100" />
+  </div>
+  {showSelects && (
+    <>
+      <div>
+        <label class="sr-only" for={`${id}-specialty`}>{site.taxonomy.label}</label>
+        <select id={`${id}-specialty`} name={site.taxonomy.segment} data-role="term">
+          <option value="">Any {site.taxonomy.label.toLowerCase()}</option>
+          {terms.map((t) => <option value={t.slug}>{t.label}</option>)}
+        </select>
+      </div>
+      <div>
+        <label class="sr-only" for={`${id}-state`}>{site.regionWord}</label>
+        <select id={`${id}-state`} name={site.regionWord} data-role="region">
+          <option value="">Any {site.regionWord}</option>
+          {m.regions.map((r) => <option value={r.slug}>{r.name}</option>)}
+        </select>
+      </div>
+    </>
+  )}
+  <button class="button primary" type="submit">Search</button>
+</form>

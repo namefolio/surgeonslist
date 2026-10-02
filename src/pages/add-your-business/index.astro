@@ -15,11 +15,14 @@ const regionOptions = Object.values(site.regions).sort((a, b) => a.name.localeCo
 <Base title={`Add or update a ${e.one} listing`} description={`Send a new ${e.one} listing or a correction. Basic listings are free; Verified listings are paid and ${site.tiers.checkedShort}.`} path="/add-your-business/" jsonld={[breadcrumbLd(crumbs)]}>
   {siteKey && <script slot="head" src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>}
   <Crumbs items={crumbs} />
-  <h1>Add or update a listing</h1>
-  <p class="muted">Basic is free; Verified is paid. <a href="/listing-plans/">Compare listing plans</a>.</p>
-  <p id="update-note" class="disclosure" hidden>You are sending an update for <strong id="update-name">this listing</strong>.</p>
+  <header class="page-head">
+    <span class="eyebrow">For {e.many} and patients</span>
+    <h1>Add or update a listing</h1>
+    <p class="lede">Send a new listing or a correction. We review every submission by hand. Basic is free; Verified is paid. <a href="/listing-plans/">Compare listing plans</a>.</p>
+  </header>
+  <p id="update-note" class="notice" hidden>You are sending an update for&nbsp;<strong id="update-name">this listing</strong>.</p>
 
-  <form method="post" action="/add-your-business/">
+  <form class="form-card" method="post" action="/add-your-business/">
     <input type="hidden" name="listing" value="" />
     <fieldset>
       <legend>Listing plan</legend>
@@ -29,8 +32,11 @@ const regionOptions = Object.values(site.regions).sort((a, b) => a.name.localeCo
       </div>
     </fieldset>
 
+    <div class="form-section">
+    <h2>Practice details</h2>
     <div class="field"><label for="f-name">{site.formLabels.name}</label><input id="f-name" name="name" type="text" required maxlength="120" autocomplete="organization" /></div>
     <div class="field"><label for="f-street">Street address</label><input id="f-street" name="streetAddress" type="text" maxlength="160" autocomplete="street-address" /></div>
+    <div class="field-row">
     <div class="field"><label for="f-city">City</label><input id="f-city" name="locality" type="text" required maxlength="80" autocomplete="address-level2" /></div>
     <div class="field"><label for="f-region">{site.regionWord[0]!.toUpperCase() + site.regionWord.slice(1)}</label>
       <select id="f-region" name="region" required autocomplete="address-level1">
@@ -39,11 +45,14 @@ const regionOptions = Object.values(site.regions).sort((a, b) => a.name.localeCo
       </select>
     </div>
     <div class="field"><label for="f-postal">{site.formLabels.postal}</label><input id="f-postal" name="postalCode" type="text" maxlength="12" autocomplete="postal-code" /></div>
+    </div>
     <div class="field"><label for="f-phone">Phone</label><input id="f-phone" name="phone" type="tel" maxlength="40" autocomplete="tel" /></div>
     <div class="field"><label for="f-web">Website</label><input id="f-web" name="website" type="url" maxlength="300" placeholder="https://" /></div>
     <div class="field"><label for="f-same">Social or profile links (one per line)</label><textarea id="f-same" name="sameAs" maxlength="1000"></textarea></div>
 
-    <details>
+    </div>
+
+    <details class="more">
       <summary>More details (optional)</summary>
       <fieldset>
         <legend>Hours (for example 09:00-17:00, or "closed")</legend>
@@ -53,7 +62,7 @@ const regionOptions = Object.values(site.regions).sort((a, b) => a.name.localeCo
       </fieldset>
       {site.formFields.map((f) =>
         f.type === 'multi' ? (
-          <fieldset><legend>{f.label}</legend>{f.options!.map(([v, l]) => <label class="check"><input type="checkbox" name={f.name} value={v} /> {l}</label>)}</fieldset>
+          <fieldset><legend>{f.label}</legend><div class="check-grid">{f.options!.map(([v, l]) => <label class="check"><input type="checkbox" name={f.name} value={v} /> {l}</label>)}</div></fieldset>
         ) : f.type === 'select' ? (
           <div class="field"><label for={`a-${f.name}`}>{f.label}</label><select id={`a-${f.name}`} name={f.name}><option value="">Not sure</option>{f.options!.map(([v, l]) => <option value={v}>{l}</option>)}</select></div>
         ) : f.type === 'bool' ? (
@@ -68,8 +77,9 @@ const regionOptions = Object.values(site.regions).sort((a, b) => a.name.localeCo
 
     <div class="field"><label for="f-desc">Short description or correction</label><textarea id="f-desc" name="description" maxlength="1200"></textarea></div>
 
-    <fieldset>
-      <legend>About you (not published)</legend>
+    <fieldset class="form-section">
+      <legend class="sr-only">About you (not published)</legend>
+      <h2 aria-hidden="true">About you <span class="muted small">(not published)</span></h2>
       <div class="field"><label for="f-sname">Your name</label><input id="f-sname" name="submitterName" type="text" required maxlength="100" autocomplete="name" /></div>
       <div class="field"><label for="f-semail">Your email</label><input id="f-semail" name="submitterEmail" type="email" required maxlength="200" autocomplete="email" /></div>
       <div class="field"><label for="f-rel">Your relationship to the {e.one}</label>

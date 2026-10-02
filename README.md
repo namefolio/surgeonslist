@@ -1,6 +1,6 @@
 # SurgeonsList.com
 
-A static, agent-first directory of US surgeons. Astro (static output, zero client JS), hosted on Cloudflare Workers static assets, with one small Worker for the "Add your business" form. Listings are JSON files, so an AI agent can maintain them (see [UPDATING.md](UPDATING.md)). Research and design decisions: [docs/BRIEF.md](docs/BRIEF.md).
+A static, agent-first directory of US surgeons. Astro (static output; the only client JS is two small vanilla scripts for search and list filters, and every page works without them), hosted on Cloudflare Workers static assets, with one small Worker for the "Add your business" form. Listings are JSON files, so an AI agent can maintain them (see [UPDATING.md](UPDATING.md)). Research and design decisions: [docs/BRIEF.md](docs/BRIEF.md).
 
 ## Develop
 
@@ -10,8 +10,8 @@ npm run dev            # http://localhost:4321 (demo listings need INCLUDE_DEMO=
 npm run check          # types + content schema, warns about launch placeholders
 npm run build          # production build into dist/ (demo listings excluded)
 npm run build:demo     # build including demo listings
-npm test               # form handler, tier expiry, "verified" wording (needs dist/)
-npm run lighthouse     # mobile Lighthouse for home, a city, a listing and the form; fails below 100
+npm test               # form handler, tier expiry, "verified" wording, no inline scripts (needs dist/)
+npm run lighthouse     # mobile Lighthouse for home, a city, a listing, search and the form; fails below 100
 npm run preview        # wrangler dev: the real Worker + assets (copy .dev.vars.example to .dev.vars)
 ```
 

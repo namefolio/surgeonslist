@@ -14,6 +14,7 @@ export const tierCopy = {
   },
   verifiedFooter: `Verified listings are paid, ${t.checkedShort}, labelled and shown first.`,
   ownerConfirmed: 'Verified: details confirmed by the owner',
+  ownerConfirmedShort: 'Details confirmed by the owner. Paid listing.',
   basicCta: 'Is this your business? Get it Verified or send a correction',
   verifiedCta: 'Update this listing',
   summary: `Basic listings are free and built from public sources or submissions. Verified listings are paid: ${t.credentialCheck}, confirm the details with the owner, label the listing Verified and show it first in its city and ${site.taxonomy.label.toLowerCase()} lists. Verified is not a rating, and paying never changes the facts we publish.`,

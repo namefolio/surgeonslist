@@ -1,10 +1,12 @@
 ---
-interface Props { faqs: { q: string; a: string }[]; title?: string }
-const { faqs, title = 'Questions' } = Astro.props;
+interface Props { faqs: { q: string; a: string }[]; title?: string; id?: string }
+const { faqs, title = 'Questions', id = 'questions' } = Astro.props;
 ---
 {faqs.length > 0 && (
-  <section class="faq prose">
-    <h2>{title}</h2>
-    {faqs.map((f) => (<><h3>{f.q}</h3><p>{f.a}</p></>))}
+  <section class="faq section" aria-labelledby={id}>
+    <h2 id={id}>{title}</h2>
+    <div class="faq-list">
+      {faqs.map((f) => (<div class="faq-item"><h3>{f.q}</h3><p>{f.a}</p></div>))}
+    </div>
   </section>
 )}

@@ -1,0 +1,7 @@
+---
+interface Props { items: { href: string; label: string; count?: number }[]; compact?: boolean }
+const { items, compact = false } = Astro.props;
+---
+<ul class:list={['tiles', { 'tiles-compact': compact }]}>
+  {items.map((t) => <li><a href={t.href}><span>{t.label}</span>{t.count !== undefined && <span class="count">{t.count}<span class="sr-only"> listed</span></span>}</a></li>)}
+</ul>

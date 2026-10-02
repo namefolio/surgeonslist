@@ -57,9 +57,11 @@ From research (questions-to-ask pages by [UChicago AdventHealth](https://www.uch
 ## Design direction
 
 - **Home layout: category-led.** Patients start from a specialty or a referral, not urgency. Order: H1 + one-line purpose → specialty tiles → browse by state → how listings work (Basic vs Verified) → short "how to check a surgeon" note.
-- **Palette:** ink `#16202A`, deep teal `#0B5563` (links, buttons, Verified), burnt orange `#9A3412` (the one accent: Verified left border, focus ring), warm paper `#FBFAF7`, tint `#EEF4F4`, muted `#4A5361`. All text pairs ≥ 6.9:1 (AA and mostly AAA), banner `#FBFAF7` on `#16202A` 15.8:1.
-- **Font:** Atkinson Hyperlegible Next (variable, self-hosted WOFF2, latin), size-adjusted Arial fallback. Body 18px / 1.6, 70ch measure.
-- **Feel:** calm, clinical, medium density. 6px radius, 1px borders, no shadows. Accent treatment: a 4px left border on Verified cards. Text only, no photos.
+- **Palette:** ink `#13202B`, secondary ink `#33414F`, deep teal `#0B5563` (links, buttons, Verified), burnt orange `#9A3412` (focus ring only), green `#1D6B40` (only for "yes" checks), warm paper `#F7F6F2`, white surfaces, tint `#ECF3F4`, muted `#4F5A67`. Every text pair is at least 6.2:1. Tokens and measured ratios are in `src/theme.css`.
+- **Font:** Atkinson Hyperlegible Next (variable, self-hosted WOFF2, latin), size-adjusted Arial fallback. Body 17px / 1.6, 68ch measure; display headings 700 with slight negative tracking.
+- **Feel:** calm, editorial, medium density. 10px card radius, hairline borders, very soft shadows, no photos (cards use a decorative initials monogram). Verified cards carry a teal top rule and a "Verified" badge; facts that are "yes" show a check chip; unknown facts are never shown as "no".
+- **Search (redesign, 2026-10-02):** search is the main action. A search form on home, section pages and 404 submits to `/search/`, which filters `/data/search.json` in the browser (name, specialty, hospital, city, state, ZIP, certification, language) and keeps the query in the URL. City, state and specialty pages get filters over their server-rendered cards. Both scripts are small vanilla TS bundled to `/_astro/` (CSP allows only same-origin script files); without JS the static browse pages still reach every listing. `/search/` is `noindex` and out of the sitemap.
+- **Profiles:** header with name, degree and specialties, place, hospital and update date, plus Call / Website / Directions (and Book for Verified). Sections only when data exists (about, specialties, at a glance, hospital affiliations, board certification, languages, hours); missing details are named once under "Not on file". A side panel shows contact details and provenance (listing type, last updated, source, NPI with NPPES link, details on file x of 18, public lookups).
 
 ## Defaults chosen (change any time)
 

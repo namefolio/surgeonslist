@@ -1,39 +1,100 @@
 ---
 import Base from '../layouts/Base.astro';
+import SearchForm from '../components/SearchForm.astro';
+import Tiles from '../components/Tiles.astro';
+import ListingCard from '../components/ListingCard.astro';
+import Icon from '../components/Icon.astro';
 import { site } from '../../site.config';
 import { getModel } from '../lib/data';
 import { homeLd } from '../lib/seo';
 
 const m = await getModel();
+const n = m.published.length;
+const trustIcons = ['doc', 'calendar', 'info'] as const;
+// Specialties with their own page first; others with listings link to search.
+const termSlugs = new Set(m.published.flatMap((l) => l.attributes[site.taxonomy.attribute]));
+const termTiles = site.taxonomy.terms
+  .filter((t) => termSlugs.has(t.slug))
+  .map((t) => {
+    const page = m.terms.find((x) => x.slug === t.slug);
+    const count = m.published.filter((l) => l.attributes[site.taxonomy.attribute].includes(t.slug)).length;
+    return { href: page ? page.url : `/search/?${site.taxonomy.segment}=${t.slug}`, label: t.plural, count };
+  })
+  .sort((a, b) => b.count - a.count || a.label.localeCompare(b.label));
+// Neutral pick: most recently updated, not paid placement.
+const recent = [...m.published].sort((a, b) => b.lastUpdated.localeCompare(a.lastUpdated) || a.name.localeCompare(b.name)).slice(0, 3);
 ---
-<Base title={`${site.copy.homeTitle} | ${site.name}`} fullTitle description={site.copy.homeDescription} path="/" banner jsonld={homeLd()}>
-  <h1>{site.copy.homeTitle}</h1>
-  <p class="lede">{site.copy.homeIntro}</p>
-
-  {m.terms.length > 0 && (
-    <section>
-      <h2>Browse by {site.taxonomy.label.toLowerCase()}</h2>
-      <ul class="tiles">
-        {m.terms.map((t) => <li><a href={t.url}>{t.plural} <span class="count">{t.listings.length}</span></a></li>)}
+<Base title={`${site.copy.homeTitle} | ${site.name}`} fullTitle description={site.copy.homeDescription} path="/" banner jsonld={homeLd()} wide>
+  <section class="hero" aria-labelledby="hero-h">
+    <div class="wrap hero-inner">
+      <span class="eyebrow">{site.copy.heroEyebrow}</span>
+      <h1 id="hero-h">{site.copy.heroTitle}</h1>
+      <p class="lede">{site.copy.heroIntro}</p>
+      <SearchForm id="hero" />
+      <p class="search-hint">{site.copy.searchHint}</p>
+      <ul class="trust">
+        {site.copy.trust.map((t, i) => (
+          <li><Icon name={trustIcons[i] ?? 'info'} /><div><strong>{t.title}</strong><span>{t.text}</span></div></li>
+        ))}
       </ul>
-    </section>
-  )}
+    </div>
+  </section>
 
-  <section>
-    <h2>Browse by {site.regionWord}</h2>
-    {m.regions.length > 0 ? (
-      <ul class="tiles">
-        {m.regions.map((r) => <li><a href={r.url}>{r.name} <span class="count">{r.listings.length}</span></a></li>)}
-      </ul>
-    ) : (
-      <p>No listings are published yet. <a href="/add-your-business/">Add a listing</a>.</p>
+  <div class="wrap">
+    {termTiles.length > 0 && (
+      <section class="section" aria-labelledby="by-term">
+        <div class="section-head">
+          <h2 id="by-term">Browse by {site.taxonomy.label.toLowerCase()}</h2>
+          {m.terms.length > 0 && <a href={`/${site.taxonomy.segment}/`}>All {site.taxonomy.pluralLabel}<Icon name="arrow" class="icon icon-sm" /></a>}
+        </div>
+        <Tiles items={termTiles} />
+      </section>
     )}
-  </section>
 
-  <section class="prose">
-    <h2>How listings work</h2>
-    <p>Every {site.entity.one} can have a free Basic listing, built from public sources or a submission and shown with the date it was last updated. Verified listings are paid: we check the {site.tiers.credential} and confirm the details with the owner, then label the listing and show it first. Paying never changes the facts we publish. <a href="/listing-plans/">Compare listing plans</a>.</p>
-    <h2>Checking a {site.entity.one} yourself</h2>
-    <p>{site.copy.checkingNote}</p>
-  </section>
+    <section class="section" aria-labelledby="by-region">
+      <div class="section-head">
+        <h2 id="by-region">Browse by {site.regionWord}</h2>
+        {m.regions.length > 0 && <a href={`/${site.hub}/`}>All {site.regionWord}s and cities<Icon name="arrow" class="icon icon-sm" /></a>}
+      </div>
+      {m.regions.length > 0 ? (
+        <Tiles items={m.regions.map((r) => ({ href: r.url, label: r.name, count: r.listings.length }))} />
+      ) : (
+        <div class="state">
+          <Icon name="doc" class="icon icon-lg" />
+          <h3>No listings are published yet</h3>
+          <p>The directory is being built from public sources. Know a {site.entity.one} who should be here?</p>
+          <div class="actions"><a class="button primary" href="/add-your-business/">Add a listing</a></div>
+        </div>
+      )}
+    </section>
+
+    {recent.length > 0 && (
+      <section class="section" aria-labelledby="featured">
+        <div class="section-head">
+          <h2 id="featured">Recently updated</h2>
+          <a href="/search/">Search all {n} {n === 1 ? site.entity.one : site.entity.many}<Icon name="arrow" class="icon icon-sm" /></a>
+        </div>
+        <ul class="cards">{recent.map((l) => <ListingCard listing={l} />)}</ul>
+      </section>
+    )}
+
+    <section class="section split" aria-label="How this directory works">
+      <div class="panel">
+        <span class="eyebrow">How listings work</span>
+        <h2>Basic and Verified</h2>
+        <p>Every {site.entity.one} can have a free Basic listing, built from public sources or a submission and shown with the date it was last updated.</p>
+        <p>Verified listings are paid: we check the {site.tiers.credential} and confirm the details with the owner, then label the listing and show it first. Paying never changes the facts we publish.</p>
+        <p><a href="/listing-plans/">Compare listing plans</a></p>
+      </div>
+      <div class="panel panel-tint">
+        <span class="eyebrow">Before you book</span>
+        <h2>Checking {site.entity.a} yourself</h2>
+        <p>{site.copy.checkingNote}</p>
+        <ul class="checklist">
+          <li><Icon name="external" class="icon icon-sm" /><a href={site.lookups.credential.url} rel="noopener">{site.lookups.credential.label}</a></li>
+          <li><Icon name="external" class="icon icon-sm" /><a href={site.lookups.license.url} rel="noopener">{site.lookups.license.label}</a></li>
+        </ul>
+      </div>
+    </section>
+  </div>
 </Base>

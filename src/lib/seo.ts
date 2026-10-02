@@ -46,6 +46,9 @@ export function listingLd(l: Listing) {
     ...(l.sameAs.length && { sameAs: l.sameAs }),
     ...(l.hours && { openingHoursSpecification: openingHoursSpec(l) }),
     medicalSpecialty: l.attributes.specialties.map((s) => site.taxonomy.termLabel(s)),
+    ...(l.attributes.acceptingNewPatients !== null && { isAcceptingNewPatients: l.attributes.acceptingNewPatients }),
+    ...(l.attributes.hospitalAffiliations.length && { hospitalAffiliation: l.attributes.hospitalAffiliations.map((name) => ({ '@type': 'Hospital', name })) }),
+    ...(l.attributes.languages.length && { knowsLanguage: l.attributes.languages }),
     dateModified: l.lastUpdated,
   };
 }

@@ -215,6 +215,7 @@ Read-only, regenerated on every build. Canonical pages: ${site.url}.
 
 - \`/data/listings.json\`: all published listings.
 - \`/data/{region}/{city}.json\`: listings in one city.
+- \`/data/search.json\`: compact index used by the site's search page (short field names; use \`listings.json\` for full records).
 
 Lists are ordered Verified first, then Basic; within each, most complete first, then A to Z.
 

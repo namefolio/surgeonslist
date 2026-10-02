@@ -1,12 +1,17 @@
 ---
 import Base from '../layouts/Base.astro';
 import { site } from '../../site.config';
+import SearchForm from '../components/SearchForm.astro';
 ---
 <Base title="Page not found" description="This page does not exist." path="/404/" noindex markdown={false}>
-  <h1>Page not found</h1>
-  <p>The page may have moved, or the listing may have been removed.</p>
-  <ul>
-    <li><a href="/">Home</a></li>
-    <li><a href={`/${site.hub}/`}>{site.entity.Many} by {site.regionWord}</a></li>
-  </ul>
+  <div class="state" style="margin-top: 2rem">
+    <span class="eyebrow">Error 404</span>
+    <h1>Page not found</h1>
+    <p>The page may have moved, or the listing may have been removed. Try searching instead.</p>
+    <div style="max-width: 36rem; margin: 1.5rem auto 0; text-align: left"><SearchForm id="nf" selects={false} /></div>
+    <div class="actions">
+      <a class="button secondary" href="/">Home</a>
+      <a class="button secondary" href={`/${site.hub}/`}>{site.entity.Many} by {site.regionWord}</a>
+    </div>
+  </div>
 </Base>

@@ -132,12 +132,27 @@ export const site = {
 
   // "Best for" groups on location pages, built from yes/no attributes.
   bestFor: [
-    { key: 'acceptingNewPatients', label: 'Accepting new patients' },
-    { key: 'acceptsMedicare', label: 'Accepts Medicare' },
-    { key: 'acceptsMedicaid', label: 'Accepts Medicaid' },
-    { key: 'virtualConsultations', label: 'Offers virtual consultations' },
-    { key: 'wheelchairAccessible', label: 'Wheelchair accessible' },
-  ] as { key: keyof Attributes; label: string }[],
+    { key: 'acceptingNewPatients', label: 'Accepting new patients', short: 'New patients' },
+    { key: 'acceptsMedicare', label: 'Accepts Medicare', short: 'Medicare' },
+    { key: 'acceptsMedicaid', label: 'Accepts Medicaid', short: 'Medicaid' },
+    { key: 'virtualConsultations', label: 'Offers virtual consultations', short: 'Virtual consults' },
+    { key: 'wheelchairAccessible', label: 'Wheelchair accessible', short: 'Wheelchair access' },
+  ] as { key: keyof Attributes; label: string; short: string }[],
+
+  // Profile sections built from list attributes (shown only when the list has entries).
+  profileLists: [
+    { key: 'hospitalAffiliations', title: 'Hospital affiliations', icon: 'hospital', note: null },
+    { key: 'boardCertifications', title: 'Board certification', icon: 'doc', note: 'As listed by the source. You can check any certification with the certifying board.' },
+    { key: 'languages', title: 'Languages spoken', icon: null, note: null },
+  ] as { key: 'hospitalAffiliations' | 'boardCertifications' | 'languages'; title: string; icon: 'hospital' | 'doc' | null; note: string | null }[],
+  // Attribute used for the "institution" line on cards and profile headers.
+  institutionKey: 'hospitalAffiliations' as const,
+  // Public registry lookups shown in a listing's "About this listing" panel.
+  lookups: {
+    npi: (npi: string) => `https://npiregistry.cms.hhs.gov/provider-view/${npi}`,
+    credential: { label: 'Check board certification (ABMS)', url: 'https://www.certificationmatters.org/' },
+    license: { label: 'Check a medical license (DocInfo)', url: 'https://www.docinfo.org/' },
+  },
 
   // Form: niche fields shown under "More details (optional)".
   formFields: [
@@ -157,6 +172,18 @@ export const site = {
   copy: {
     independence: 'It is not affiliated with any hospital, medical board or professional society.',
     homeTitle: 'Find a surgeon by specialty and location',
+    heroEyebrow: 'An independent US directory',
+    heroTitle: 'Find a surgeon',
+    footerNote: 'Listings are for research and are not medical advice or a referral.',
+    heroIntro:
+      'Search US surgeons by name, specialty, hospital or location, and compare the facts patients ask about before a referral or consult.',
+    searchPlaceholder: 'Name, specialty, hospital or city',
+    searchHint: 'Try a surgeon’s name, “plastic surgery”, a hospital or a city.',
+    trust: [
+      { title: 'Facts, not ratings', text: 'Specialty, board certification, hospitals, insurance and new-patient status. No star ratings or reviews.' },
+      { title: 'Sourced and dated', text: 'Every listing names where its details came from and when they were last updated.' },
+      { title: 'Paid placement labelled', text: 'Verified listings are paid and say so. Paying never changes the facts we publish.' },
+    ],
     homeIntro:
       'An independent list of US surgeons with the facts patients ask about: specialty, board certification, hospital affiliations, insurance and whether they take new patients. No ratings, no reviews.',
     homeDescription:
