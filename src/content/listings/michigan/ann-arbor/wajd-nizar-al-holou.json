@@ -1,0 +1,44 @@
+{
+  "name": "Wajd Nizar Al-Holou, MD",
+  "slug": "wajd-nizar-al-holou",
+  "status": "published",
+  "tier": "basic",
+  "verifiedUntil": null,
+  "demo": false,
+  "address": {
+    "streetAddress": "1500 E Medical Center Dr, Floor 2",
+    "locality": "Ann Arbor",
+    "region": "MI",
+    "postalCode": "48109"
+  },
+  "lat": null,
+  "lng": null,
+  "phone": "+1 866 909 4449",
+  "website": "https://www.uofmhealth.org/profile/1821225145/wajd-nizar-al-holou",
+  "sameAs": [],
+  "hours": null,
+  "summary": "Wajd Nizar Al-Holou, MD is a surgeon in Ann Arbor, MI practicing neurosurgery. Wajd Nizar Al-Holou is affiliated with University of Michigan Health.",
+  "attributes": {
+    "specialties": [
+      "neurosurgery"
+    ],
+    "degree": "MD",
+    "boardCertifications": [
+      "Neurological Surgery"
+    ],
+    "hospitalAffiliations": [
+      "University of Michigan Health"
+    ],
+    "acceptingNewPatients": null,
+    "acceptsMedicare": null,
+    "acceptsMedicaid": null,
+    "virtualConsultations": null,
+    "wheelchairAccessible": null,
+    "languages": [],
+    "npi": null
+  },
+  "lastUpdated": "2026-10-02",
+  "source": "Hospital profile page https://www.uofmhealth.org/profile/1821225145/wajd-nizar-al-holou (retrieved 2026-10-02)",
+  "description": null,
+  "bookingUrl": null
+}

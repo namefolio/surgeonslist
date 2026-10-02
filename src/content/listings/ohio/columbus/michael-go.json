@@ -1,0 +1,46 @@
+{
+  "name": "Michael Go, MD",
+  "slug": "michael-go",
+  "status": "published",
+  "tier": "basic",
+  "verifiedUntil": null,
+  "demo": false,
+  "address": {
+    "streetAddress": "181 Taylor Ave.",
+    "locality": "Columbus",
+    "region": "OH",
+    "postalCode": "43203"
+  },
+  "lat": null,
+  "lng": null,
+  "phone": "+1 614 257 3110",
+  "website": "https://wexnermedical.osu.edu/find-a-doctor/michael-go-100000148",
+  "sameAs": [],
+  "hours": null,
+  "summary": "Michael Go, MD is a surgeon in Columbus, OH practicing vascular surgery and general surgery. Michael Go is affiliated with The Ohio State University Wexner Medical Center.",
+  "attributes": {
+    "specialties": [
+      "vascular-surgery",
+      "general-surgery"
+    ],
+    "degree": "MD",
+    "boardCertifications": [
+      "American Board of Surgery - Vascular Surgery",
+      "American Board of Surgery"
+    ],
+    "hospitalAffiliations": [
+      "The Ohio State University Wexner Medical Center"
+    ],
+    "acceptingNewPatients": true,
+    "acceptsMedicare": null,
+    "acceptsMedicaid": null,
+    "virtualConsultations": null,
+    "wheelchairAccessible": null,
+    "languages": [],
+    "npi": null
+  },
+  "lastUpdated": "2026-10-02",
+  "source": "Hospital profile page https://wexnermedical.osu.edu/find-a-doctor/michael-go-100000148 (retrieved 2026-10-02)",
+  "description": null,
+  "bookingUrl": null
+}

@@ -1,0 +1,49 @@
+{
+  "name": "Lewis E. Harpster, MD",
+  "slug": "lewis-e-harpster",
+  "status": "published",
+  "tier": "basic",
+  "verifiedUntil": null,
+  "demo": false,
+  "address": {
+    "streetAddress": "815 Sir Thomas Court, Floor 2",
+    "locality": "Harrisburg",
+    "region": "PA",
+    "postalCode": "17109"
+  },
+  "lat": null,
+  "lng": null,
+  "phone": "+1 717 724 0720",
+  "website": "https://providers.upmc.com/provider/lewis-harpster/1745096",
+  "sameAs": [],
+  "hours": null,
+  "summary": "Lewis E. Harpster, MD is a surgeon in Harrisburg, PA practicing urologic surgery. Lewis E. Harpster is affiliated with UPMC Harrisburg, UPMC West Shore, UPMC Carlisle and UPMC Community Osteopathic.",
+  "attributes": {
+    "specialties": [
+      "urology"
+    ],
+    "degree": "MD",
+    "boardCertifications": [
+      "American Board of Urology"
+    ],
+    "hospitalAffiliations": [
+      "UPMC Harrisburg",
+      "UPMC West Shore",
+      "UPMC Carlisle",
+      "UPMC Community Osteopathic"
+    ],
+    "acceptingNewPatients": true,
+    "acceptsMedicare": null,
+    "acceptsMedicaid": null,
+    "virtualConsultations": null,
+    "wheelchairAccessible": null,
+    "languages": [
+      "English"
+    ],
+    "npi": "1568429512"
+  },
+  "lastUpdated": "2026-10-02",
+  "source": "Hospital profile page https://providers.upmc.com/provider/lewis-harpster/1745096 (retrieved 2026-10-02)",
+  "description": null,
+  "bookingUrl": null
+}

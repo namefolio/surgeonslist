@@ -1,0 +1,44 @@
+{
+  "name": "Erin Kiehna, MD",
+  "slug": "erin-kiehna",
+  "status": "published",
+  "tier": "basic",
+  "verifiedUntil": null,
+  "demo": false,
+  "address": {
+    "streetAddress": "2711 Randolph Road, Suite 100",
+    "locality": "Charlotte",
+    "region": "NC",
+    "postalCode": "28207"
+  },
+  "lat": null,
+  "lng": null,
+  "phone": "+1 980 302 9300",
+  "website": "https://www.novanthealth.org/pf/providers/1619181898/erin-kiehna",
+  "sameAs": [],
+  "hours": null,
+  "summary": "Erin Kiehna, MD is a surgeon in Charlotte, NC practicing neurosurgery.",
+  "attributes": {
+    "specialties": [
+      "neurosurgery"
+    ],
+    "degree": "MD",
+    "boardCertifications": [
+      "Neurological Surgery"
+    ],
+    "hospitalAffiliations": [],
+    "acceptingNewPatients": true,
+    "acceptsMedicare": null,
+    "acceptsMedicaid": null,
+    "virtualConsultations": null,
+    "wheelchairAccessible": null,
+    "languages": [
+      "English"
+    ],
+    "npi": "1619181898"
+  },
+  "lastUpdated": "2026-10-02",
+  "source": "Hospital profile page https://www.novanthealth.org/pf/providers/1619181898/erin-kiehna (retrieved 2026-10-02)",
+  "description": null,
+  "bookingUrl": null
+}

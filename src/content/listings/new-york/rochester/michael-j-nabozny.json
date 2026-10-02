@@ -1,0 +1,45 @@
+{
+  "name": "Michael J. Nabozny, MD",
+  "slug": "michael-j-nabozny",
+  "status": "published",
+  "tier": "basic",
+  "verifiedUntil": null,
+  "demo": false,
+  "address": {
+    "streetAddress": "601 Elmwood Avenue",
+    "locality": "Rochester",
+    "region": "NY",
+    "postalCode": "14642"
+  },
+  "lat": null,
+  "lng": null,
+  "phone": "+1 585 275 5100",
+  "website": "https://www.urmc.rochester.edu/people/112362492-michael-j-nabozny",
+  "sameAs": [],
+  "hours": null,
+  "summary": "Michael J. Nabozny, MD is a surgeon in Rochester, NY practicing general surgery. Michael J. Nabozny is affiliated with Strong Memorial Hospital.",
+  "attributes": {
+    "specialties": [
+      "general-surgery"
+    ],
+    "degree": "MD",
+    "boardCertifications": [
+      "Surgery (General Surgery) - American Board of Surgery",
+      "Surgical Critical Care - American Board of Surgery"
+    ],
+    "hospitalAffiliations": [
+      "Strong Memorial Hospital"
+    ],
+    "acceptingNewPatients": true,
+    "acceptsMedicare": null,
+    "acceptsMedicaid": null,
+    "virtualConsultations": null,
+    "wheelchairAccessible": null,
+    "languages": [],
+    "npi": null
+  },
+  "lastUpdated": "2026-10-02",
+  "source": "Hospital profile page https://www.urmc.rochester.edu/people/112362492-michael-j-nabozny (retrieved 2026-10-02)",
+  "description": null,
+  "bookingUrl": null
+}

@@ -1,0 +1,46 @@
+{
+  "name": "John G. Golfinos, MD",
+  "slug": "john-g-golfinos",
+  "status": "published",
+  "tier": "basic",
+  "verifiedUntil": null,
+  "demo": false,
+  "address": {
+    "streetAddress": "530 1st Avenue, Silverstein Suite 8R",
+    "locality": "New York",
+    "region": "NY",
+    "postalCode": "10016"
+  },
+  "lat": null,
+  "lng": null,
+  "phone": "+1 212 263 2950",
+  "website": "https://nyulangone.org/doctors/1356355119/john-g-golfinos",
+  "sameAs": [],
+  "hours": null,
+  "summary": "John G. Golfinos, MD is a surgeon in New York, NY practicing neurosurgery.",
+  "attributes": {
+    "specialties": [
+      "neurosurgery"
+    ],
+    "degree": "MD",
+    "boardCertifications": [
+      "American Board of Neurological Surgery - Neurological Surgery"
+    ],
+    "hospitalAffiliations": [],
+    "acceptingNewPatients": null,
+    "acceptsMedicare": null,
+    "acceptsMedicaid": null,
+    "virtualConsultations": null,
+    "wheelchairAccessible": null,
+    "languages": [
+      "English",
+      "French",
+      "Greek"
+    ],
+    "npi": null
+  },
+  "lastUpdated": "2026-10-02",
+  "source": "Hospital profile page https://nyulangone.org/doctors/1356355119/john-g-golfinos (retrieved 2026-10-02)",
+  "description": null,
+  "bookingUrl": null
+}

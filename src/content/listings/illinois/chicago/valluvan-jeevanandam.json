@@ -1,0 +1,47 @@
+{
+  "name": "Valluvan Jeevanandam, MD",
+  "slug": "valluvan-jeevanandam",
+  "status": "published",
+  "tier": "basic",
+  "verifiedUntil": null,
+  "demo": false,
+  "address": {
+    "streetAddress": "5758 S. Maryland Ave.",
+    "locality": "Chicago",
+    "region": "IL",
+    "postalCode": "60637"
+  },
+  "lat": null,
+  "lng": null,
+  "phone": "+1 773 702 2500",
+  "website": "https://www.uchicagomedicine.org/find-a-physician/physician/valluvan-jeevanandam",
+  "sameAs": [],
+  "hours": null,
+  "summary": "Valluvan Jeevanandam, MD is a surgeon in Chicago, IL practicing cardiothoracic surgery. Valluvan Jeevanandam is affiliated with UChicago Medicine.",
+  "attributes": {
+    "specialties": [
+      "cardiothoracic-surgery"
+    ],
+    "degree": "MD",
+    "boardCertifications": [
+      "Thoracic Surgery"
+    ],
+    "hospitalAffiliations": [
+      "UChicago Medicine"
+    ],
+    "acceptingNewPatients": null,
+    "acceptsMedicare": null,
+    "acceptsMedicaid": null,
+    "virtualConsultations": null,
+    "wheelchairAccessible": null,
+    "languages": [
+      "English",
+      "Tamil"
+    ],
+    "npi": null
+  },
+  "lastUpdated": "2026-10-02",
+  "source": "Hospital profile page https://www.uchicagomedicine.org/find-a-physician/physician/valluvan-jeevanandam (retrieved 2026-10-02)",
+  "description": null,
+  "bookingUrl": null
+}

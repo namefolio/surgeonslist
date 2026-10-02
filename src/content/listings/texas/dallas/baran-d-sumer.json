@@ -1,0 +1,43 @@
+{
+  "name": "Baran D. Sumer, MD",
+  "slug": "baran-d-sumer",
+  "status": "published",
+  "tier": "basic",
+  "verifiedUntil": null,
+  "demo": false,
+  "address": {
+    "streetAddress": "2001 Inwood Road, 6th and 7th Floor",
+    "locality": "Dallas",
+    "region": "TX",
+    "postalCode": "75235"
+  },
+  "lat": null,
+  "lng": null,
+  "phone": "+1 214 645 8898",
+  "website": "https://utswmed.org/doctors/baran-sumer/",
+  "sameAs": [],
+  "hours": null,
+  "summary": "Baran D. Sumer, MD is a surgeon in Dallas, TX practicing ear, nose and throat surgery and surgical oncology. Baran D. Sumer is affiliated with UT Southwestern Medical Center.",
+  "attributes": {
+    "specialties": [
+      "otolaryngology",
+      "surgical-oncology"
+    ],
+    "degree": "MD",
+    "boardCertifications": [],
+    "hospitalAffiliations": [
+      "UT Southwestern Medical Center"
+    ],
+    "acceptingNewPatients": null,
+    "acceptsMedicare": null,
+    "acceptsMedicaid": null,
+    "virtualConsultations": true,
+    "wheelchairAccessible": null,
+    "languages": [],
+    "npi": null
+  },
+  "lastUpdated": "2026-10-02",
+  "source": "Hospital profile page https://utswmed.org/doctors/baran-sumer/ (retrieved 2026-10-02)",
+  "description": null,
+  "bookingUrl": null
+}

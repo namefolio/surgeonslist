@@ -1,0 +1,44 @@
+{
+  "name": "Paul David Danielson, MD",
+  "slug": "paul-david-danielson",
+  "status": "published",
+  "tier": "basic",
+  "verifiedUntil": null,
+  "demo": false,
+  "address": {
+    "streetAddress": "601 5th Street South",
+    "locality": "St. Petersburg",
+    "region": "FL",
+    "postalCode": "33701"
+  },
+  "lat": null,
+  "lng": null,
+  "phone": "+1 813 910 5290",
+  "website": "https://www.getcare.tgh.org/providers/paul-danielson-1679555098",
+  "sameAs": [],
+  "hours": null,
+  "summary": "Paul David Danielson, MD is a surgeon in St. Petersburg, FL practicing pediatric surgery. Paul David Danielson is affiliated with Johns Hopkins All Children's Hospital.",
+  "attributes": {
+    "specialties": [
+      "pediatric-surgery"
+    ],
+    "degree": "MD",
+    "boardCertifications": [],
+    "hospitalAffiliations": [
+      "Johns Hopkins All Children's Hospital"
+    ],
+    "acceptingNewPatients": true,
+    "acceptsMedicare": null,
+    "acceptsMedicaid": null,
+    "virtualConsultations": null,
+    "wheelchairAccessible": null,
+    "languages": [
+      "English"
+    ],
+    "npi": "1679555098"
+  },
+  "lastUpdated": "2026-10-02",
+  "source": "Hospital profile page https://www.getcare.tgh.org/providers/paul-danielson-1679555098 (retrieved 2026-10-02)",
+  "description": null,
+  "bookingUrl": null
+}

@@ -1,0 +1,46 @@
+{
+  "name": "J B Joo, MD",
+  "slug": "j-b-joo",
+  "status": "published",
+  "tier": "basic",
+  "verifiedUntil": null,
+  "demo": false,
+  "address": {
+    "streetAddress": "2040 Ogden Ave, Suite 115",
+    "locality": "Aurora",
+    "region": "IL",
+    "postalCode": "60504"
+  },
+  "lat": null,
+  "lng": null,
+  "phone": "+1 630 585 0200",
+  "website": "https://doctors.rush.edu/details/18455",
+  "sameAs": [],
+  "hours": null,
+  "summary": "J B Joo, MD is a surgeon in Aurora, IL practicing colon and rectal surgery and general surgery.",
+  "attributes": {
+    "specialties": [
+      "colorectal-surgery",
+      "general-surgery"
+    ],
+    "degree": "MD",
+    "boardCertifications": [
+      "Colon and Rectal Surgery",
+      "Surgery"
+    ],
+    "hospitalAffiliations": [],
+    "acceptingNewPatients": null,
+    "acceptsMedicare": null,
+    "acceptsMedicaid": null,
+    "virtualConsultations": null,
+    "wheelchairAccessible": null,
+    "languages": [
+      "English"
+    ],
+    "npi": null
+  },
+  "lastUpdated": "2026-10-02",
+  "source": "Hospital profile page https://doctors.rush.edu/details/18455 (retrieved 2026-10-02)",
+  "description": null,
+  "bookingUrl": null
+}

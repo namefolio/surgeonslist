@@ -1,0 +1,51 @@
+{
+  "name": "Adewunmi O. Adeyemo, MD",
+  "slug": "adewunmi-o-adeyemo",
+  "status": "published",
+  "tier": "basic",
+  "verifiedUntil": null,
+  "demo": false,
+  "address": {
+    "streetAddress": "3106 South Wayne Road",
+    "locality": "Wayne",
+    "region": "MI",
+    "postalCode": "48184"
+  },
+  "lat": null,
+  "lng": null,
+  "phone": "+1 734 722 6300",
+  "website": "https://providers.corewellhealth.org/provider/adewunmi-o-adeyemo/3186610",
+  "sameAs": [],
+  "hours": null,
+  "summary": "Adewunmi O. Adeyemo, MD is a surgeon in Wayne, MI practicing colon and rectal surgery. Adewunmi O. Adeyemo is affiliated with Corewell Health Wayne Hospital, Corewell Health Dearborn Hospital, Corewell Health Trenton Hospital and Corewell Health William Beaumont University Hospital.",
+  "attributes": {
+    "specialties": [
+      "colorectal-surgery"
+    ],
+    "degree": "MD",
+    "boardCertifications": [
+      "Colon and Rectal Surgery: American Board of Colon and Rectal Surgery",
+      "Surgery: American Board of Surgery"
+    ],
+    "hospitalAffiliations": [
+      "Corewell Health Wayne Hospital",
+      "Corewell Health Dearborn Hospital",
+      "Corewell Health Trenton Hospital",
+      "Corewell Health William Beaumont University Hospital"
+    ],
+    "acceptingNewPatients": true,
+    "acceptsMedicare": null,
+    "acceptsMedicaid": null,
+    "virtualConsultations": null,
+    "wheelchairAccessible": null,
+    "languages": [
+      "English",
+      "Yoruba"
+    ],
+    "npi": null
+  },
+  "lastUpdated": "2026-10-02",
+  "source": "Hospital profile page https://providers.corewellhealth.org/provider/adewunmi-o-adeyemo/3186610 (retrieved 2026-10-02)",
+  "description": null,
+  "bookingUrl": null
+}

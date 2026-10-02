@@ -1,0 +1,42 @@
+{
+  "name": "Andrew J. Tsung, MD",
+  "slug": "andrew-j-tsung",
+  "status": "published",
+  "tier": "basic",
+  "verifiedUntil": null,
+  "demo": false,
+  "address": {
+    "streetAddress": null,
+    "locality": "Peoria",
+    "region": "IL",
+    "postalCode": null
+  },
+  "lat": null,
+  "lng": null,
+  "phone": null,
+  "website": "https://www.osfhealthcare.org/providers/andrew-tsung-1463976",
+  "sameAs": [],
+  "hours": null,
+  "summary": "Andrew J. Tsung, MD is a surgeon in Peoria, IL practicing neurosurgery. Andrew J. Tsung is affiliated with OSF Illinois Neurological Institute.",
+  "attributes": {
+    "specialties": [
+      "neurosurgery"
+    ],
+    "degree": "MD",
+    "boardCertifications": [],
+    "hospitalAffiliations": [
+      "OSF Illinois Neurological Institute"
+    ],
+    "acceptingNewPatients": null,
+    "acceptsMedicare": null,
+    "acceptsMedicaid": null,
+    "virtualConsultations": null,
+    "wheelchairAccessible": null,
+    "languages": [],
+    "npi": null
+  },
+  "lastUpdated": "2026-10-02",
+  "source": "Hospital profile page https://www.osfhealthcare.org/providers/andrew-tsung-1463976 (retrieved 2026-10-02)",
+  "description": null,
+  "bookingUrl": null
+}

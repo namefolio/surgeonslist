@@ -1,0 +1,47 @@
+{
+  "name": "Patrick Warren Owens, MD",
+  "slug": "patrick-warren-owens",
+  "status": "published",
+  "tier": "basic",
+  "verifiedUntil": null,
+  "demo": false,
+  "address": {
+    "streetAddress": "5555 Ponce De Leon Boulevard, Floor 3",
+    "locality": "Coral Gables",
+    "region": "FL",
+    "postalCode": "33146"
+  },
+  "lat": null,
+  "lng": null,
+  "phone": "+1 305 243 3000",
+  "website": "https://doctors.umiamihealth.org/provider/patrick-warren-owens/526125",
+  "sameAs": [],
+  "hours": null,
+  "summary": "Patrick Warren Owens, MD is a surgeon in Coral Gables, FL practicing orthopedic surgery and hand surgery.",
+  "attributes": {
+    "specialties": [
+      "orthopedic-surgery",
+      "hand-surgery"
+    ],
+    "degree": "MD",
+    "boardCertifications": [
+      "Orthopaedic Surgery: American Board of Orthopaedic Surgery",
+      "Surgery of the Hand: American Board of Orthopaedic Surgery"
+    ],
+    "hospitalAffiliations": [],
+    "acceptingNewPatients": true,
+    "acceptsMedicare": null,
+    "acceptsMedicaid": null,
+    "virtualConsultations": true,
+    "wheelchairAccessible": null,
+    "languages": [
+      "English",
+      "Spanish"
+    ],
+    "npi": null
+  },
+  "lastUpdated": "2026-10-02",
+  "source": "Hospital profile page https://doctors.umiamihealth.org/provider/patrick-warren-owens/526125 (retrieved 2026-10-02)",
+  "description": null,
+  "bookingUrl": null
+}

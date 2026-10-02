@@ -1,0 +1,45 @@
+{
+  "name": "Courtenay Moore, MD",
+  "slug": "courtenay-moore",
+  "status": "published",
+  "tier": "basic",
+  "verifiedUntil": null,
+  "demo": false,
+  "address": {
+    "streetAddress": "6100 North Hamilton Road, 2nd Floor, Suite 2A",
+    "locality": "Westerville",
+    "region": "OH",
+    "postalCode": "43081"
+  },
+  "lat": null,
+  "lng": null,
+  "phone": "+1 614 293 8155",
+  "website": "https://wexnermedical.osu.edu/find-a-doctor/courtenay-moore-100000384",
+  "sameAs": [],
+  "hours": null,
+  "summary": "Courtenay Moore, MD is a surgeon in Westerville, OH practicing urologic surgery. Courtenay Moore is affiliated with The Ohio State University Wexner Medical Center.",
+  "attributes": {
+    "specialties": [
+      "urology"
+    ],
+    "degree": "MD",
+    "boardCertifications": [
+      "American Board of Urology",
+      "American Board of Urology - Urogynecology and Reconstructive Pelvic Surgery"
+    ],
+    "hospitalAffiliations": [
+      "The Ohio State University Wexner Medical Center"
+    ],
+    "acceptingNewPatients": true,
+    "acceptsMedicare": null,
+    "acceptsMedicaid": null,
+    "virtualConsultations": null,
+    "wheelchairAccessible": null,
+    "languages": [],
+    "npi": null
+  },
+  "lastUpdated": "2026-10-02",
+  "source": "Hospital profile page https://wexnermedical.osu.edu/find-a-doctor/courtenay-moore-100000384 (retrieved 2026-10-02)",
+  "description": null,
+  "bookingUrl": null
+}

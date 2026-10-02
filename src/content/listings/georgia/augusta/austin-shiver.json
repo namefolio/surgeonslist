@@ -1,0 +1,47 @@
+{
+  "name": "Austin Shiver, MD",
+  "slug": "austin-shiver",
+  "status": "published",
+  "tier": "basic",
+  "verifiedUntil": null,
+  "demo": false,
+  "address": {
+    "streetAddress": "1220 West Wheeler Parkway, Suite B",
+    "locality": "Augusta",
+    "region": "GA",
+    "postalCode": "30909"
+  },
+  "lat": null,
+  "lng": null,
+  "phone": "+1 706 721 2741",
+  "website": "https://www.wellstar.org/physicians/austin-shiver-md",
+  "sameAs": [],
+  "hours": null,
+  "summary": "Austin Shiver, MD is a surgeon in Augusta, GA practicing orthopedic surgery and hand surgery. Austin Shiver is affiliated with Wellstar MCG Health Medical Center.",
+  "attributes": {
+    "specialties": [
+      "orthopedic-surgery",
+      "hand-surgery"
+    ],
+    "degree": "MD",
+    "boardCertifications": [
+      "American Board of Orthopaedic Surgery"
+    ],
+    "hospitalAffiliations": [
+      "Wellstar MCG Health Medical Center"
+    ],
+    "acceptingNewPatients": null,
+    "acceptsMedicare": null,
+    "acceptsMedicaid": null,
+    "virtualConsultations": null,
+    "wheelchairAccessible": null,
+    "languages": [
+      "English"
+    ],
+    "npi": null
+  },
+  "lastUpdated": "2026-10-02",
+  "source": "https://www.wellstar.org/physicians/austin-shiver-md and practice location page on wellstar.org (retrieved 2026-10-02)",
+  "description": null,
+  "bookingUrl": null
+}

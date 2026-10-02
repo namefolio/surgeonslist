@@ -1,0 +1,46 @@
+{
+  "name": "Abigail Beard, MD",
+  "slug": "abigail-beard",
+  "status": "published",
+  "tier": "basic",
+  "verifiedUntil": null,
+  "demo": false,
+  "address": {
+    "streetAddress": "17416 Brookside Trace Court",
+    "locality": "Tampa",
+    "region": "FL",
+    "postalCode": "33647"
+  },
+  "lat": null,
+  "lng": null,
+  "phone": "+1 813 844 4554",
+  "website": "https://www.getcare.tgh.org/providers/abigail-beard-1821355579",
+  "sameAs": [],
+  "hours": null,
+  "summary": "Abigail Beard, MD is a surgeon in Tampa, FL practicing surgical oncology. Abigail Beard is affiliated with Tampa General Hospital.",
+  "attributes": {
+    "specialties": [
+      "surgical-oncology"
+    ],
+    "degree": "MD",
+    "boardCertifications": [
+      "American Board of Surgery - Surgery (General Surgery)"
+    ],
+    "hospitalAffiliations": [
+      "Tampa General Hospital"
+    ],
+    "acceptingNewPatients": true,
+    "acceptsMedicare": null,
+    "acceptsMedicaid": null,
+    "virtualConsultations": null,
+    "wheelchairAccessible": null,
+    "languages": [
+      "English"
+    ],
+    "npi": "1821355579"
+  },
+  "lastUpdated": "2026-10-02",
+  "source": "Hospital profile page https://www.getcare.tgh.org/providers/abigail-beard-1821355579 (retrieved 2026-10-02)",
+  "description": null,
+  "bookingUrl": null
+}

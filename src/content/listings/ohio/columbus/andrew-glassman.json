@@ -1,0 +1,44 @@
+{
+  "name": "Andrew Glassman, MD",
+  "slug": "andrew-glassman",
+  "status": "published",
+  "tier": "basic",
+  "verifiedUntil": null,
+  "demo": false,
+  "address": {
+    "streetAddress": "543 Taylor Ave., 1st Floor",
+    "locality": "Columbus",
+    "region": "OH",
+    "postalCode": "43203"
+  },
+  "lat": null,
+  "lng": null,
+  "phone": "+1 614 293 2663",
+  "website": "https://wexnermedical.osu.edu/find-a-doctor/andrew-glassman-100001808",
+  "sameAs": [],
+  "hours": null,
+  "summary": "Andrew Glassman, MD is a surgeon in Columbus, OH practicing orthopedic surgery. Andrew Glassman is affiliated with The Ohio State University Wexner Medical Center.",
+  "attributes": {
+    "specialties": [
+      "orthopedic-surgery"
+    ],
+    "degree": "MD",
+    "boardCertifications": [
+      "American Board of Orthopaedic Surgery"
+    ],
+    "hospitalAffiliations": [
+      "The Ohio State University Wexner Medical Center"
+    ],
+    "acceptingNewPatients": true,
+    "acceptsMedicare": null,
+    "acceptsMedicaid": null,
+    "virtualConsultations": null,
+    "wheelchairAccessible": null,
+    "languages": [],
+    "npi": null
+  },
+  "lastUpdated": "2026-10-02",
+  "source": "Hospital profile page https://wexnermedical.osu.edu/find-a-doctor/andrew-glassman-100001808 (retrieved 2026-10-02)",
+  "description": null,
+  "bookingUrl": null
+}

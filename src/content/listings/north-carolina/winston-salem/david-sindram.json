@@ -1,0 +1,48 @@
+{
+  "name": "David Sindram, MD",
+  "slug": "david-sindram",
+  "status": "published",
+  "tier": "basic",
+  "verifiedUntil": null,
+  "demo": false,
+  "address": {
+    "streetAddress": "1010 Bethesda Court",
+    "locality": "Winston-Salem",
+    "region": "NC",
+    "postalCode": "27103"
+  },
+  "lat": null,
+  "lng": null,
+  "phone": "+1 336 277 8800",
+  "website": "https://www.novanthealth.org/pf/providers/1568639961/david-sindram",
+  "sameAs": [],
+  "hours": null,
+  "summary": "David Sindram, MD is a surgeon in Winston-Salem, NC practicing surgical oncology and general surgery.",
+  "attributes": {
+    "specialties": [
+      "surgical-oncology",
+      "general-surgery"
+    ],
+    "degree": "MD",
+    "boardCertifications": [
+      "Surgery (General Surgery)"
+    ],
+    "hospitalAffiliations": [],
+    "acceptingNewPatients": true,
+    "acceptsMedicare": null,
+    "acceptsMedicaid": null,
+    "virtualConsultations": null,
+    "wheelchairAccessible": null,
+    "languages": [
+      "English",
+      "Dutch",
+      "French",
+      "German"
+    ],
+    "npi": "1568639961"
+  },
+  "lastUpdated": "2026-10-02",
+  "source": "Hospital profile page https://www.novanthealth.org/pf/providers/1568639961/david-sindram (retrieved 2026-10-02)",
+  "description": null,
+  "bookingUrl": null
+}

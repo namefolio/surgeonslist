@@ -1,0 +1,46 @@
+{
+  "name": "Kern Singh, MD",
+  "slug": "kern-singh",
+  "status": "published",
+  "tier": "basic",
+  "verifiedUntil": null,
+  "demo": false,
+  "address": {
+    "streetAddress": "1611 W Harrison St",
+    "locality": "Chicago",
+    "region": "IL",
+    "postalCode": null
+  },
+  "lat": null,
+  "lng": null,
+  "phone": "+1 877 632 6637",
+  "website": "https://doctors.rush.edu/details/985/kern-singh-orthopaedic_surgery-chicago-oak_brook-westchester",
+  "sameAs": [],
+  "hours": null,
+  "summary": "Kern Singh, MD is a surgeon in Chicago, IL practicing orthopedic surgery. Kern Singh is affiliated with Rush University Medical Center.",
+  "attributes": {
+    "specialties": [
+      "orthopedic-surgery"
+    ],
+    "degree": "MD",
+    "boardCertifications": [
+      "Orthopaedic Surgery"
+    ],
+    "hospitalAffiliations": [
+      "Rush University Medical Center"
+    ],
+    "acceptingNewPatients": null,
+    "acceptsMedicare": null,
+    "acceptsMedicaid": null,
+    "virtualConsultations": null,
+    "wheelchairAccessible": null,
+    "languages": [
+      "English"
+    ],
+    "npi": null
+  },
+  "lastUpdated": "2026-10-02",
+  "source": "Hospital profile page https://doctors.rush.edu/details/985/kern-singh-orthopaedic_surgery-chicago-oak_brook-westchester (retrieved 2026-10-02)",
+  "description": null,
+  "bookingUrl": null
+}

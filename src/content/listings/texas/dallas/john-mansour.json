@@ -1,0 +1,42 @@
+{
+  "name": "John Mansour, MD",
+  "slug": "john-mansour",
+  "status": "published",
+  "tier": "basic",
+  "verifiedUntil": null,
+  "demo": false,
+  "address": {
+    "streetAddress": "6202 Harry Hines Blvd.",
+    "locality": "Dallas",
+    "region": "TX",
+    "postalCode": "75235"
+  },
+  "lat": null,
+  "lng": null,
+  "phone": "+1 214 645 4673",
+  "website": "https://utswmed.org/doctors/john-mansour/",
+  "sameAs": [],
+  "hours": null,
+  "summary": "John Mansour, MD is a surgeon in Dallas, TX practicing surgical oncology. John Mansour is affiliated with UT Southwestern Medical Center.",
+  "attributes": {
+    "specialties": [
+      "surgical-oncology"
+    ],
+    "degree": "MD",
+    "boardCertifications": [],
+    "hospitalAffiliations": [
+      "UT Southwestern Medical Center"
+    ],
+    "acceptingNewPatients": null,
+    "acceptsMedicare": null,
+    "acceptsMedicaid": null,
+    "virtualConsultations": true,
+    "wheelchairAccessible": null,
+    "languages": [],
+    "npi": null
+  },
+  "lastUpdated": "2026-10-02",
+  "source": "Hospital profile page https://utswmed.org/doctors/john-mansour/ (retrieved 2026-10-02)",
+  "description": null,
+  "bookingUrl": null
+}

@@ -1,0 +1,44 @@
+{
+  "name": "Andrew Grossbach, MD",
+  "slug": "andrew-grossbach",
+  "status": "published",
+  "tier": "basic",
+  "verifiedUntil": null,
+  "demo": false,
+  "address": {
+    "streetAddress": "300 W. 10th Ave.",
+    "locality": "Columbus",
+    "region": "OH",
+    "postalCode": "43210"
+  },
+  "lat": null,
+  "lng": null,
+  "phone": "+1 614 293 8714",
+  "website": "https://wexnermedical.osu.edu/find-a-doctor/andrew-grossbach-md-78614",
+  "sameAs": [],
+  "hours": null,
+  "summary": "Andrew Grossbach, MD is a surgeon in Columbus, OH practicing neurosurgery. Andrew Grossbach is affiliated with The Ohio State University Wexner Medical Center.",
+  "attributes": {
+    "specialties": [
+      "neurosurgery"
+    ],
+    "degree": "MD",
+    "boardCertifications": [
+      "American Board of Neurological Surgery"
+    ],
+    "hospitalAffiliations": [
+      "The Ohio State University Wexner Medical Center"
+    ],
+    "acceptingNewPatients": true,
+    "acceptsMedicare": null,
+    "acceptsMedicaid": null,
+    "virtualConsultations": null,
+    "wheelchairAccessible": null,
+    "languages": [],
+    "npi": null
+  },
+  "lastUpdated": "2026-10-02",
+  "source": "Hospital profile page https://wexnermedical.osu.edu/find-a-doctor/andrew-grossbach-md-78614 (retrieved 2026-10-02)",
+  "description": null,
+  "bookingUrl": null
+}

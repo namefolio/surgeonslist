@@ -1,0 +1,45 @@
+{
+  "name": "Himanshu Jagdish Patel, MD",
+  "slug": "himanshu-jagdish-patel",
+  "status": "published",
+  "tier": "basic",
+  "verifiedUntil": null,
+  "demo": false,
+  "address": {
+    "streetAddress": "1425 E Ann St, Floor 3",
+    "locality": "Ann Arbor",
+    "region": "MI",
+    "postalCode": "48109"
+  },
+  "lat": null,
+  "lng": null,
+  "phone": "+1 888 287 1082",
+  "website": "https://www.uofmhealth.org/profile/1629160015/himanshu-jagdish-patel",
+  "sameAs": [],
+  "hours": null,
+  "summary": "Himanshu Jagdish Patel, MD is a surgeon in Ann Arbor, MI practicing cardiothoracic surgery. Himanshu Jagdish Patel is affiliated with University of Michigan Health.",
+  "attributes": {
+    "specialties": [
+      "cardiothoracic-surgery"
+    ],
+    "degree": "MD",
+    "boardCertifications": [
+      "Surgery",
+      "Thoracic and Cardiac Surgery"
+    ],
+    "hospitalAffiliations": [
+      "University of Michigan Health"
+    ],
+    "acceptingNewPatients": null,
+    "acceptsMedicare": null,
+    "acceptsMedicaid": null,
+    "virtualConsultations": null,
+    "wheelchairAccessible": null,
+    "languages": [],
+    "npi": null
+  },
+  "lastUpdated": "2026-10-02",
+  "source": "Hospital profile page https://www.uofmhealth.org/profile/1629160015/himanshu-jagdish-patel (retrieved 2026-10-02)",
+  "description": null,
+  "bookingUrl": null
+}

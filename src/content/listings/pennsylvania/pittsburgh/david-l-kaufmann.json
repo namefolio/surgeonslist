@@ -1,0 +1,48 @@
+{
+  "name": "David L. Kaufmann, MD",
+  "slug": "david-l-kaufmann",
+  "status": "published",
+  "tier": "basic",
+  "verifiedUntil": null,
+  "demo": false,
+  "address": {
+    "streetAddress": "1350 Locust Street, Suite 300",
+    "locality": "Pittsburgh",
+    "region": "PA",
+    "postalCode": "15219"
+  },
+  "lat": null,
+  "lng": null,
+  "phone": "+1 412 471 4772",
+  "website": "https://providers.upmc.com/provider/david-l-kaufmann/1323937",
+  "sameAs": [],
+  "hours": null,
+  "summary": "David L. Kaufmann, MD is a surgeon in Pittsburgh, PA practicing neurosurgery. David L. Kaufmann is affiliated with UPMC Mercy and UPMC Magee-Womens Hospital.",
+  "attributes": {
+    "specialties": [
+      "neurosurgery"
+    ],
+    "degree": "MD",
+    "boardCertifications": [
+      "American Board of Neurological Surgery"
+    ],
+    "hospitalAffiliations": [
+      "UPMC Mercy",
+      "UPMC Magee-Womens Hospital"
+    ],
+    "acceptingNewPatients": true,
+    "acceptsMedicare": null,
+    "acceptsMedicaid": null,
+    "virtualConsultations": null,
+    "wheelchairAccessible": null,
+    "languages": [
+      "English",
+      "Spanish"
+    ],
+    "npi": "1144204223"
+  },
+  "lastUpdated": "2026-10-02",
+  "source": "Hospital profile page https://providers.upmc.com/provider/david-l-kaufmann/1323937 (retrieved 2026-10-02)",
+  "description": null,
+  "bookingUrl": null
+}

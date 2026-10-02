@@ -1,0 +1,42 @@
+{
+  "name": "Paul M. Foreman, MD",
+  "slug": "paul-m-foreman",
+  "status": "published",
+  "tier": "basic",
+  "verifiedUntil": null,
+  "demo": false,
+  "address": {
+    "streetAddress": "76 W. Underwood St., 3rd Floor",
+    "locality": "Orlando",
+    "region": "FL",
+    "postalCode": "32806"
+  },
+  "lat": null,
+  "lng": null,
+  "phone": "+1 321 841 7550",
+  "website": "https://www.orlandohealth.com/physician-finder/paul-m-foreman-md",
+  "sameAs": [],
+  "hours": null,
+  "summary": "Paul M. Foreman, MD is a surgeon in Orlando, FL practicing neurosurgery. Paul M. Foreman is affiliated with Orlando Health Neuroscience Institute.",
+  "attributes": {
+    "specialties": [
+      "neurosurgery"
+    ],
+    "degree": "MD",
+    "boardCertifications": [],
+    "hospitalAffiliations": [
+      "Orlando Health Neuroscience Institute"
+    ],
+    "acceptingNewPatients": null,
+    "acceptsMedicare": null,
+    "acceptsMedicaid": null,
+    "virtualConsultations": null,
+    "wheelchairAccessible": null,
+    "languages": [],
+    "npi": null
+  },
+  "lastUpdated": "2026-10-02",
+  "source": "Hospital profile page https://www.orlandohealth.com/physician-finder/paul-m-foreman-md (retrieved 2026-10-02)",
+  "description": null,
+  "bookingUrl": null
+}
