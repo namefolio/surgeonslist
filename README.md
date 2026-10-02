@@ -26,7 +26,12 @@ npm run preview        # wrangler dev: the real Worker + assets (copy .dev.vars.
 
 ## Deploy
 
-Every push to `main` (and a daily cron, so expired Verified listings return to Basic) runs `.github/workflows/deploy.yml`: check, build, test, `wrangler deploy`. Repo secrets: `CLOUDFLARE_API_TOKEN` (Workers edit), `CLOUDFLARE_ACCOUNT_ID`. Repo variable `INCLUDE_DEMO=1` while there are no real listings. Workers Builds connected to the repo works too (build command `npm run build`, deploy command `npx wrangler deploy`), with a deploy hook on a daily schedule.
+Cloudflare Workers Builds is connected to this repo and deploys every push to `main`:
+- Build command: `npm run build`
+- Deploy command: `npx wrangler deploy`
+- Build variable `INCLUDE_DEMO=1` only while there are no real listings.
+
+`.github/workflows/daily-rebuild.yml` calls a Workers Builds deploy hook once a day (repo secret `DEPLOY_HOOK_URL`) so expired Verified listings return to Basic. `.github/workflows/ci.yml` runs check, build and tests on PRs.
 
 One-time Cloudflare setup:
 1. Add the custom domain to the Worker (Workers > surgeonslist > Settings > Domains & Routes).
