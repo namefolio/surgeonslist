@@ -4,7 +4,7 @@ import { z } from 'zod';
 
 // ---- Placeholders: replace before launch (npm run check warns while any remain) ----
 export const PLACEHOLDER = 'PLACEHOLDER';
-const FOR_SALE_CONTACT = 'mailto:PLACEHOLDER-for-sale@example.com';
+const FOR_SALE_CONTACT = 'https://www.domainmarket.com/buynow/surgeonslist.com';
 const SUBMISSIONS_EMAIL = 'PLACEHOLDER-submissions@example.com';
 const VERIFIED_PRICE = 'PLACEHOLDER price';
 const VERIFIED_PAYMENT_LINK = 'https://example.com/PLACEHOLDER-payment-link';
