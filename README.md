@@ -30,6 +30,7 @@ Cloudflare Workers Builds is connected to this repo and deploys every push to `m
 - Build command: `npm run build` (optional: `wrangler.jsonc` also runs it before every deploy)
 - Deploy command: `npx wrangler deploy`
 - Build variable `INCLUDE_DEMO=1` only while there are no real listings.
+- Branch (preview) builds run `npx wrangler preview`, which needs the `previews` block in `wrangler.jsonc`. It is empty, so Previews have no email binding and their form fails closed.
 
 `.github/workflows/daily-rebuild.yml` calls a Workers Builds deploy hook once a day (repo secret `DEPLOY_HOOK_URL`) so expired Verified listings return to Basic. `.github/workflows/ci.yml` runs check, build and tests on PRs.
 
