@@ -1,0 +1,33 @@
+{
+  "name": "Demo Surgeon 1",
+  "slug": "demo-surgeon-1",
+  "status": "published",
+  "tier": "verified",
+  "verifiedUntil": "2099-12-31",
+  "demo": true,
+  "address": { "streetAddress": "1 Example Street", "locality": "Demo City", "region": "TX", "postalCode": "00001" },
+  "lat": 30.0,
+  "lng": -95.0,
+  "phone": "+1 555 010 0001",
+  "website": "https://example.com/",
+  "sameAs": [],
+  "hours": { "monday": "08:00-17:00", "tuesday": "08:00-17:00", "wednesday": "08:00-17:00", "thursday": "08:00-17:00", "friday": "08:00-12:00", "saturday": "closed", "sunday": "closed" },
+  "summary": "Demo Surgeon 1 is a fictional general surgery listing used to preview the site. It is not a real practice.",
+  "attributes": {
+    "specialties": ["general-surgery", "bariatric-surgery"],
+    "degree": "MD",
+    "boardCertifications": ["Example Board of Surgery (demo)"],
+    "hospitalAffiliations": ["Demo General Hospital"],
+    "acceptingNewPatients": true,
+    "acceptsMedicare": true,
+    "acceptsMedicaid": false,
+    "virtualConsultations": true,
+    "wheelchairAccessible": true,
+    "languages": ["English", "Spanish"],
+    "npi": null
+  },
+  "lastUpdated": "2026-10-02",
+  "source": "demo data (not real)",
+  "description": "Demo owner description. This text shows where a Verified listing's own description appears. It is placeholder copy for a fictional surgeon.",
+  "bookingUrl": "https://example.com/book"
+}

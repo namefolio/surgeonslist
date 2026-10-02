@@ -1,0 +1,21 @@
+{
+  "name": "Demo Surgeon 2",
+  "slug": "demo-surgeon-2",
+  "demo": true,
+  "address": { "streetAddress": "2 Example Street", "locality": "Demo City", "region": "TX", "postalCode": "00002" },
+  "lat": 30.01,
+  "lng": -95.02,
+  "phone": "+1 555 010 0002",
+  "website": null,
+  "hours": { "monday": "09:00-17:00", "tuesday": "09:00-17:00", "wednesday": null, "thursday": "09:00-17:00", "friday": "09:00-17:00", "saturday": "09:00-12:00", "sunday": "closed" },
+  "summary": "Demo Surgeon 2 is a fictional general surgery listing used to preview the site. It is not a real practice.",
+  "attributes": {
+    "specialties": ["general-surgery"],
+    "degree": "DO",
+    "acceptingNewPatients": true,
+    "acceptsMedicare": true,
+    "acceptsMedicaid": true
+  },
+  "lastUpdated": "2026-10-02",
+  "source": "demo data (not real)"
+}

@@ -1,0 +1,14 @@
+{
+  "name": "Demo Surgeon 3",
+  "slug": "demo-surgeon-3",
+  "demo": true,
+  "address": { "streetAddress": null, "locality": "Demo City", "region": "TX", "postalCode": null },
+  "lat": 30.02,
+  "lng": -94.98,
+  "phone": null,
+  "website": null,
+  "summary": "Demo Surgeon 3 is a fictional general surgery listing with few details, used to preview the site.",
+  "attributes": { "specialties": ["general-surgery"] },
+  "lastUpdated": "2026-09-15",
+  "source": "demo data (not real)"
+}

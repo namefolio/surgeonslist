@@ -1,0 +1,15 @@
+---
+import Base from '../../../layouts/Base.astro';
+import { site } from '../../../../site.config';
+import { tierCopy, paymentHref } from '../../../lib/tiers';
+// The Worker adds the business name to the payment link as a reference (?ref=).
+---
+<Base title="Thanks: next, pay for Verified" description="Your Verified listing request was sent." path="/add-your-business/thanks-verified/" noindex markdown={false}>
+  <h1>Thanks: next, pay for Verified</h1>
+  <div class="prose">
+    <p>We have your details and will add or update the listing as Basic now. Verified costs <strong>{site.tiers.price}</strong>.</p>
+    <p>After payment, {site.tiers.credentialCheck}, and we contact the owner to confirm they run the business. The Verified label appears only after both checks. If a check fails, we refund you and the listing stays Basic.</p>
+  </div>
+  <div class="actions"><a id="pay" class="button primary" href={paymentHref()}>{tierCopy.payLabel}</a></div>
+  <p><a href="/listing-plans/">Read about listing plans</a></p>
+</Base>

@@ -1,0 +1,20 @@
+---
+import Base from '../layouts/Base.astro';
+import Crumbs from '../components/Crumbs.astro';
+import { site } from '../../site.config';
+import { breadcrumbLd } from '../lib/seo';
+const crumbs = [{ name: 'Home', path: '/' }, { name: 'Privacy', path: '/privacy/' }];
+---
+<Base title="Privacy" description={`How ${site.name} handles data: no cookies, no analytics, and form submissions sent by email only.`} path="/privacy/" jsonld={[breadcrumbLd(crumbs)]}>
+  <Crumbs items={crumbs} />
+  <h1>Privacy</h1>
+  <div class="prose">
+    <p>{site.name} sets no cookies and runs no analytics or advertising scripts.</p>
+    <h2>The listing form</h2>
+    <p>When you send the form, your details are emailed to us and not stored in a database. The form uses Cloudflare Turnstile to block spam, which may process technical data about your browser; see Cloudflare's privacy policy. We use your name and email only to handle that listing, and never publish them.</p>
+    <h2>Hosting</h2>
+    <p>The site is hosted on Cloudflare, which processes standard request data (such as IP address) to serve and protect it.</p>
+    <h2>Contact</h2>
+    <p>Email <a href={`mailto:${site.submissionsEmail}`}>{site.submissionsEmail}</a> to ask about, correct or remove information.</p>
+  </div>
+</Base>

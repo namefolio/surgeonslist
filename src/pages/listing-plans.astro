@@ -1,0 +1,61 @@
+---
+import Base from '../layouts/Base.astro';
+import Crumbs from '../components/Crumbs.astro';
+import Faq from '../components/Faq.astro';
+import { site, isMailto } from '../../site.config';
+import { breadcrumbLd, faqLd } from '../lib/seo';
+import { plansFaqs, tierCopy, paymentHref } from '../lib/tiers';
+
+const e = site.entity;
+const t = site.tiers;
+const crumbs = [{ name: 'Home', path: '/' }, { name: 'Listing plans', path: '/listing-plans/' }];
+const faqs = plansFaqs();
+const h1 = `List your ${e.one}: Basic or Verified`;
+const mail = isMailto(t.paymentLink) ? t.paymentLink.replace(/^mailto:/, '').split('?')[0] : null;
+---
+<Base title={h1} description={`Every ${e.one} can have a free Basic listing. Verified (${t.price}) adds a ${t.credential} check, the Verified label and a place above Basic listings.`} path="/listing-plans/" jsonld={[breadcrumbLd(crumbs), faqLd(faqs)]}>
+  <Crumbs items={crumbs} />
+  <h1>{h1}</h1>
+  <p class="lede muted">Every {e.one} can have a free Basic listing. Verified is paid: {t.credentialCheck}, then we confirm the details, label the listing Verified and show it first in its city and {site.taxonomy.label.toLowerCase()} lists. Verified is never a rating, and payment never changes the facts we publish.</p>
+
+  <div class="plans">
+    <section class="plan">
+      <h2>Basic</h2>
+      <p class="price">Free</p>
+      <ul>
+        <li>Name, address, phone, website and hours</li>
+        <li>{(([first, ...rest]) => [first, ...rest.map((x) => x.toLowerCase())].join(', '))(site.facts.slice(0, 4).map((f) => f.label))} and more</li>
+        <li>Listed on city, {site.regionWord} and {site.taxonomy.label.toLowerCase()} pages</li>
+        <li>Update it any time with the form</li>
+      </ul>
+    </section>
+    <section class="plan is-verified">
+      <h2>Verified</h2>
+      <p class="price">{t.price}</p>
+      <ul>
+        <li>Everything in Basic</li>
+        <li>A check of the {t.credential}, plus owner confirmation</li>
+        <li>The Verified label everywhere the listing appears</li>
+        <li>Shown first, above Basic listings</li>
+        <li>Rechecked at each renewal</li>
+      </ul>
+    </section>
+  </div>
+
+  <section class="prose">
+    <h2>How to get a Verified listing</h2>
+    <ol>
+      <li>Send your details with the <a href="/add-your-business/?tier=verified">listing form</a> and choose "Verified", or use "{tierCopy.basicCta}" on your listing.</li>
+      <li>Pay {t.price}{mail ? <>: email {mail} and we'll send an invoice.</> : <> with the payment link.</>}</li>
+      <li>{t.credentialCheck[0]!.toUpperCase() + t.credentialCheck.slice(1)}, and confirm the details with you. If the check fails we refund you and the listing stays Basic.</li>
+      <li>The listing gets the Verified label and moves above Basic listings. We recheck it at renewal, and it returns to Basic if not renewed.</li>
+    </ol>
+  </section>
+
+  <div class="actions">
+    <a class="button primary" href="/add-your-business/?tier=verified">Send your {e.one}'s details</a>
+    <a class="button secondary" href={paymentHref()}>{tierCopy.payLabel}</a>
+  </div>
+
+  <Faq faqs={faqs} />
+</Base>

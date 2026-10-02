@@ -1,0 +1,11 @@
+---
+import ListingCard from './ListingCard.astro';
+import Disclosure from './Disclosure.astro';
+import type { Listing } from '../lib/model';
+interface Props { listings: Listing[] }
+const { listings } = Astro.props;
+---
+<Disclosure />
+<ul class="cards">
+  {listings.map((l) => <ListingCard listing={l} />)}
+</ul>
