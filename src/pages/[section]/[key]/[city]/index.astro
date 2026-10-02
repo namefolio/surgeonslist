@@ -4,6 +4,8 @@ import Crumbs from '../../../../components/Crumbs.astro';
 import ListingList from '../../../../components/ListingList.astro';
 import BestFor from '../../../../components/BestFor.astro';
 import Faq from '../../../../components/Faq.astro';
+import Tiles from '../../../../components/Tiles.astro';
+import Icon from '../../../../components/Icon.astro';
 import { site } from '../../../../../site.config';
 import { getModel, placeIntro } from '../../../../lib/data';
 import { MIN_INDEXABLE, type City, type Region } from '../../../../lib/model';
@@ -36,22 +38,25 @@ const faqs = [...site.copy.placeFaqs, tierCopy.orderingFaq];
 ---
 <Base title={site.copy.cityTitle(city.name, region.code, n)} description={site.copy.placeDescription(place, n, specs)} path={city.url} noindex={n < MIN_INDEXABLE} jsonld={[breadcrumbLd(crumbs), itemListLd(h1, listings), faqLd(faqs)]}>
   <Crumbs items={crumbs} />
-  <h1>{h1}</h1>
-  <p class="lede">{intro}</p>
+  <header class="page-head">
+    <span class="eyebrow">{region.name}</span>
+    <h1>{h1}</h1>
+    <p class="lede">{intro}</p>
+  </header>
 
-  <section>
-    <h2>All {n} listed</h2>
-    <ListingList listings={listings} />
-  </section>
+  <ListingList listings={listings} heading={`All ${n} listed`} />
 
   <BestFor listings={listings} place={city.name} />
 
   {nearby.length > 0 && (
-    <section>
-      <h2>Nearby cities</h2>
-      <ul class="tiles">{nearby.map((c) => <li><a href={c.url}>{c.name} <span class="count">{c.listings.length}</span></a></li>)}</ul>
+    <section class="section" aria-labelledby="nearby-h">
+      <div class="section-head">
+        <h2 id="nearby-h">Nearby cities</h2>
+        <a href={region.url}>All {site.entity.many} in {region.name}<Icon name="arrow" class="icon icon-sm" /></a>
+      </div>
+      <Tiles compact items={nearby.map((c) => ({ href: c.url, label: c.name, count: c.listings.length }))} />
     </section>
   )}
-  <p><a href={region.url}>All {site.entity.many} in {region.name}</a></p>
+  {nearby.length === 0 && <p><a href={region.url}>All {site.entity.many} in {region.name}</a></p>}
   <Faq faqs={faqs} />
 </Base>

@@ -4,6 +4,7 @@ import Crumbs from '../../../components/Crumbs.astro';
 import ListingList from '../../../components/ListingList.astro';
 import BestFor from '../../../components/BestFor.astro';
 import Faq from '../../../components/Faq.astro';
+import Tiles from '../../../components/Tiles.astro';
 import { site } from '../../../../site.config';
 import { getModel } from '../../../lib/data';
 import { MIN_INDEXABLE, type Region, type Term } from '../../../lib/model';
@@ -46,26 +47,26 @@ const termRegions = term ? model.regions.filter((r) => listings.some((l) => l.re
 ---
 <Base title={title} description={description} path={path} noindex={n < MIN_INDEXABLE} jsonld={[breadcrumbLd(crumbs), itemListLd(h1, listings), faqLd(faqs)]}>
   <Crumbs items={crumbs} />
-  <h1>{h1}</h1>
-  <p class="lede">{intro}</p>
+  <header class="page-head">
+    <span class="eyebrow">{region ? `${site.regionWord[0]!.toUpperCase()}${site.regionWord.slice(1)}` : site.taxonomy.label}</span>
+    <h1>{h1}</h1>
+    <p class="lede">{intro}</p>
+  </header>
 
-  {region && (
-    <section>
-      <h2>Cities in {region.name}</h2>
-      <ul class="tiles">{region.cities.map((c) => <li><a href={c.url}>{c.name} <span class="count">{c.listings.length}</span></a></li>)}</ul>
+  {region && region.cities.length > 0 && (
+    <section aria-labelledby="cities-h">
+      <h2 id="cities-h" class="eyebrow">Cities in {region.name}</h2>
+      <Tiles compact items={region.cities.map((c) => ({ href: c.url, label: c.name, count: c.listings.length }))} />
     </section>
   )}
-  {term && (
-    <section>
-      <h2>{term.plural} by {site.regionWord}</h2>
-      <ul class="tiles">{termRegions.map((r) => <li><a href={r.url}>{r.name} <span class="count">{listings.filter((l) => l.regionSlug === r.slug).length}</span></a></li>)}</ul>
+  {term && termRegions.length > 0 && (
+    <section aria-labelledby="regions-h">
+      <h2 id="regions-h" class="eyebrow">{term.plural} by {site.regionWord}</h2>
+      <Tiles compact items={termRegions.map((r) => ({ href: r.url, label: r.name, count: listings.filter((l) => l.regionSlug === r.slug).length }))} />
     </section>
   )}
 
-  <section>
-    <h2>All {n} listed</h2>
-    <ListingList listings={listings} />
-  </section>
+  <ListingList listings={listings} heading={`All ${n} listed`} cityFilter={region ? region.cities.map((c) => ({ slug: c.slug, name: c.name })) : []} />
 
   <BestFor listings={listings} place={region ? region.name : 'this list'} />
   <Faq faqs={faqs} />

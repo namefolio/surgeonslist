@@ -1,6 +1,8 @@
 ---
 import Base from '../../layouts/Base.astro';
 import Crumbs from '../../components/Crumbs.astro';
+import Tiles from '../../components/Tiles.astro';
+import SearchForm from '../../components/SearchForm.astro';
 import { site } from '../../../site.config';
 import { getModel } from '../../lib/data';
 import { breadcrumbLd } from '../../lib/seo';
@@ -25,15 +27,33 @@ const description = kind === 'hub'
 ---
 <Base title={title} description={description} path={path} noindex={m.published.length < 3} jsonld={[breadcrumbLd(crumbs)]}>
   <Crumbs items={crumbs} />
-  <h1>{title}</h1>
+  <header class="page-head">
+    <h1>{name}</h1>
+    <p class="lede">{kind === 'hub'
+      ? `${m.published.length} ${site.entity.many} listed in ${m.regions.length} ${site.regionWord}${m.regions.length === 1 ? '' : 's'}. Choose a ${site.regionWord}, then a city.`
+      : `${m.published.length} ${site.entity.many} listed. Choose a ${site.taxonomy.label.toLowerCase()} to see every listing for it.`}</p>
+  </header>
   {kind === 'hub' ? (
-    m.regions.length ? m.regions.map((r) => (
-      <section>
-        <h2><a href={r.url}>{r.name}</a> <span class="muted small">({r.listings.length})</span></h2>
-        <ul class="cols">{r.cities.map((c) => <li><a href={c.url}>{c.name}</a> <span class="muted small">({c.listings.length})</span></li>)}</ul>
-      </section>
-    )) : <p>No listings are published yet.</p>
+    m.regions.length ? (
+      <div class="region-list">
+        {m.regions.map((r) => (
+          <section class="section" aria-labelledby={`r-${r.slug}`}>
+            <div class="section-head">
+              <h2 id={`r-${r.slug}`}><a href={r.url}>{r.name}</a></h2>
+              <span class="muted small">{r.listings.length} listed in {r.cities.length} {r.cities.length === 1 ? 'city' : 'cities'}</span>
+            </div>
+            <Tiles compact items={r.cities.map((c) => ({ href: c.url, label: c.name, count: c.listings.length }))} />
+          </section>
+        ))}
+      </div>
+    ) : (
+      <div class="state"><h2>No listings are published yet</h2><p>Know {site.entity.a} who should be listed?</p><div class="actions"><a class="button primary" href="/add-your-business/">Add a listing</a></div></div>
+    )
   ) : (
-    <ul class="tiles">{m.terms.map((t) => <li><a href={t.url}>{t.plural} <span class="count">{t.listings.length}</span></a></li>)}</ul>
+    <Tiles items={m.terms.map((t) => ({ href: t.url, label: t.plural, count: t.listings.length }))} />
   )}
+  <section class="section panel panel-tint" aria-labelledby="search-h">
+    <h2 id="search-h">Looking for someone specific?</h2>
+    <SearchForm id="sec" selects={false} />
+  </section>
 </Base>

@@ -5,8 +5,11 @@ import { tierCopy, paymentHref } from '../../../lib/tiers';
 // The Worker adds the business name to the payment link as a reference (?ref=).
 ---
 <Base title="Thanks: next, pay for Verified" description="Your Verified listing request was sent." path="/add-your-business/thanks-verified/" noindex markdown={false}>
-  <h1>Thanks: next, pay for Verified</h1>
-  <div class="prose">
+  <header class="page-head">
+    <span class="eyebrow">Step 2 of 2</span>
+    <h1>Thanks: next, pay for Verified</h1>
+  </header>
+  <div class="prose panel">
     <p>We have your details and will add or update the listing as Basic now. Verified costs <strong>{site.tiers.price}</strong>.</p>
     <p>After payment, {site.tiers.credentialCheck}, and we contact the owner to confirm they run the business. The Verified label appears only after both checks. If a check fails, we refund you and the listing stays Basic.</p>
   </div>

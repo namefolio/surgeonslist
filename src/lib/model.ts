@@ -1,7 +1,9 @@
 // Pure data model: listing files in, everything the pages need out. No Astro imports,
 // so astro.config.ts (sitemap filter), scripts and tests can use it too.
-import { site } from '../../site.config';
+import { site, attributesSchema } from '../../site.config';
 import { DAYS, type ListingData } from './schema';
+import { initials, type CardView } from './card';
+import { tierCopy } from './tiers';
 
 export type RawEntry = { id: string; data: ListingData };
 
@@ -30,10 +32,13 @@ export function effectiveVerified(d: Pick<ListingData, 'tier' | 'verifiedUntil'>
   return d.tier === 'verified' && !!d.verifiedUntil && d.verifiedUntil >= on;
 }
 
+const contactFields = (d: ListingData): unknown[] => [d.address.streetAddress, d.address.postalCode, d.lat, d.phone, d.website, d.hours, d.sameAs.length || null];
+/** How many details completeness() can count: contact fields plus every niche attribute. */
+export const COMPLETENESS_MAX = 7 + Object.keys(attributesSchema.shape).length;
+
 function completeness(d: ListingData) {
   let n = 0;
-  const vals: unknown[] = [d.address.streetAddress, d.address.postalCode, d.lat, d.phone, d.website, d.hours, d.sameAs.length || null];
-  for (const v of [...vals, ...Object.values(d.attributes)]) {
+  for (const v of [...contactFields(d), ...Object.values(d.attributes)]) {
     if (v === null || v === undefined) continue;
     if (Array.isArray(v) && v.length === 0) continue;
     n++;
@@ -197,6 +202,60 @@ export function cardFacts(l: Listing) {
 
 export function primaryTermLabel(l: Listing) {
   return site.taxonomy.termLabel(l.attributes[site.taxonomy.attribute][0]!);
+}
+
+/** Short "yes" chips for cards: only attributes that are true, never unknowns. */
+export function cardChips(l: Listing) {
+  return site.bestFor.filter((b) => l.attributes[b.key] === true).map((b) => ({ key: b.key as string, label: b.short }));
+}
+
+/** Space-separated keys of true yes/no attributes, used by the client-side filters. */
+export function flagKeys(l: Listing) {
+  return site.bestFor.filter((b) => l.attributes[b.key] === true).map((b) => b.key).join(' ');
+}
+
+export function institution(l: Listing) {
+  return l.attributes[site.institutionKey][0] ?? null;
+}
+
+export function termLabels(l: Listing) {
+  return l.attributes[site.taxonomy.attribute].map(site.taxonomy.termLabel);
+}
+
+/** Everything a listing card shows (rendered by src/lib/card.ts). */
+export function cardView(l: Listing, heading: 'h2' | 'h3' = 'h3'): CardView {
+  const specs = termLabels(l);
+  return {
+    name: l.name,
+    url: l.url,
+    monogram: initials(l.name),
+    subtitle: [l.attributes.degree, specs[0]].filter(Boolean).join(' · '),
+    more: specs.length - 1,
+    place: `${l.address.locality}, ${site.regions[l.regionSlug]!.code}`,
+    institution: institution(l),
+    chips: cardChips(l),
+    verified: l.isVerified,
+    verifiedLabel: tierCopy.badge,
+    data: { flags: flagKeys(l), terms: l.attributes[site.taxonomy.attribute].join(' '), city: l.citySlug },
+    heading,
+  };
+}
+
+/** Compact record for the client-side search index (/data/search.json). */
+export function searchRecord(l: Listing) {
+  return {
+    n: l.name,
+    u: l.url,
+    d: l.attributes.degree,
+    s: l.attributes[site.taxonomy.attribute],
+    c: l.address.locality,
+    r: l.regionSlug,
+    z: l.address.postalCode,
+    h: l.attributes[site.institutionKey],
+    x: [...l.attributes.boardCertifications, ...l.attributes.languages],
+    f: site.bestFor.filter((b) => l.attributes[b.key] === true).map((b) => b.key),
+    p: l.isVerified ? 1 : 0,
+  };
 }
 
 export function bestFor(list: Listing[]) {

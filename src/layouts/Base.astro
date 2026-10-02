@@ -2,6 +2,8 @@
 import '../theme.css';
 import '../styles/base.css';
 import { site } from '../../site.config';
+import { getModel } from '../lib/data';
+import Icon from '../components/Icon.astro';
 
 interface Props {
   title: string; // page-specific part; site name is appended
@@ -12,11 +14,25 @@ interface Props {
   banner?: boolean; // for-sale banner: home page only
   markdown?: boolean; // has a /index.md twin
   fullTitle?: boolean;
+  ogType?: 'website' | 'profile';
+  wide?: boolean; // main content without the page wrapper (page draws its own bands)
 }
-const { title, description, path, noindex = false, jsonld = [], banner = false, markdown = true, fullTitle = false } = Astro.props;
+const { title, description, path, noindex = false, jsonld = [], banner = false, markdown = true, fullTitle = false, ogType = 'website', wide = false } = Astro.props;
 const docTitle = fullTitle ? title : `${title} | ${site.name}`;
 const canonical = new URL(path, site.url).href;
 const forSaleHref = site.forSaleContact;
+const m = await getModel();
+
+// Only sections that exist: the specialty index is built when at least one specialty has a page.
+const nav = [
+  { href: '/search/', label: `Find ${site.entity.a}` },
+  ...(m.terms.length ? [{ href: `/${site.taxonomy.segment}/`, label: site.taxonomy.pluralLabel[0]!.toUpperCase() + site.taxonomy.pluralLabel.slice(1) }] : []),
+  { href: `/${site.hub}/`, label: `${site.regionWord[0]!.toUpperCase()}${site.regionWord.slice(1)}s` },
+  { href: '/about/', label: 'About' },
+];
+const cta = { href: '/listing-plans/', label: 'Get listed' };
+const current = (href: string) => path === href || (href !== '/' && path.startsWith(href));
+const year = m.on.slice(0, 4);
 ---
 <!doctype html>
 <html lang={site.lang}>
@@ -31,44 +47,82 @@ const forSaleHref = site.forSaleContact;
     {markdown && <link rel="alternate" type="text/markdown" href={`${path}index.md`} />}
     <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
     <meta name="theme-color" content="#0b5563" />
-    <meta property="og:type" content="website" />
+    <meta property="og:type" content={ogType} />
     <meta property="og:site_name" content={site.name} />
     <meta property="og:title" content={docTitle} />
     <meta property="og:description" content={description} />
     <meta property="og:url" content={canonical} />
     <meta property="og:locale" content={site.locale} />
+    <meta name="twitter:card" content="summary" />
     <slot name="head" />
     {jsonld.map((j) => <script type="application/ld+json" set:html={JSON.stringify(j).replace(/</g, '\\u003c')} />)}
   </head>
   <body>
     <a class="skip" href="#main">Skip to content</a>
     {banner && (
-      <div class="banner">This domain is for sale. <a href={forSaleHref}>Contact the owner about buying {site.domain}</a></div>
+      <div class="banner">This domain is for sale. <a href={forSaleHref}>Contact the owner</a></div>
     )}
     <header class="site-header">
-      <div class="wrap">
-        <a class="logo" href="/">{site.name}</a>
-        <nav aria-label="Main">
+      <div class="wrap header-row">
+        <a class="logo" href="/" aria-label={`${site.name} home`}>
+          <span class="logo-mark" aria-hidden="true"><svg viewBox="0 0 32 32" width="28" height="28"><rect width="32" height="32" rx="7" fill="currentColor"/><path d="M10 16h12M16 10v12" stroke="#fff" stroke-width="3.5" stroke-linecap="round"/></svg></span>
+          <span class="logo-word">{site.name}</span>
+        </a>
+        <nav class="nav-desktop" aria-label="Main">
           <ul class="nav">
-            <li><a href={`/${site.hub}/`}>Browse by {site.regionWord}</a></li>
-            <li><a href="/listing-plans/">Get listed</a></li>
+            {nav.map((n) => <li><a href={n.href} aria-current={current(n.href) ? 'page' : undefined}>{n.label}</a></li>)}
           </ul>
+          <a class="button primary button-sm" href={cta.href}>{cta.label}</a>
         </nav>
+        <details class="nav-mobile">
+          <summary aria-label="Menu"><Icon name="menu" class="icon icon-open" /><Icon name="close" class="icon icon-shut" /><span>Menu</span></summary>
+          <nav aria-label="Main">
+            <ul>
+              {nav.map((n) => <li><a href={n.href} aria-current={current(n.href) ? 'page' : undefined}>{n.label}</a></li>)}
+              <li><a class="button primary" href={cta.href}>{cta.label}</a></li>
+            </ul>
+          </nav>
+        </details>
       </div>
     </header>
-    <main id="main" class="wrap">
+    <main id="main" class:list={[{ wrap: !wide }]} tabindex="-1">
       <slot />
     </main>
     <footer class="site-footer">
       <div class="wrap">
-        <ul class="footer-links">
-          <li><a href="/about/">About and sources</a></li>
-          <li><a href="/privacy/">Privacy</a></li>
-          <li><a href="/add-your-business/">Add or update a listing</a></li>
-          <li><a href="/listing-plans/">Listing plans</a></li>
-          <li><a href="/llms.txt">llms.txt</a></li>
-        </ul>
-        <p class="muted">{site.name} is an independent directory. Basic listings are free. Verified listings are paid, {site.tiers.checkedShort}, labelled and shown first. No ratings, reviews or referral fees.</p>
+        <div class="footer-grid">
+          <div class="footer-about">
+            <a class="logo" href="/">
+              <span class="logo-mark" aria-hidden="true"><svg viewBox="0 0 32 32" width="24" height="24"><rect width="32" height="32" rx="7" fill="currentColor"/><path d="M10 16h12M16 10v12" stroke="#fff" stroke-width="3.5" stroke-linecap="round"/></svg></span>
+              <span class="logo-word">{site.name}</span>
+            </a>
+            <p>{site.name} is an independent directory. {site.copy.independence}</p>
+            <p>Basic listings are free. Verified listings are paid, {site.tiers.checkedShort}, labelled and shown first. No ratings, reviews or referral fees.</p>
+          </div>
+          <nav aria-label="Directory">
+            <h2 class="footer-head">Directory</h2>
+            <ul>
+              {nav.filter((n) => n.href !== '/about/').map((n) => <li><a href={n.href}>{n.label}</a></li>)}
+            </ul>
+          </nav>
+          <nav aria-label={`For ${site.entity.many}`}>
+            <h2 class="footer-head">For {site.entity.many}</h2>
+            <ul>
+              <li><a href="/add-your-business/">Add or update a listing</a></li>
+              <li><a href="/listing-plans/">Listing plans</a></li>
+            </ul>
+          </nav>
+          <nav aria-label="About this site">
+            <h2 class="footer-head">About</h2>
+            <ul>
+              <li><a href="/about/">About and sources</a></li>
+              <li><a href="/privacy/">Privacy</a></li>
+              <li><a href="/data/README.md">Open data</a></li>
+              <li><a href="/llms.txt">llms.txt</a></li>
+            </ul>
+          </nav>
+        </div>
+        <p class="footer-base">© {year} {site.name}. {site.copy.footerNote}</p>
       </div>
     </footer>
   </body>

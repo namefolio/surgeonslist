@@ -1,1 +1,5 @@
-<p class="disclosure">Verified listings are paid, checked and shown first. <a href="/listing-plans/">Listing plans</a></p>
+---
+import Icon from './Icon.astro';
+import { tierCopy } from '../lib/tiers';
+---
+<p class="disclosure"><Icon name="info" class="icon icon-sm" /><span>{tierCopy.disclosure} <a href="/listing-plans/">How listings work</a></span></p>

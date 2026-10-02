@@ -10,9 +10,12 @@ const e = site.entity;
 ---
 <Base title={`About ${site.name} and how listings are sourced`} description={`Who runs ${site.name}, where listing details come from, and what Basic and Verified listings mean.`} path="/about/" jsonld={[breadcrumbLd(crumbs)]}>
   <Crumbs items={crumbs} />
-  <h1>About {site.name}</h1>
+  <header class="page-head">
+    <span class="eyebrow">About and sources</span>
+    <h1>About {site.name}</h1>
+    <p class="lede">{site.name} is an independent directory of {e.many} in the {site.countryName}, run by {site.operator}. {site.copy.independence}</p>
+  </header>
   <div class="prose">
-    <p>{site.name} is an independent directory of {e.many} in the {site.countryName}, run by {site.operator}. {site.copy.independence}</p>
     <h2>Where the details come from</h2>
     <p>Basic listings are built from public sources, such as the {e.one}'s own website and public registers, and from submissions sent with our form. Each listing names its source and shows the date its details were last updated. We do not publish ratings, reviews or referral fees, and we never invent details: unknown facts are shown as unknown.</p>
     <p>{site.copy.checkingNote}</p>

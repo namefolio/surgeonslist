@@ -1,0 +1,93 @@
+---
+import Base from '../../layouts/Base.astro';
+import Crumbs from '../../components/Crumbs.astro';
+import SearchForm from '../../components/SearchForm.astro';
+import Tiles from '../../components/Tiles.astro';
+import Disclosure from '../../components/Disclosure.astro';
+import Icon from '../../components/Icon.astro';
+import { site } from '../../../site.config';
+import { getModel } from '../../lib/data';
+import { breadcrumbLd } from '../../lib/seo';
+
+// Client-side search over /data/search.json (src/scripts/search.ts). Without JS the form still
+// submits here, and the browse links below lead to the static specialty, state and city pages.
+const m = await getModel();
+const e = site.entity;
+const crumbs = [{ name: 'Home', path: '/' }, { name: `Find ${e.a}`, path: '/search/' }];
+const flags = site.bestFor.filter((b) => m.published.some((l) => l.attributes[b.key] === true));
+const skeletons = Array.from({ length: 3 });
+---
+<Base title={`Search ${e.many} by name, ${site.taxonomy.label.toLowerCase()}, hospital or location`} description={`Search ${m.published.length} US ${e.many} by name, ${site.taxonomy.label.toLowerCase()}, hospital, city or ${site.regionWord}, and filter by insurance and new-patient status.`} path="/search/" noindex markdown={false} jsonld={[breadcrumbLd(crumbs)]}>
+  <div class="search-page">
+    <Crumbs items={crumbs} />
+    <header class="page-head">
+      <h1>Search {e.many}</h1>
+      <p class="lede">Search by name, {site.taxonomy.label.toLowerCase()}, hospital, city or ZIP code. Results update as you type.</p>
+    </header>
+
+    <div id="search-ui" data-noun-one={e.one} data-noun-many={e.many}>
+      <SearchForm id="s" label={`Search ${e.many}`} />
+      {flags.length > 0 && (
+        <fieldset class="filter-bar" data-flag-filters hidden>
+          <legend><Icon name="sliders" class="icon icon-sm" />Show only</legend>
+          {flags.map((f) => (
+            <label class="pill"><input type="checkbox" name="has" value={f.key} /><span><Icon name="check" class="icon icon-xs" />{f.label}</span></label>
+          ))}
+        </fieldset>
+      )}
+
+      <section aria-labelledby="results-h" data-results hidden>
+        <div class="results-head">
+          <h2 id="results-h">Results</h2>
+          <p class="results-count" data-count aria-live="polite" aria-atomic="true">Loading…</p>
+        </div>
+        <Disclosure />
+        <ul class="cards skeleton" data-skeleton aria-hidden="true">
+          {skeletons.map(() => (
+            <li class="card"><div class="card-head"><span class="sk sk-circle"></span><div><span class="sk sk-line" style="width: 70%"></span><span class="sk sk-line" style="width: 45%"></span></div></div><span class="sk sk-line" style="width: 60%"></span><span class="sk sk-line" style="width: 80%"></span></li>
+          ))}
+        </ul>
+        <ul class="cards" data-list></ul>
+        <div class="actions" data-more-wrap hidden><button class="button secondary" type="button" data-more>Show more</button></div>
+
+        <div class="state" data-empty hidden>
+          <Icon name="search" class="icon icon-lg" />
+          <h3>No {e.many} match <span data-empty-what>your search</span></h3>
+          <p>Check the spelling, try a broader term such as a {site.taxonomy.label.toLowerCase()} or a city, or remove a filter. Unknown details count as a no when a filter is on.</p>
+          <div class="actions"><button class="button secondary" type="button" data-clear>Clear search and filters</button></div>
+        </div>
+        <div class="state" data-none hidden>
+          <Icon name="doc" class="icon icon-lg" />
+          <h3>No {e.many} are listed yet</h3>
+          <p>The directory is being built from public sources. Know {e.a} who should be here?</p>
+          <div class="actions"><a class="button primary" href="/add-your-business/">Add a listing</a></div>
+        </div>
+        <div class="state" data-error hidden>
+          <Icon name="info" class="icon icon-lg" />
+          <h3>Search could not load</h3>
+          <p>Check your connection and try again, or browse by {site.taxonomy.label.toLowerCase()} or {site.regionWord} below.</p>
+          <div class="actions"><button class="button secondary" type="button" data-retry>Try again</button></div>
+        </div>
+      </section>
+    </div>
+
+    <noscript>
+      <div class="notice" style="margin-top: 1.5rem"><p>Search needs JavaScript. You can still browse every {e.one} by {site.taxonomy.label.toLowerCase()} or by {site.regionWord} below.</p></div>
+    </noscript>
+
+    <section class="section" aria-labelledby="browse-h">
+      <h2 id="browse-h">Or browse the directory</h2>
+      {m.terms.length > 0 && (
+        <>
+          <h3 class="eyebrow">By {site.taxonomy.label.toLowerCase()}</h3>
+          <Tiles compact items={m.terms.map((t) => ({ href: t.url, label: t.plural, count: t.listings.length }))} />
+        </>
+      )}
+      <h3 class="eyebrow" style="margin-top: 1.5rem">By {site.regionWord}</h3>
+      {m.regions.length > 0
+        ? <Tiles compact items={m.regions.map((r) => ({ href: r.url, label: r.name, count: r.listings.length }))} />
+        : <p>No listings are published yet. <a href="/add-your-business/">Add a listing</a>.</p>}
+    </section>
+  </div>
+  <script src="../../scripts/search.ts"></script>
+</Base>

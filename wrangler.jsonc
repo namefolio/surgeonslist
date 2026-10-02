@@ -15,6 +15,9 @@
   },
   // Email Routing must be on for the domain, with the submissions inbox verified as a destination.
   "send_email": [{ "name": "SUBMISSIONS" }],
-  "observability": { "enabled": true }
+  "observability": { "enabled": true },
+  // Branch builds run `npx wrangler preview`, which requires this block. Previews do not inherit
+  // production bindings: without SUBMISSIONS here, a Preview's form POST fails closed (error page).
+  "previews": {}
   // Secret: wrangler secret put TURNSTILE_SECRET
 }

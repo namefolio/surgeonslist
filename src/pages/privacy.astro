@@ -7,9 +7,11 @@ const crumbs = [{ name: 'Home', path: '/' }, { name: 'Privacy', path: '/privacy/
 ---
 <Base title="Privacy" description={`How ${site.name} handles data: no cookies, no analytics, and form submissions sent by email only.`} path="/privacy/" jsonld={[breadcrumbLd(crumbs)]}>
   <Crumbs items={crumbs} />
-  <h1>Privacy</h1>
+  <header class="page-head">
+    <h1>Privacy</h1>
+    <p class="lede">{site.name} sets no cookies and runs no analytics or advertising scripts.</p>
+  </header>
   <div class="prose">
-    <p>{site.name} sets no cookies and runs no analytics or advertising scripts.</p>
     <h2>The listing form</h2>
     <p>When you send the form, your details are emailed to us and not stored in a database. The form uses Cloudflare Turnstile to block spam, which may process technical data about your browser; see Cloudflare's privacy policy. We use your name and email only to handle that listing, and never publish them.</p>
     <h2>Hosting</h2>

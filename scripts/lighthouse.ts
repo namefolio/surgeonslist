@@ -36,6 +36,7 @@ const pages = [
   { name: 'home', path: '/', required: ALL },
   { name: 'city', path: cityPath, required: ALL },
   { name: 'listing', path: listingPath, required: ALL },
+  { name: 'search', path: '/search/', required: ['performance', 'accessibility', 'best-practices'] }, // noindex by design
   { name: 'form', path: '/add-your-business/', required: ['accessibility', 'best-practices', 'seo'] },
 ];
 

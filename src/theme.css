@@ -15,27 +15,52 @@
 }
 
 :root {
+  /* Type */
   --font: 'Atkinson Hyperlegible Next', 'Body Fallback', system-ui, sans-serif;
-  --size-body: 1.125rem; /* 18px */
+  --size-body: 1.0625rem;  /* 17px */
+  --size-sm: 0.9375rem;    /* 15px: metadata */
+  --size-xs: 0.8125rem;    /* 13px: eyebrows, badges */
+  --size-lead: 1.1875rem;
+  --size-h1: clamp(2rem, 1.4rem + 2.6vw, 3rem);
+  --size-h2: clamp(1.375rem, 1.2rem + 0.7vw, 1.625rem);
+  --size-h3: 1.125rem;
   --leading: 1.6;
-  --measure: 70ch;
-  --page: 72rem;
+  --leading-tight: 1.15;
+  --measure: 68ch;
+  --page: 74rem;
 
-  --ink: #16202a;        /* text: 15.8:1 on paper */
-  --muted: #4a5361;      /* secondary text: 7.4:1 on paper */
-  --paper: #fbfaf7;      /* page background */
-  --surface: #ffffff;    /* cards */
-  --tint: #eef4f4;       /* soft panels */
-  --line: #cfd6d6;       /* borders (non-text) */
-  --brand: #0b5563;      /* links, buttons: 8.1:1 on paper, white on it 8.4:1 */
+  /* Colour: every text pair is at least 6.2:1 (WCAG AA, mostly AAA) */
+  --ink: #13202b;          /* primary text: 15.3:1 on paper */
+  --ink-2: #33414f;        /* secondary text, labels: 9.7:1 on paper */
+  --muted: #4f5a67;        /* metadata: 6.5:1 on paper, 7.0:1 on white */
+  --paper: #f7f6f2;        /* page background, warm off-white */
+  --surface: #ffffff;      /* cards, panels */
+  --surface-2: #fbfaf8;    /* inset panels inside cards */
+  --tint: #ecf3f4;         /* soft teal panels */
+  --line: #e2e0da;         /* hairline borders */
+  --line-strong: #c9cdd0;  /* stronger dividers and outlines (decorative) */
+  --field: #8a929b;        /* form control borders: 3.2:1 on white */
+  --brand: #0b5563;        /* links, buttons, Verified: 7.8:1 on paper; white on it 8.4:1 */
+  --brand-hover: #073f4a;
   --brand-ink: #ffffff;
-  --accent: #9a3412;     /* the one accent: Verified left border, focus ring */
-  --banner-bg: #16202a;
-  --banner-ink: #fbfaf7;
-  --banner-link: #f6c9a4; /* 10.8:1 on banner */
+  --brand-soft: #dceaec;   /* badge background; --brand-hover text on it 9.4:1 */
+  --focus: #9a3412;        /* focus ring: burnt orange, 6.8:1 on paper */
+  --ok: #1d6b40;           /* genuine "yes" states only: 6.5:1 on white */
+  --banner-bg: #13202b;
+  --banner-ink: #f7f6f2;
+  --banner-link: #f6c9a4;  /* 10.8:1 on banner */
 
-  --radius: 6px;
+  /* Shape and depth */
+  --radius-sm: 6px;
+  --radius: 10px;
+  --radius-lg: 14px;
   --border: 1px solid var(--line);
-  --accent-border: 4px solid var(--accent);
-  --gap: 1.25rem;
+  --shadow-sm: 0 1px 2px rgba(19, 32, 43, 0.05);
+  --shadow: 0 1px 2px rgba(19, 32, 43, 0.05), 0 4px 14px rgba(19, 32, 43, 0.05);
+  --shadow-lift: 0 2px 4px rgba(19, 32, 43, 0.06), 0 10px 28px rgba(19, 32, 43, 0.08);
+
+  /* Spacing scale (4px base) */
+  --s1: 0.25rem; --s2: 0.5rem; --s3: 0.75rem; --s4: 1rem; --s5: 1.5rem; --s6: 2rem; --s7: 3rem; --s8: 4.5rem;
+  --gutter: clamp(1rem, 0.6rem + 1.8vw, 2rem);
+  --ease: cubic-bezier(0.2, 0.6, 0.2, 1);
 }

@@ -1,11 +1,70 @@
 ---
 import ListingCard from './ListingCard.astro';
 import Disclosure from './Disclosure.astro';
+import Icon from './Icon.astro';
+import { site } from '../../site.config';
 import type { Listing } from '../lib/model';
-interface Props { listings: Listing[] }
-const { listings } = Astro.props;
+
+interface Props { listings: Listing[]; heading: string; cityFilter?: { slug: string; name: string }[]; id?: string }
+const { listings, heading, cityFilter = [], id = 'results' } = Astro.props;
+const n = listings.length;
+// Filters only for values that narrow this list (shown by src/scripts/filter.ts; hidden without JS).
+const flags = site.bestFor.filter((b) => listings.some((l) => l.attributes[b.key] === true));
+const termSlugs = new Set(listings.flatMap((l) => l.attributes[site.taxonomy.attribute]));
+const terms = site.taxonomy.terms.filter((t) => termSlugs.has(t.slug));
+const showFilters = n > 1 && (flags.length > 0 || terms.length > 1 || cityFilter.length > 1);
+const noun = (k: number) => (k === 1 ? site.entity.one : site.entity.many);
 ---
-<Disclosure />
-<ul class="cards">
-  {listings.map((l) => <ListingCard listing={l} />)}
-</ul>
+<section class="section" aria-labelledby={`${id}-h`} data-listing-list>
+  <div class="results-head">
+    <h2 id={`${id}-h`}>{heading}</h2>
+    <p class="results-count" aria-live="polite" data-count data-noun-one={site.entity.one} data-noun-many={site.entity.many}><strong>{n}</strong> {noun(n)}</p>
+  </div>
+  {showFilters && (
+    <form class="filters" data-filters hidden aria-label="Filter this list">
+      {(terms.length > 1 || cityFilter.length > 1) && (
+        <div class="filter-row">
+          {terms.length > 1 && (
+            <div class="field">
+              <label for={`${id}-term`}>{site.taxonomy.label}</label>
+              <select id={`${id}-term`} data-filter="terms">
+                <option value="">Any {site.taxonomy.label.toLowerCase()}</option>
+                {terms.map((t) => <option value={t.slug}>{t.label}</option>)}
+              </select>
+            </div>
+          )}
+          {cityFilter.length > 1 && (
+            <div class="field">
+              <label for={`${id}-city`}>City</label>
+              <select id={`${id}-city`} data-filter="city">
+                <option value="">Any city</option>
+                {cityFilter.map((c) => <option value={c.slug}>{c.name}</option>)}
+              </select>
+            </div>
+          )}
+        </div>
+      )}
+      {flags.length > 0 && (
+        <fieldset class="filter-bar">
+          <legend><Icon name="sliders" class="icon icon-sm" />Show only</legend>
+          {flags.map((f) => (
+            <label class="pill"><input type="checkbox" data-filter="flags" value={f.key} /><span><Icon name="check" class="icon icon-xs" />{f.label}</span></label>
+          ))}
+        </fieldset>
+      )}
+    </form>
+  )}
+  <div class="list-note"><Disclosure /></div>
+  <ul class="cards">
+    {listings.map((l) => <ListingCard listing={l} />)}
+  </ul>
+  {showFilters && (
+    <div class="state" data-empty hidden>
+      <Icon name="search" class="icon icon-lg" />
+      <h3>No {site.entity.many} match these filters</h3>
+      <p>Unknown details count as a no here, so a {site.entity.one} may still qualify. Try removing a filter, or check the full list.</p>
+      <div class="actions"><button class="button secondary" type="button" data-clear>Clear all filters</button></div>
+    </div>
+  )}
+</section>
+{showFilters && <script src="../scripts/filter.ts"></script>}

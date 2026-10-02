@@ -5,14 +5,16 @@ const { listings, place } = Astro.props;
 const groups = bestFor(listings);
 ---
 {groups.length > 0 && (
-  <section>
-    <h2>Best for</h2>
+  <section class="section" aria-labelledby="best-for">
+    <div class="section-head"><h2 id="best-for">Best for</h2></div>
     <p class="muted small">Listings in {place} grouped by what the details say. Unknown values are left out.</p>
-    {groups.map((g) => (
-      <>
-        <h3>{g.label} ({g.listings.length})</h3>
-        <ul>{g.listings.map((l) => <li><a href={l.url}>{l.name}</a></li>)}</ul>
-      </>
-    ))}
+    <div class="bestfor">
+      {groups.map((g) => (
+        <div class="panel">
+          <h3>{g.label} <span class="muted small">{g.listings.length}</span></h3>
+          <ul>{g.listings.map((l) => <li><a href={l.url}>{l.name}</a></li>)}</ul>
+        </div>
+      ))}
+    </div>
   </section>
 )}
