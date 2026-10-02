@@ -3,6 +3,8 @@
   "name": "surgeonslist",
   "main": "src/worker.ts",
   "compatibility_date": "2026-09-01",
+  // Wrangler builds the site before every deploy/upload, so Workers Builds works with only a deploy command.
+  "build": { "command": "npm run build" },
   "assets": {
     "directory": "./dist",
     "binding": "ASSETS",

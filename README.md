@@ -27,7 +27,7 @@ npm run preview        # wrangler dev: the real Worker + assets (copy .dev.vars.
 ## Deploy
 
 Cloudflare Workers Builds is connected to this repo and deploys every push to `main`:
-- Build command: `npm run build`
+- Build command: `npm run build` (optional: `wrangler.jsonc` also runs it before every deploy)
 - Deploy command: `npx wrangler deploy`
 - Build variable `INCLUDE_DEMO=1` only while there are no real listings.
 
