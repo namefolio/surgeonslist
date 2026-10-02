@@ -1,0 +1,39 @@
+---
+import Base from '../layouts/Base.astro';
+import { site } from '../../site.config';
+import { getModel } from '../lib/data';
+import { homeLd } from '../lib/seo';
+
+const m = await getModel();
+---
+<Base title={`${site.copy.homeTitle} | ${site.name}`} fullTitle description={site.copy.homeDescription} path="/" banner jsonld={homeLd()}>
+  <h1>{site.copy.homeTitle}</h1>
+  <p class="lede">{site.copy.homeIntro}</p>
+
+  {m.terms.length > 0 && (
+    <section>
+      <h2>Browse by {site.taxonomy.label.toLowerCase()}</h2>
+      <ul class="tiles">
+        {m.terms.map((t) => <li><a href={t.url}>{t.plural} <span class="count">{t.listings.length}</span></a></li>)}
+      </ul>
+    </section>
+  )}
+
+  <section>
+    <h2>Browse by {site.regionWord}</h2>
+    {m.regions.length > 0 ? (
+      <ul class="tiles">
+        {m.regions.map((r) => <li><a href={r.url}>{r.name} <span class="count">{r.listings.length}</span></a></li>)}
+      </ul>
+    ) : (
+      <p>No listings are published yet. <a href="/add-your-business/">Add a listing</a>.</p>
+    )}
+  </section>
+
+  <section class="prose">
+    <h2>How listings work</h2>
+    <p>Every {site.entity.one} can have a free Basic listing, built from public sources or a submission and shown with the date it was last updated. Verified listings are paid: we check the {site.tiers.credential} and confirm the details with the owner, then label the listing and show it first. Paying never changes the facts we publish. <a href="/listing-plans/">Compare listing plans</a>.</p>
+    <h2>Checking a {site.entity.one} yourself</h2>
+    <p>{site.copy.checkingNote}</p>
+  </section>
+</Base>

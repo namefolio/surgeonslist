@@ -1,0 +1,72 @@
+---
+import Base from '../../../layouts/Base.astro';
+import Crumbs from '../../../components/Crumbs.astro';
+import ListingList from '../../../components/ListingList.astro';
+import BestFor from '../../../components/BestFor.astro';
+import Faq from '../../../components/Faq.astro';
+import { site } from '../../../../site.config';
+import { getModel } from '../../../lib/data';
+import { MIN_INDEXABLE, type Region, type Term } from '../../../lib/model';
+import { breadcrumbLd, itemListLd, faqLd } from '../../../lib/seo';
+import { tierCopy } from '../../../lib/tiers';
+
+// /{hub}/{region}/ and /{taxonomy}/{term}/
+export async function getStaticPaths() {
+  const m = await getModel();
+  return [
+    ...m.regions.map((r) => ({ params: { section: site.hub, key: r.slug }, props: { region: r } })),
+    ...m.terms.map((t) => ({ params: { section: site.taxonomy.segment, key: t.slug }, props: { term: t } })),
+  ];
+}
+const { region, term } = Astro.props as { region?: Region; term?: Term };
+const model = await getModel();
+const listings = (region ?? term)!.listings;
+const n = listings.length;
+const specs = [...new Set(listings.flatMap((l) => l.attributes[site.taxonomy.attribute]))].map(site.taxonomy.termLabel);
+
+let crumbs, h1, title, description, intro;
+if (region) {
+  crumbs = [{ name: 'Home', path: '/' }, { name: `${site.entity.Many} by ${site.regionWord}`, path: `/${site.hub}/` }, { name: region.name, path: region.url }];
+  h1 = `${site.entity.Many} in ${region.name}`;
+  title = site.copy.regionTitle(region.name, n);
+  description = site.copy.placeDescription(region.name, n, specs);
+  intro = `${n} ${n === 1 ? site.entity.one : site.entity.many} listed in ${region.cities.length} ${region.cities.length === 1 ? 'city' : 'cities'} in ${region.name}${specs.length ? `, covering ${specs.join(', ').toLowerCase()}` : ''}.`;
+} else {
+  const t = term!;
+  crumbs = [{ name: 'Home', path: '/' }, { name: `${site.entity.Many} by ${site.taxonomy.label.toLowerCase()}`, path: `/${site.taxonomy.segment}/` }, { name: t.plural, path: t.url }];
+  h1 = `${t.plural} in the ${site.countryName}`;
+  title = site.copy.termTitle(t.plural, n);
+  description = site.copy.termDescription(t.plural, n);
+  const states = new Set(listings.map((l) => l.regionSlug)).size;
+  intro = `${n} ${t.plural.toLowerCase()} listed in ${states} ${site.regionWord}${states === 1 ? '' : 's'}.`;
+}
+const path = crumbs.at(-1)!.path;
+const faqs = [...site.copy.placeFaqs, tierCopy.orderingFaq];
+const termRegions = term ? model.regions.filter((r) => listings.some((l) => l.regionSlug === r.slug)) : [];
+---
+<Base title={title} description={description} path={path} noindex={n < MIN_INDEXABLE} jsonld={[breadcrumbLd(crumbs), itemListLd(h1, listings), faqLd(faqs)]}>
+  <Crumbs items={crumbs} />
+  <h1>{h1}</h1>
+  <p class="lede">{intro}</p>
+
+  {region && (
+    <section>
+      <h2>Cities in {region.name}</h2>
+      <ul class="tiles">{region.cities.map((c) => <li><a href={c.url}>{c.name} <span class="count">{c.listings.length}</span></a></li>)}</ul>
+    </section>
+  )}
+  {term && (
+    <section>
+      <h2>{term.plural} by {site.regionWord}</h2>
+      <ul class="tiles">{termRegions.map((r) => <li><a href={r.url}>{r.name} <span class="count">{listings.filter((l) => l.regionSlug === r.slug).length}</span></a></li>)}</ul>
+    </section>
+  )}
+
+  <section>
+    <h2>All {n} listed</h2>
+    <ListingList listings={listings} />
+  </section>
+
+  <BestFor listings={listings} place={region ? region.name : 'this list'} />
+  <Faq faqs={faqs} />
+</Base>

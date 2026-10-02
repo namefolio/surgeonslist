@@ -1,0 +1,96 @@
+---
+import Base from '../../../../../layouts/Base.astro';
+import Crumbs from '../../../../../components/Crumbs.astro';
+import Faq from '../../../../../components/Faq.astro';
+import { site, listingFaqs } from '../../../../../../site.config';
+import { getModel } from '../../../../../lib/data';
+import { factRows, formatDate, fullAddress, hoursRows, hoursSentence, mapsUrl, primaryTermLabel, type Listing } from '../../../../../lib/model';
+import { breadcrumbLd, listingLd, faqLd } from '../../../../../lib/seo';
+import { tierCopy } from '../../../../../lib/tiers';
+
+export async function getStaticPaths() {
+  const m = await getModel();
+  return m.published.map((l) => ({
+    params: { section: site.hub, key: l.regionSlug, city: l.citySlug, slug: l.slug },
+    props: { listing: l },
+  }));
+}
+const { listing: l } = Astro.props as { listing: Listing };
+const m = await getModel();
+const region = m.findRegion(l.regionSlug)!;
+const city = m.findCity(l);
+const spec = primaryTermLabel(l);
+const crumbs = [
+  { name: 'Home', path: '/' },
+  { name: `${site.entity.Many} by ${site.regionWord}`, path: `/${site.hub}/` },
+  { name: region.name, path: region.url },
+  { name: city.name, path: city.url },
+  { name: l.name, path: l.url },
+];
+const address = fullAddress(l);
+const facts = factRows(l);
+const hours = hoursRows(l);
+const faqs = listingFaqs(l.name, l.attributes, hoursSentence(l), address);
+const nearby = m.nearbyListings(l);
+const place = `${city.name}, ${region.code}`;
+---
+<Base
+  title={site.copy.listingTitle(l.name, spec, city.name, region.code)}
+  description={site.copy.listingDescription(l.name, spec, place)}
+  path={l.url}
+  jsonld={[breadcrumbLd(crumbs), listingLd(l), ...(faqs.length ? [faqLd(faqs)] : [])]}
+>
+  <Crumbs items={crumbs} />
+  <h1>{l.name}</h1>
+  {l.isVerified && <p><span class="badge">{tierCopy.badge}</span> {tierCopy.ownerConfirmed}</p>}
+  <p class="lede">{l.summary}</p>
+
+  {l.isVerified && l.description && (
+    <section class="prose owner-note">
+      <h2>From the owner</h2>
+      <p>{l.description}</p>
+      {l.bookingUrl && <p><a class="button primary" href={l.bookingUrl} rel="nofollow">Book with {l.name}</a></p>}
+    </section>
+  )}
+
+  <h2>Contact and location</h2>
+  <table class="facts">
+    <tbody>
+      <tr><th scope="row">Address</th><td>{address}</td></tr>
+      <tr><th scope="row">Phone</th><td>{l.phone ? <a href={`tel:${l.phone.replace(/[^\d+]/g, '')}`}>{l.phone}</a> : 'Unknown'}</td></tr>
+      <tr><th scope="row">Website</th><td>{l.website ? <a href={l.website} rel="nofollow">{new URL(l.website).hostname.replace(/^www\./, '')}</a> : 'Unknown'}</td></tr>
+      {l.sameAs.length > 0 && <tr><th scope="row">Other profiles</th><td>{l.sameAs.map((u, i) => <>{i > 0 && ', '}<a href={u} rel="nofollow">{new URL(u).hostname.replace(/^www\./, '')}</a></>)}</td></tr>}
+    </tbody>
+  </table>
+  <p><a href={mapsUrl(l)}>Open {l.name} in Google Maps</a></p>
+
+  <h2>Details</h2>
+  <div class="table-scroll">
+    <table class="facts">
+      <tbody>
+        {facts.map((f) => <tr><th scope="row">{f.label}</th><td>{f.value ?? 'Unknown'}</td></tr>)}
+      </tbody>
+    </table>
+  </div>
+
+  <h2>Hours</h2>
+  {hours ? (
+    <table class="facts">
+      <tbody>{hours.map((h) => <tr><th scope="row">{h.day}</th><td>{h.text}</td></tr>)}</tbody>
+    </table>
+  ) : <p>Hours unknown. Call before visiting.</p>}
+
+  <Faq faqs={faqs} />
+
+  {nearby.length > 0 && (
+    <section>
+      <h2>Nearby {site.entity.many}</h2>
+      <ul>{nearby.map((x) => <li><a href={x.url}>{x.name}</a>, {x.address.locality}</li>)}</ul>
+    </section>
+  )}
+
+  <p class="muted">Last updated {formatDate(l.lastUpdated)}. Source: {l.source}.</p>
+  {l.isVerified
+    ? <p><a href={`/add-your-business/?listing=${l.slug}`}>{tierCopy.verifiedCta}</a></p>
+    : <p><a href={`/add-your-business/?listing=${l.slug}`}>{tierCopy.basicCta}</a></p>}
+</Base>

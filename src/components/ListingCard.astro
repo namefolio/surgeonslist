@@ -1,0 +1,16 @@
+---
+import { cardFacts, fullAddress, type Listing } from '../lib/model';
+interface Props { listing: Listing; level?: 'h2' | 'h3' }
+const { listing: l } = Astro.props;
+const facts = cardFacts(l);
+---
+<li class:list={['card', { 'is-verified': l.isVerified }]}>
+  <h3><a href={l.url}>{l.name}</a></h3>
+  {l.isVerified && <span class="badge">Verified</span>}
+  <p class="muted small">{fullAddress(l)}</p>
+  {facts.length > 0 && (
+    <dl>
+      {facts.map((f) => (<><dt>{f.label}</dt><dd>{f.value}</dd></>))}
+    </dl>
+  )}
+</li>

@@ -1,0 +1,18 @@
+---
+import { bestFor, type Listing } from '../lib/model';
+interface Props { listings: Listing[]; place: string }
+const { listings, place } = Astro.props;
+const groups = bestFor(listings);
+---
+{groups.length > 0 && (
+  <section>
+    <h2>Best for</h2>
+    <p class="muted small">Listings in {place} grouped by what the details say. Unknown values are left out.</p>
+    {groups.map((g) => (
+      <>
+        <h3>{g.label} ({g.listings.length})</h3>
+        <ul>{g.listings.map((l) => <li><a href={l.url}>{l.name}</a></li>)}</ul>
+      </>
+    ))}
+  </section>
+)}

@@ -1,0 +1,75 @@
+---
+import '../theme.css';
+import '../styles/base.css';
+import { site } from '../../site.config';
+
+interface Props {
+  title: string; // page-specific part; site name is appended
+  description: string;
+  path: string; // canonical path with trailing slash
+  noindex?: boolean;
+  jsonld?: object[];
+  banner?: boolean; // for-sale banner: home page only
+  markdown?: boolean; // has a /index.md twin
+  fullTitle?: boolean;
+}
+const { title, description, path, noindex = false, jsonld = [], banner = false, markdown = true, fullTitle = false } = Astro.props;
+const docTitle = fullTitle ? title : `${title} | ${site.name}`;
+const canonical = new URL(path, site.url).href;
+const forSaleHref = site.forSaleContact;
+---
+<!doctype html>
+<html lang={site.lang}>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{docTitle}</title>
+    <meta name="description" content={description} />
+    <link rel="canonical" href={canonical} />
+    {noindex && <meta name="robots" content="noindex,follow" />}
+    <link rel="preload" href="/fonts/atkinson-next.woff2" as="font" type="font/woff2" crossorigin />
+    {markdown && <link rel="alternate" type="text/markdown" href={`${path}index.md`} />}
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <meta name="theme-color" content="#0b5563" />
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content={site.name} />
+    <meta property="og:title" content={docTitle} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={canonical} />
+    <meta property="og:locale" content={site.locale} />
+    <slot name="head" />
+    {jsonld.map((j) => <script type="application/ld+json" set:html={JSON.stringify(j).replace(/</g, '\\u003c')} />)}
+  </head>
+  <body>
+    <a class="skip" href="#main">Skip to content</a>
+    {banner && (
+      <div class="banner">This domain is for sale. <a href={forSaleHref}>Contact the owner about buying {site.domain}</a></div>
+    )}
+    <header class="site-header">
+      <div class="wrap">
+        <a class="logo" href="/">{site.name}</a>
+        <nav aria-label="Main">
+          <ul class="nav">
+            <li><a href={`/${site.hub}/`}>Browse by {site.regionWord}</a></li>
+            <li><a href="/listing-plans/">Get listed</a></li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+    <main id="main" class="wrap">
+      <slot />
+    </main>
+    <footer class="site-footer">
+      <div class="wrap">
+        <ul class="footer-links">
+          <li><a href="/about/">About and sources</a></li>
+          <li><a href="/privacy/">Privacy</a></li>
+          <li><a href="/add-your-business/">Add or update a listing</a></li>
+          <li><a href="/listing-plans/">Listing plans</a></li>
+          <li><a href="/llms.txt">llms.txt</a></li>
+        </ul>
+        <p class="muted">{site.name} is an independent directory. Basic listings are free. Verified listings are paid, {site.tiers.checkedShort}, labelled and shown first. No ratings, reviews or referral fees.</p>
+      </div>
+    </footer>
+  </body>
+</html>

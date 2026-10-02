@@ -1,0 +1,41 @@
+/* All design choices for this site. The next site changes this file and site.config.ts. */
+@font-face {
+  font-family: 'Atkinson Hyperlegible Next';
+  src: url('/fonts/atkinson-next.woff2') format('woff2');
+  font-weight: 200 800;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Body Fallback';
+  src: local('Arial');
+  size-adjust: 104%;
+  ascent-override: 92%;
+  descent-override: 22%;
+}
+
+:root {
+  --font: 'Atkinson Hyperlegible Next', 'Body Fallback', system-ui, sans-serif;
+  --size-body: 1.125rem; /* 18px */
+  --leading: 1.6;
+  --measure: 70ch;
+  --page: 72rem;
+
+  --ink: #16202a;        /* text: 15.8:1 on paper */
+  --muted: #4a5361;      /* secondary text: 7.4:1 on paper */
+  --paper: #fbfaf7;      /* page background */
+  --surface: #ffffff;    /* cards */
+  --tint: #eef4f4;       /* soft panels */
+  --line: #cfd6d6;       /* borders (non-text) */
+  --brand: #0b5563;      /* links, buttons: 8.1:1 on paper, white on it 8.4:1 */
+  --brand-ink: #ffffff;
+  --accent: #9a3412;     /* the one accent: Verified left border, focus ring */
+  --banner-bg: #16202a;
+  --banner-ink: #fbfaf7;
+  --banner-link: #f6c9a4; /* 10.8:1 on banner */
+
+  --radius: 6px;
+  --border: 1px solid var(--line);
+  --accent-border: 4px solid var(--accent);
+  --gap: 1.25rem;
+}

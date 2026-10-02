@@ -1,0 +1,57 @@
+---
+import Base from '../../../../layouts/Base.astro';
+import Crumbs from '../../../../components/Crumbs.astro';
+import ListingList from '../../../../components/ListingList.astro';
+import BestFor from '../../../../components/BestFor.astro';
+import Faq from '../../../../components/Faq.astro';
+import { site } from '../../../../../site.config';
+import { getModel, placeIntro } from '../../../../lib/data';
+import { MIN_INDEXABLE, type City, type Region } from '../../../../lib/model';
+import { breadcrumbLd, itemListLd, faqLd } from '../../../../lib/seo';
+import { tierCopy } from '../../../../lib/tiers';
+
+export async function getStaticPaths() {
+  const m = await getModel();
+  return m.regions.flatMap((r) =>
+    r.cities.map((c) => ({ params: { section: site.hub, key: r.slug, city: c.slug }, props: { region: r, city: c } })),
+  );
+}
+const { region, city } = Astro.props as { region: Region; city: City };
+const m = await getModel();
+const listings = city.listings;
+const n = listings.length;
+const specs = [...new Set(listings.flatMap((l) => l.attributes[site.taxonomy.attribute]))].map(site.taxonomy.termLabel);
+const place = `${city.name}, ${region.code}`;
+const crumbs = [
+  { name: 'Home', path: '/' },
+  { name: `${site.entity.Many} by ${site.regionWord}`, path: `/${site.hub}/` },
+  { name: region.name, path: region.url },
+  { name: city.name, path: city.url },
+];
+const h1 = `${site.entity.Many} in ${place}`;
+const intro = (await placeIntro(region.slug, city.slug)) ??
+  `${n} ${n === 1 ? site.entity.one : site.entity.many} listed in ${city.name}${specs.length ? `, covering ${specs.join(', ').toLowerCase()}` : ''}.`;
+const nearby = m.nearbyCities(city);
+const faqs = [...site.copy.placeFaqs, tierCopy.orderingFaq];
+---
+<Base title={site.copy.cityTitle(city.name, region.code, n)} description={site.copy.placeDescription(place, n, specs)} path={city.url} noindex={n < MIN_INDEXABLE} jsonld={[breadcrumbLd(crumbs), itemListLd(h1, listings), faqLd(faqs)]}>
+  <Crumbs items={crumbs} />
+  <h1>{h1}</h1>
+  <p class="lede">{intro}</p>
+
+  <section>
+    <h2>All {n} listed</h2>
+    <ListingList listings={listings} />
+  </section>
+
+  <BestFor listings={listings} place={city.name} />
+
+  {nearby.length > 0 && (
+    <section>
+      <h2>Nearby cities</h2>
+      <ul class="tiles">{nearby.map((c) => <li><a href={c.url}>{c.name} <span class="count">{c.listings.length}</span></a></li>)}</ul>
+    </section>
+  )}
+  <p><a href={region.url}>All {site.entity.many} in {region.name}</a></p>
+  <Faq faqs={faqs} />
+</Base>

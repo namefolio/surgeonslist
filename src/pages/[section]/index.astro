@@ -1,0 +1,39 @@
+---
+import Base from '../../layouts/Base.astro';
+import Crumbs from '../../components/Crumbs.astro';
+import { site } from '../../../site.config';
+import { getModel } from '../../lib/data';
+import { breadcrumbLd } from '../../lib/seo';
+
+// /{hub}/ lists regions and cities; /{taxonomy}/ lists terms.
+export async function getStaticPaths() {
+  const m = await getModel();
+  return [
+    { params: { section: site.hub }, props: { kind: 'hub' } },
+    ...(m.terms.length ? [{ params: { section: site.taxonomy.segment }, props: { kind: 'taxonomy' } }] : []),
+  ];
+}
+const { kind } = Astro.props as { kind: 'hub' | 'taxonomy' };
+const m = await getModel();
+const path = `/${Astro.params.section}/`;
+const name = kind === 'hub' ? `${site.entity.Many} by ${site.regionWord}` : `${site.entity.Many} by ${site.taxonomy.label.toLowerCase()}`;
+const crumbs = [{ name: 'Home', path: '/' }, { name, path }];
+const title = `${name}: ${m.published.length} listed`;
+const description = kind === 'hub'
+  ? `Browse ${m.published.length} ${site.entity.many} in ${m.regions.length} ${site.regionWord}${m.regions.length === 1 ? '' : 's'}, then by city.`
+  : `Browse ${site.entity.many} by ${site.taxonomy.label.toLowerCase()}: ${m.terms.map((t) => t.plural.toLowerCase()).join(', ')}.`;
+---
+<Base title={title} description={description} path={path} noindex={m.published.length < 3} jsonld={[breadcrumbLd(crumbs)]}>
+  <Crumbs items={crumbs} />
+  <h1>{title}</h1>
+  {kind === 'hub' ? (
+    m.regions.length ? m.regions.map((r) => (
+      <section>
+        <h2><a href={r.url}>{r.name}</a> <span class="muted small">({r.listings.length})</span></h2>
+        <ul class="cols">{r.cities.map((c) => <li><a href={c.url}>{c.name}</a> <span class="muted small">({c.listings.length})</span></li>)}</ul>
+      </section>
+    )) : <p>No listings are published yet.</p>
+  ) : (
+    <ul class="tiles">{m.terms.map((t) => <li><a href={t.url}>{t.plural} <span class="count">{t.listings.length}</span></a></li>)}</ul>
+  )}
+</Base>
