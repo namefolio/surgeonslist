@@ -4,6 +4,7 @@ import '../styles/base.css';
 import { site } from '../../site.config';
 import { getModel } from '../lib/data';
 import Icon from '../components/Icon.astro';
+import { tierCopy } from '../lib/tiers';
 
 interface Props {
   title: string; // page-specific part; site name is appended
@@ -97,7 +98,7 @@ const year = m.on.slice(0, 4);
               <span class="logo-word">{site.name}</span>
             </a>
             <p>{site.name} is an independent directory. {site.copy.independence}</p>
-            <p>Basic listings are free. Verified listings are paid, {site.tiers.checkedShort}, labelled and shown first. No ratings, reviews or referral fees.</p>
+            <p>{tierCopy.footer}</p>
           </div>
           <nav aria-label="Directory">
             <h2 class="footer-head">Directory</h2>

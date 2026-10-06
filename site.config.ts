@@ -6,6 +6,9 @@ import { z } from 'zod';
 export const PLACEHOLDER = 'PLACEHOLDER';
 const FOR_SALE_CONTACT = 'https://www.domainmarket.com/buynow/surgeonslist.com';
 const SUBMISSIONS_EMAIL = 'PLACEHOLDER-submissions@example.com';
+// Paid Verified tier. false = every listing is free and Verified shows as "Coming soon":
+// no payment links, no Verified choice on the form, and any Verified listing file is published as Basic.
+const VERIFIED_OPEN = false;
 const VERIFIED_PRICE = 'PLACEHOLDER price';
 const VERIFIED_PAYMENT_LINK = 'https://example.com/PLACEHOLDER-payment-link';
 
@@ -104,6 +107,7 @@ export const site = {
   regions,
 
   tiers: {
+    open: VERIFIED_OPEN,
     price: VERIFIED_PRICE,
     paymentLink: VERIFIED_PAYMENT_LINK,
     credential: 'board certification and state medical license',
@@ -182,7 +186,9 @@ export const site = {
     trust: [
       { title: 'Facts, not ratings', text: 'Specialty, board certification, hospitals, insurance and new-patient status. No star ratings or reviews.' },
       { title: 'Sourced and dated', text: 'Every listing names where its details came from and when they were last updated.' },
-      { title: 'Paid placement labelled', text: 'Verified listings are paid and say so. Paying never changes the facts we publish.' },
+      VERIFIED_OPEN
+        ? { title: 'Paid placement labelled', text: 'Verified listings are paid and say so. Paying never changes the facts we publish.' }
+        : { title: 'Free to list', text: 'Every listing is free. Nobody pays for a place in the list or for the facts we publish.' },
     ],
     homeIntro:
       'An independent list of US surgeons with the facts patients ask about: specialty, board certification, hospital affiliations, insurance and whether they take new patients. No ratings, no reviews.',

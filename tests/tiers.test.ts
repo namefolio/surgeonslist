@@ -14,13 +14,20 @@ const entry = (slug: string, over: Record<string, unknown> = {}): RawEntry => ({
 
 describe('Verified tier', () => {
   it('treats an expired verifiedUntil as Basic', () => {
-    expect(effectiveVerified({ tier: 'verified', verifiedUntil: '2026-10-01' }, '2026-10-02')).toBe(false);
-    expect(effectiveVerified({ tier: 'verified', verifiedUntil: '2026-10-02' }, '2026-10-02')).toBe(true);
-    expect(effectiveVerified({ tier: 'verified', verifiedUntil: null }, '2026-10-02')).toBe(false);
+    expect(effectiveVerified({ tier: 'verified', verifiedUntil: '2026-10-01' }, '2026-10-02', true)).toBe(false);
+    expect(effectiveVerified({ tier: 'verified', verifiedUntil: '2026-10-02' }, '2026-10-02', true)).toBe(true);
+    expect(effectiveVerified({ tier: 'verified', verifiedUntil: null }, '2026-10-02', true)).toBe(false);
+  });
+
+  it('publishes every listing as Basic while Verified is closed', () => {
+    expect(effectiveVerified({ tier: 'verified', verifiedUntil: '2099-01-01' }, '2026-10-02', false)).toBe(false);
+    const m = buildModel([entry('paid', { tier: 'verified', verifiedUntil: '2099-01-01' })], { on: '2026-10-02', open: false });
+    expect(m.published[0]!.isVerified).toBe(false);
+    expect(m.published[0]!.description).toBeNull();
   });
 
   it('renders an expired listing as Basic everywhere', () => {
-    const m = buildModel([entry('expired', { tier: 'verified', verifiedUntil: '2026-01-01' }), entry('current', { tier: 'verified', verifiedUntil: '2027-01-01' })], { on: '2026-10-02', demo: true });
+    const m = buildModel([entry('expired', { tier: 'verified', verifiedUntil: '2026-01-01' }), entry('current', { tier: 'verified', verifiedUntil: '2027-01-01' })], { on: '2026-10-02', demo: true, open: true });
     const expired = m.published.find((l) => l.slug === 'expired')!;
     expect(expired.isVerified).toBe(false);
     expect(expired.description).toBeNull(); // Verified-only fields dropped
@@ -35,7 +42,7 @@ describe('Verified tier', () => {
     const m = buildModel([
       entry('b-basic'), entry('a-basic'), entry('z-rich', { phone: '1', website: 'https://x.com/' }),
       entry('vv', { tier: 'verified', verifiedUntil: '2099-01-01' }),
-    ], { on: '2026-10-02' });
+    ], { on: '2026-10-02', open: true });
     expect(sortListings(m.published).map((l) => l.slug)).toEqual(['vv', 'z-rich', 'a-basic', 'b-basic']);
   });
 

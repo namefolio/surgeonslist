@@ -8,6 +8,7 @@ export type Deps = {
   verifyTurnstile: (token: string, ip: string | null) => Promise<boolean>;
   sendEmail: (msg: { subject: string; text: string }) => Promise<void>;
   today?: string;
+  verifiedOpen?: boolean; // defaults to site.tiers.open
 };
 
 export const RESULT = {
@@ -91,8 +92,8 @@ export async function handleSubmission(form: FormData, ip: string | null, deps: 
   if (!parsed.success || !attrs.success) return RESULT.error;
   const s = parsed.data;
 
-  // Only owners and staff can ask for Verified.
-  const tier = s.relationship === 'customer' ? 'basic' : s.tier;
+  // Only owners and staff can ask for Verified, and only while it is open.
+  const tier = s.relationship === 'customer' || !(deps.verifiedOpen ?? site.tiers.open) ? 'basic' : s.tier;
   const today = deps.today ?? new Date().toISOString().slice(0, 10);
   const badHours: string[] = [];
   const hours = Object.fromEntries(

@@ -48,7 +48,7 @@ describe('form handler', () => {
 
   it('handles a Verified request as Basic until payment and ownership are confirmed', async () => {
     const { sent, d } = deps();
-    const loc = await handleSubmission(form({ tier: 'verified', listing: 'example-surgical-group' }), null, d);
+    const loc = await handleSubmission(form({ tier: 'verified', listing: 'example-surgical-group' }), null, { ...d, verifiedOpen: true });
     expect(loc).toBe('/add-your-business/thanks-verified/?ref=Example%20Surgical%20Group');
     expect(sent[0]!.subject).toBe('[surgeonslist.com] Verified request · Update: example-surgical-group');
     expect(sent[0]!.text.split('\n')[0]).toMatch(/as Basic now\. Do not upgrade it to Verified until the site owner confirms payment and ownership\./);
@@ -56,9 +56,16 @@ describe('form handler', () => {
     expect(sent[0]!.text).toContain('Tier requested: Verified');
   });
 
+  it('handles a Verified request as plain Basic while Verified is coming soon', async () => {
+    const { sent, d } = deps();
+    expect(await handleSubmission(form({ tier: 'verified' }), null, { ...d, verifiedOpen: false })).toBe(RESULT.thanks);
+    expect(sent[0]!.subject).toBe('[surgeonslist.com] Basic · New listing: Example Surgical Group');
+    expect(sent[0]!.text).toContain('Tier requested: Basic');
+  });
+
   it('never lets a customer request Verified', async () => {
     const { sent, d } = deps();
-    expect(await handleSubmission(form({ tier: 'verified', relationship: 'customer' }), null, d)).toBe(RESULT.thanks);
+    expect(await handleSubmission(form({ tier: 'verified', relationship: 'customer' }), null, { ...d, verifiedOpen: true })).toBe(RESULT.thanks);
     expect(sent[0]!.text).toContain('Tier requested: Basic');
   });
 

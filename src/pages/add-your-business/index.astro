@@ -4,6 +4,7 @@ import Crumbs from '../../components/Crumbs.astro';
 import { site } from '../../../site.config';
 import { DAYS } from '../../lib/schema';
 import { breadcrumbLd } from '../../lib/seo';
+import { verifiedOpen, comingSoon } from '../../lib/tiers';
 
 // Zero client JS: the Worker fills in ?listing= and ?tier=verified server-side (src/worker.ts).
 const TEST_SITE_KEY = '1x00000000000000000000AA'; // Cloudflare's always-pass test key, local dev only
@@ -12,13 +13,13 @@ const crumbs = [{ name: 'Home', path: '/' }, { name: 'Add or update a listing', 
 const e = site.entity;
 const regionOptions = Object.values(site.regions).sort((a, b) => a.name.localeCompare(b.name));
 ---
-<Base title={`Add or update a ${e.one} listing`} description={`Send a new ${e.one} listing or a correction. Basic listings are free; Verified listings are paid and ${site.tiers.checkedShort}.`} path="/add-your-business/" jsonld={[breadcrumbLd(crumbs)]}>
+<Base title={`Add or update a ${e.one} listing`} description={verifiedOpen ? `Send a new ${e.one} listing or a correction. Basic listings are free; Verified listings are paid and ${site.tiers.checkedShort}.` : `Send a new ${e.one} listing or a correction. Every listing is free.`} path="/add-your-business/" jsonld={[breadcrumbLd(crumbs)]}>
   {siteKey && <script slot="head" src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>}
   <Crumbs items={crumbs} />
   <header class="page-head">
     <span class="eyebrow">For {e.many} and patients</span>
     <h1>Add or update a listing</h1>
-    <p class="lede">Send a new listing or a correction. We review every submission by hand. Basic is free; Verified is paid. <a href="/listing-plans/">Compare listing plans</a>.</p>
+    <p class="lede">Send a new listing or a correction. We review every submission by hand. {verifiedOpen ? 'Basic is free; Verified is paid.' : 'Every listing is free.'} <a href="/listing-plans/">Compare listing plans</a>.</p>
   </header>
   <p id="update-note" class="notice" hidden>You are sending an update for&nbsp;<strong id="update-name">this listing</strong>.</p>
 
@@ -28,7 +29,9 @@ const regionOptions = Object.values(site.regions).sort((a, b) => a.name.localeCo
       <legend>Listing plan</legend>
       <div class="radio-cards">
         <label class="radio-card"><input type="radio" name="tier" value="basic" checked /><span><strong>Basic (free)</strong>Public details, shown with the date they were last updated.</span></label>
-        <label class="radio-card"><input type="radio" name="tier" value="verified" /><span><strong>Verified ({site.tiers.price})</strong>For owners and staff only. We check the {site.tiers.credential} before the label appears.</span></label>
+        {verifiedOpen
+          ? <label class="radio-card"><input type="radio" name="tier" value="verified" /><span><strong>Verified ({site.tiers.price})</strong>For owners and staff only. We check the {site.tiers.credential} before the label appears.</span></label>
+          : <label class="radio-card"><input type="radio" name="tier" value="verified" disabled /><span><strong>Verified ({comingSoon.toLowerCase()})</strong>A paid option for owners and staff. Not available yet.</span></label>}
       </div>
     </fieldset>
 
@@ -90,7 +93,7 @@ const regionOptions = Object.values(site.regions).sort((a, b) => a.name.localeCo
           <option value="customer">{site.formLabels.customer}</option>
         </select>
       </div>
-      <p class="muted small">Only an owner or staff member can request Verified. Corrections from anyone else are handled as Basic.</p>
+      {verifiedOpen && <p class="muted small">Only an owner or staff member can request Verified. Corrections from anyone else are handled as Basic.</p>}
     </fieldset>
 
     <div class="hp" aria-hidden="true"><label for="f-hp">Leave this empty</label><input id="f-hp" name="fax" type="text" tabindex="-1" autocomplete="off" /></div>
