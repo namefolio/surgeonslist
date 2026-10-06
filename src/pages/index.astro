@@ -7,6 +7,7 @@ import Icon from '../components/Icon.astro';
 import { site } from '../../site.config';
 import { getModel } from '../lib/data';
 import { homeLd } from '../lib/seo';
+import { verifiedOpen } from '../lib/tiers';
 
 const m = await getModel();
 const n = m.published.length;
@@ -81,9 +82,11 @@ const recent = [...m.published].sort((a, b) => b.lastUpdated.localeCompare(a.las
     <section class="section split" aria-label="How this directory works">
       <div class="panel">
         <span class="eyebrow">How listings work</span>
-        <h2>Basic and Verified</h2>
-        <p>Every {site.entity.one} can have a free Basic listing, built from public sources or a submission and shown with the date it was last updated.</p>
-        <p>Verified listings are paid: we check the {site.tiers.credential} and confirm the details with the owner, then label the listing and show it first. Paying never changes the facts we publish.</p>
+        <h2>{verifiedOpen ? 'Basic and Verified' : 'Free listings'}</h2>
+        <p>Every {site.entity.one} can have a free {verifiedOpen ? 'Basic ' : ''}listing, built from public sources or a submission and shown with the date it was last updated.</p>
+        {verifiedOpen
+          ? <p>Verified listings are paid: we check the {site.tiers.credential} and confirm the details with the owner, then label the listing and show it first. Paying never changes the facts we publish.</p>
+          : <p>Verified listings are coming soon: we will check the {site.tiers.credential} and confirm the details with the owner before a listing is labelled. Paying will never change the facts we publish.</p>}
         <p><a href="/listing-plans/">Compare listing plans</a></p>
       </div>
       <div class="panel panel-tint">

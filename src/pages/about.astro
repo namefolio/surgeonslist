@@ -3,7 +3,7 @@ import Base from '../layouts/Base.astro';
 import Crumbs from '../components/Crumbs.astro';
 import { site } from '../../site.config';
 import { breadcrumbLd } from '../lib/seo';
-import { tierCopy } from '../lib/tiers';
+import { tierCopy, verifiedOpen } from '../lib/tiers';
 
 const crumbs = [{ name: 'Home', path: '/' }, { name: 'About and sources', path: '/about/' }];
 const e = site.entity;
@@ -19,9 +19,9 @@ const e = site.entity;
     <h2>Where the details come from</h2>
     <p>Basic listings are built from public sources, such as the {e.one}'s own website and public registers, and from submissions sent with our form. Each listing names its source and shows the date its details were last updated. We do not publish ratings, reviews or referral fees, and we never invent details: unknown facts are shown as unknown.</p>
     <p>{site.copy.checkingNote}</p>
-    <h2 id="listings">Basic and Verified listings</h2>
+    <h2 id="listings">{verifiedOpen ? 'Basic and Verified listings' : 'Free listings'}</h2>
     <p>{tierCopy.summary}</p>
-    <p>Before a listing is marked Verified, {site.tiers.credentialCheck}, and we confirm with the owner that they run the business and that the details are right. Verified listings are paid and listed first on city, {site.regionWord} and {site.taxonomy.label.toLowerCase()} pages. <a href="/listing-plans/">See listing plans</a>.</p>
+    {verifiedOpen && <p>Before a listing is marked Verified, {site.tiers.credentialCheck}, and we confirm with the owner that they run the business and that the details are right. Verified listings are paid and listed first on city, {site.regionWord} and {site.taxonomy.label.toLowerCase()} pages. <a href="/listing-plans/">See listing plans</a>.</p>}
     <h2>Corrections and removals</h2>
     <p>Anyone can send a correction with the <a href="/add-your-business/">add or update form</a>. We review every submission by hand.</p>
   </div>

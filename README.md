@@ -38,7 +38,7 @@ One-time Cloudflare setup:
 1. Add the custom domain to the Worker (Workers > surgeonslist > Settings > Domains & Routes).
 2. Email Routing on the domain, with the submissions inbox added and confirmed as a destination address; the form sends from `forms@<domain>`.
 3. Create a Turnstile widget for the domain; put the site key in `site.config.ts` (`turnstileSiteKey`) and the secret with `npx wrangler secret put TURNSTILE_SECRET`. Without both, the form fails closed.
-4. Set the payment link's success URL (e.g. `https://<domain>/add-your-business/thanks/`).
+4. Only when turning on paid Verified listings (`VERIFIED_OPEN = true` in `site.config.ts`, with `VERIFIED_PRICE` and `VERIFIED_PAYMENT_LINK` filled in): set the payment link's success URL (e.g. `https://<domain>/add-your-business/thanks/`). While it is `false`, every listing is free and Verified shows as "Coming soon".
 5. AI Crawl Control: make sure AI crawlers are allowed. Optionally enable Markdown for Agents.
 
 ## Start the next domain from this repo

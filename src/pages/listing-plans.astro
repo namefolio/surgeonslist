@@ -5,21 +5,27 @@ import Faq from '../components/Faq.astro';
 import { site, isMailto } from '../../site.config';
 import Icon from '../components/Icon.astro';
 import { breadcrumbLd, faqLd } from '../lib/seo';
-import { plansFaqs, tierCopy, paymentHref } from '../lib/tiers';
+import { plansFaqs, tierCopy, paymentHref, verifiedOpen, comingSoon } from '../lib/tiers';
 
 const e = site.entity;
 const t = site.tiers;
 const crumbs = [{ name: 'Home', path: '/' }, { name: 'Listing plans', path: '/listing-plans/' }];
 const faqs = plansFaqs();
-const h1 = `List your ${e.one}: Basic or Verified`;
+const h1 = verifiedOpen ? `List your ${e.one}: Basic or Verified` : `List your ${e.one} for free`;
+const description = verifiedOpen
+  ? `Every ${e.one} can have a free Basic listing. Verified (${t.price}) adds a ${t.credential} check, the Verified label and a place above Basic listings.`
+  : `Every ${e.one} can have a free listing. Verified listings, with a ${t.credential} check and the Verified label, are coming soon.`;
+const formHref = verifiedOpen ? '/add-your-business/?tier=verified' : '/add-your-business/';
 const mail = isMailto(t.paymentLink) ? t.paymentLink.replace(/^mailto:/, '').split('?')[0] : null;
 ---
-<Base title={h1} description={`Every ${e.one} can have a free Basic listing. Verified (${t.price}) adds a ${t.credential} check, the Verified label and a place above Basic listings.`} path="/listing-plans/" jsonld={[breadcrumbLd(crumbs), faqLd(faqs)]}>
+<Base title={h1} description={description} path="/listing-plans/" jsonld={[breadcrumbLd(crumbs), faqLd(faqs)]}>
   <Crumbs items={crumbs} />
   <header class="page-head">
   <span class="eyebrow">For {e.many}</span>
   <h1>{h1}</h1>
-  <p class="lede">Every {e.one} can have a free Basic listing. Verified is paid: {t.credentialCheck}, then we confirm the details, label the listing Verified and show it first in its city and {site.taxonomy.label.toLowerCase()} lists. Verified is never a rating, and payment never changes the facts we publish.</p>
+  {verifiedOpen
+    ? <p class="lede">Every {e.one} can have a free Basic listing. Verified is paid: {t.credentialCheck}, then we confirm the details, label the listing Verified and show it first in its city and {site.taxonomy.label.toLowerCase()} lists. Verified is never a rating, and payment never changes the facts we publish.</p>
+    : <p class="lede">Every {e.one} can have a free listing, and listings stay free. A paid Verified option is coming soon. Verified will never be a rating, and payment will never change the facts we publish.</p>}
   </header>
 
   <div class="plans">
@@ -33,9 +39,9 @@ const mail = isMailto(t.paymentLink) ? t.paymentLink.replace(/^mailto:/, '').spl
         <li><Icon name="check" class="icon icon-sm" /><span>Update it any time with the form</span></li>
       </ul>
     </section>
-    <section class="plan is-verified">
+    <section class:list={['plan', verifiedOpen ? 'is-verified' : 'is-soon']}>
       <h2>Verified</h2>
-      <p class="price">{t.price}</p>
+      <p class="price">{verifiedOpen ? t.price : comingSoon}</p>
       <ul class="checklist">
         <li><Icon name="check" class="icon icon-sm" /><span>Everything in Basic</span></li>
         <li><Icon name="check" class="icon icon-sm" /><span>A check of the {t.credential}, plus owner confirmation</span></li>
@@ -46,7 +52,7 @@ const mail = isMailto(t.paymentLink) ? t.paymentLink.replace(/^mailto:/, '').spl
     </section>
   </div>
 
-  <section class="prose">
+  {verifiedOpen && <section class="prose">
     <h2>How to get a Verified listing</h2>
     <ol class="steps">
       <li>Send your details with the <a href="/add-your-business/?tier=verified">listing form</a> and choose "Verified", or use "{tierCopy.basicCta}" on your listing.</li>
@@ -54,11 +60,11 @@ const mail = isMailto(t.paymentLink) ? t.paymentLink.replace(/^mailto:/, '').spl
       <li>{t.credentialCheck[0]!.toUpperCase() + t.credentialCheck.slice(1)}, and confirm the details with you. If the check fails we refund you and the listing stays Basic.</li>
       <li>The listing gets the Verified label and moves above Basic listings. We recheck it at renewal, and it returns to Basic if not renewed.</li>
     </ol>
-  </section>
+  </section>}
 
   <div class="actions">
-    <a class="button primary" href="/add-your-business/?tier=verified">Send your {e.one}'s details</a>
-    <a class="button secondary" href={paymentHref()}>{tierCopy.payLabel}</a>
+    <a class="button primary" href={formHref}>Send your {e.one}'s details</a>
+    {verifiedOpen && <a class="button secondary" href={paymentHref()}>{tierCopy.payLabel}</a>}
   </div>
 
   <Faq faqs={faqs} />

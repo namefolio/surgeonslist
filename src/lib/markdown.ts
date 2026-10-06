@@ -4,7 +4,7 @@ import {
   factRows, formatDate, fullAddress, hoursRows, hoursSentence, mapsUrl, MIN_INDEXABLE,
   type City, type Listing, type Model, type Region, type Term,
 } from './model';
-import { plansFaqs, tierCopy, tierLabel, paymentHref } from './tiers';
+import { plansFaqs, tierCopy, tierLabel, paymentHref, verifiedOpen, comingSoon } from './tiers';
 
 const abs = (p: string) => site.url + p;
 const e = site.entity;
@@ -114,6 +114,13 @@ export function listingMd(m: Model, l: Listing) {
 
 export function plansMd() {
   const t = site.tiers;
+  if (!verifiedOpen)
+    return doc(`List your ${e.one} for free`, '/listing-plans/', [
+      tierCopy.summary, '',
+      '## Free listing', '', '- Core facts, hours and contact details', `- Listed on city, ${site.regionWord} and ${site.taxonomy.label.toLowerCase()} pages`, `- Add or update it any time via the form: ${abs('/add-your-business/')}`, '',
+      `## Verified: ${comingSoon}`, '', `- A check of the ${t.credential}, plus owner confirmation`, '- The Verified label everywhere', '- Not available yet', '',
+      ...faqMd(plansFaqs()),
+    ]);
   return doc(`List your ${e.one}: Basic or Verified`, '/listing-plans/', [
     tierCopy.summary, '',
     '## Basic: Free', '', '- Core facts, hours and contact details', `- Listed on city, ${site.regionWord} and ${site.taxonomy.label.toLowerCase()} pages`, '- Update any time via the form', '',
@@ -133,7 +140,7 @@ export function aboutMd() {
     `${site.name} is an independent directory of ${e.many} in the ${site.countryName}, run by ${site.operator}. ${site.copy.independence}`, '',
     '## Where the details come from', '',
     'Basic listings are built from public sources and from form submissions. Each listing names its source and the date its details were last updated. No ratings, reviews or referral fees.', '',
-    '## Basic and Verified listings', '', tierCopy.summary,
+    `## ${verifiedOpen ? 'Basic and Verified listings' : 'Free listings'}`, '', tierCopy.summary,
   ]);
 }
 
@@ -145,7 +152,7 @@ export function privacyMd() {
 
 export function formMd() {
   return doc('Add or update a listing', '/add-your-business/', [
-    `Use the form at ${abs('/add-your-business/')} (an HTML form with Turnstile). Choose Basic (free) or Verified (${site.tiers.price}, owners and staff only). Add ?listing={slug} to update an existing listing.`,
+    `Use the form at ${abs('/add-your-business/')} (an HTML form with Turnstile). ${verifiedOpen ? `Choose Basic (free) or Verified (${site.tiers.price}, owners and staff only).` : 'Every listing is free; Verified is coming soon.'} Add ?listing={slug} to update an existing listing.`,
     '', `Plans: ${abs('/listing-plans/')}`,
   ]);
 }
@@ -162,12 +169,14 @@ export function llmsTxt(m: Model) {
     '',
     'Listing details come from public sources and from submissions sent with the site form, checked by hand. Every listing has a source and a lastUpdated date. Unknown facts are null. There are no ratings, reviews or referral fees.',
     '',
-    '## Basic and Verified',
+    verifiedOpen ? '## Basic and Verified' : '## Free listings',
     '',
     tierCopy.summary,
     '',
+    ...(verifiedOpen ? [
     `- Basic: free. Details from public sources or a submission. No owner check.`,
     `- Verified: paid (${site.tiers.price}). ${site.tiers.credentialCheck[0]!.toUpperCase() + site.tiers.credentialCheck.slice(1)}; the owner confirms the details. Shown first in lists. A listing whose verifiedUntil date has passed is Basic.`,
+    ] : [`- Every listing is free and Basic. Details from public sources or a submission. No owner check.`]),
     '',
     '## Location indexes',
     '',
@@ -217,7 +226,7 @@ Read-only, regenerated on every build. Canonical pages: ${site.url}.
 - \`/data/{region}/{city}.json\`: listings in one city.
 - \`/data/search.json\`: compact index used by the site's search page (short field names; use \`listings.json\` for full records).
 
-Lists are ordered Verified first, then Basic; within each, most complete first, then A to Z.
+${verifiedOpen ? 'Lists are ordered Verified first, then Basic; within each, most complete first, then A to Z.' : 'Lists are ordered most complete first, then A to Z. Verified is coming soon, so every listing is currently `basic`.'}
 
 ## Fields
 

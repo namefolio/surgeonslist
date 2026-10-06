@@ -27,9 +27,9 @@ export function includeDemo() {
   return process.env.INCLUDE_DEMO === '1';
 }
 
-/** A Verified listing whose verifiedUntil has passed is treated as Basic. */
-export function effectiveVerified(d: Pick<ListingData, 'tier' | 'verifiedUntil'>, on = today()) {
-  return d.tier === 'verified' && !!d.verifiedUntil && d.verifiedUntil >= on;
+/** A Verified listing whose verifiedUntil has passed, or any listing while Verified is closed, is treated as Basic. */
+export function effectiveVerified(d: Pick<ListingData, 'tier' | 'verifiedUntil'>, on = today(), open: boolean = site.tiers.open) {
+  return open && d.tier === 'verified' && !!d.verifiedUntil && d.verifiedUntil >= on;
 }
 
 const contactFields = (d: ListingData): unknown[] => [d.address.streetAddress, d.address.postalCode, d.lat, d.phone, d.website, d.hours, d.sameAs.length || null];
@@ -53,11 +53,11 @@ export function sortListings(list: Listing[]) {
   );
 }
 
-export function toListing(e: RawEntry, on = today()): Listing {
+export function toListing(e: RawEntry, on = today(), open: boolean = site.tiers.open): Listing {
   const [regionSlug, citySlug] = e.id.split('/');
   if (!regionSlug || !citySlug) throw new Error(`Listing ${e.id} must live at listings/{region}/{city}/{slug}.json`);
   if (!site.regions[regionSlug]) throw new Error(`Listing ${e.id}: unknown region folder "${regionSlug}"`);
-  const isVerified = effectiveVerified(e.data, on);
+  const isVerified = effectiveVerified(e.data, on, open);
   const d: ListingData = isVerified ? e.data : { ...e.data, description: null, bookingUrl: null };
   return {
     ...d,
@@ -79,10 +79,10 @@ export function distanceKm(a: { lat: number | null; lng: number | null }, b: { l
   return Math.sqrt(x * x + y * y) * 6371;
 }
 
-export function buildModel(entries: RawEntry[], opts: { on?: string; demo?: boolean } = {}) {
+export function buildModel(entries: RawEntry[], opts: { on?: string; demo?: boolean; open?: boolean } = {}) {
   const on = opts.on ?? today();
   const demo = opts.demo ?? includeDemo();
-  const all = entries.map((e) => toListing(e, on)).filter((l) => demo || !l.demo);
+  const all = entries.map((e) => toListing(e, on, opts.open)).filter((l) => demo || !l.demo);
 
   const seen = new Map<string, string>();
   for (const l of all) {

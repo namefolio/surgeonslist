@@ -39,7 +39,7 @@ export default {
 
     if (url.pathname === FORM && request.method === 'GET') {
       const slug = url.searchParams.get('listing');
-      const verified = url.searchParams.get('tier') === 'verified';
+      const verified = site.tiers.open && url.searchParams.get('tier') === 'verified';
       if (!slug && !verified) return res;
       let name: string | null = null;
       if (slug && /^[a-z0-9-]{1,120}$/.test(slug)) {
